@@ -1,0 +1,92 @@
+:root {
+  /* OpenAI brand palette */
+  --brand-charcoal: #0E0F12;
+  --brand-slate: #202123;
+  --brand-mist: #F5F7FA;
+  --brand-steel: #9EA1AA;
+  --brand-green: #10A37F;
+  --brand-azure: #2B8FFF;
+  --brand-graphite: #40434A;
+
+  /* Typography */
+  --brand-font-ui: "Aptos", "Segoe UI", sans-serif;
+  --brand-font-mono: "Aptos", "Segoe UI", sans-serif;
+}
+
+/* Base typography */
+body {
+  color: var(--brand-charcoal);
+  font-family: var(--brand-font-ui);
+}
+
+h1, h2, h3, h4, h5, h6,
+.header-title,
+.section-title {
+  font-family: var(--brand-font-ui);
+  font-weight: 700;
+  color: var(--brand-charcoal);
+}
+
+code, pre, kbd, samp,
+.mono {
+  font-family: var(--brand-font-mono);
+}
+
+/* Base surfaces */
+body {
+  background: var(--brand-mist);
+}
+
+.container {
+  background: #ffffff;
+}
+
+/* Accents */
+a {
+  color: inherit;
+}
+
+a:hover {
+  color: var(--brand-azure);
+}
+
+.btn,
+.btn-primary,
+.button.primary,
+.action-btn.primary,
+.start-btn,
+.next-btn,
+.submit-btn,
+.listening-selector-link {
+  background: var(--brand-green);
+  border-color: var(--brand-green);
+  color: #ffffff;
+}
+
+.btn:hover,
+.btn-primary:hover,
+.button.primary:hover,
+.action-btn.primary:hover,
+.start-btn:hover,
+.next-btn:hover,
+.submit-btn:hover,
+.listening-selector-link:hover {
+  background: #0d8a6b;
+  border-color: #0d8a6b;
+}
+
+.btn-outline,
+.button.secondary,
+.action-btn.secondary {
+  border-color: var(--brand-steel);
+}
+
+/* Focus */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible {
+  outline: 3px solid rgba(43, 143, 255, 0.55);
+  outline-offset: 3px;
+}

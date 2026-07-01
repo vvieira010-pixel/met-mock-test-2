@@ -1,0 +1,754 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Reading & Grammar — MET Mock Test 2</title>
+  <meta name="description" content="MET Mock Test 2 Reading and Grammar section. Grammar questions and reading passages with comprehension questions.">
+  <link rel="stylesheet" href="assets/site.css">
+  <link rel="stylesheet" href="assets/brand-guidelines.css">
+  <link rel="stylesheet" href="assets/met-brand.css">
+  <script src="assets/narrator-system.js"></script>
+  <style>
+    :root {
+      --bg-start:    #ddf0e4;
+      --bg-end:      #e8f7ee;
+      --surface:     #ffffff;
+      --surface-alt: #f0faf3;
+      --navy:        #0c3b2e;
+      --navy-dark:   #082820;
+      --blue:        #1f8b6a;
+      --blue-mid:    #2a9d7a;
+      --blue-light:  #d1f0e3;
+      --blue-border: #a8dfcc;
+      --amber:       #92400e;
+      --amber-bg:    #fef3c7;
+      --amber-border:#f59e0b;
+      --red:         #dc2626;
+      --green:       #16a34a;
+      --text:        #0f1f3d;
+      --text-mid:    #374b6e;
+      --text-muted:  #5a6e8c;
+      --border:      #dde6f5;
+      --radius:      12px;
+      --radius-sm:   8px;
+      --font:        "Aptos", "Segoe UI", sans-serif;
+      --font-mono:   "Aptos", "Segoe UI", sans-serif;
+      --shadow-card: none;
+      --shadow-lg:   none;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: var(--font); background: linear-gradient(160deg, var(--bg-start) 0%, var(--bg-end) 50%, #d1f0e3 100%); background-attachment: fixed; color: var(--text); min-height: 100vh; }
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      background:
+        radial-gradient(circle at 18% 10%, rgba(15, 76, 129, 0.08), transparent 28%),
+        radial-gradient(circle at 82% 18%, rgba(31, 139, 106, 0.08), transparent 26%),
+        radial-gradient(circle at 65% 86%, rgba(185, 106, 22, 0.05), transparent 22%);
+    }
+    .container { max-width: 860px; margin: 32px auto 48px; background: rgba(255,255,255,0.92); border: 1px solid rgba(168,223,204,0.9); border-radius: 22px; box-shadow: none; padding: 0 0 28px 0; overflow: hidden; backdrop-filter: blur(10px); }
+    header { background: linear-gradient(135deg, var(--navy-dark) 0%, var(--navy) 60%, #146b4f 100%); padding: 30px 28px 26px; text-align: center; position: relative; overflow: hidden; }
+    header::after { content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 3px; background: linear-gradient(90deg, transparent, #5ce5b6, transparent); }
+    .header-eyebrow { font-family: var(--font-mono); font-size: 0.70rem; letter-spacing: 0.20em; text-transform: uppercase; color: #93f0d0; margin-bottom: 8px; }
+    .header-title { font-size: 2rem; font-weight: 800; color: #ffffff; letter-spacing: -0.01em; }
+    .header-subtitle { font-size: 0.84rem; color: #93f0d0; margin-top: 6px; font-weight: 500; }
+    nav { background: var(--navy-dark); display: flex; padding: 0 16px; height: 46px; align-items: center; overflow-x: auto; scrollbar-width: none; gap: 2px; border-bottom: 1px solid rgba(255,255,255,0.06); }
+    nav::-webkit-scrollbar { display: none; }
+    nav a { color: #93f0d0; text-decoration: none; font-size: 0.80rem; font-weight: 600; padding: 0 13px; height: 46px; display: flex; align-items: center; border-bottom: 2px solid transparent; white-space: nowrap; letter-spacing: 0.01em; transition: color 0.2s, border-color 0.2s; }
+    nav a:focus-visible { outline: 2px solid #1f8b6a; outline-offset: 4px; border-radius: 4px; }
+    nav a:hover { color: #ffffff; border-bottom-color: rgba(147,240,208,0.5); }
+    nav a.active { color: #ffffff; border-bottom-color: #5ce5b6; }
+    .test-info { display: flex; justify-content: space-between; align-items: center; padding: 14px 28px; background: linear-gradient(180deg, #f8fbff 0%, #eef4ff 100%); border-bottom: 1px solid var(--border); flex-wrap: wrap; gap: 12px; }
+    .section-time { font-family: var(--font-mono); font-size: 0.85rem; color: var(--text-muted); }
+    #taskTimerDisplay { color: var(--navy-dark); font-weight: 800; }
+    #taskTimerDisplay.warn { color: var(--red); }
+    .task-badge { font-size: 0.8rem; color: var(--navy-dark); background: var(--surface); border: 1px solid var(--blue-border); border-radius: 999px; padding: 8px 14px; font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase; }
+    .card-area { padding: 28px 30px 24px; min-height: 420px; }
+    .intro-card { text-align: left; padding: 26px 24px 24px; background: linear-gradient(180deg, rgba(209,240,227,0.35), rgba(255,255,255,0.95)); border: 1px solid rgba(168,223,204,0.8); border-radius: 18px; box-shadow: none; }
+    .intro-grid { display: grid; grid-template-columns: minmax(0, 1.35fr) minmax(240px, 0.85fr); gap: 20px; align-items: start; }
+    .intro-copy h2 { font-size: 1.65rem; color: var(--navy-dark); margin-bottom: 12px; }
+    .intro-copy p { color: var(--text-mid); font-size: 1rem; line-height: 1.75; max-width: 620px; margin-bottom: 18px; }
+    .features { display: grid; gap: 12px; }
+    .feature { background: var(--surface); border: 1px solid var(--blue-border); border-left: 4px solid var(--blue); border-radius: 14px; padding: 14px 16px; box-shadow: none; }
+    .feature-text { font-size: 0.83rem; color: var(--navy); font-weight: 800; letter-spacing: 0.05em; text-transform: uppercase; line-height: 1.4; }
+    .feature-text small { display: block; margin-top: 4px; font-size: 0.76rem; color: var(--text-mid); letter-spacing: 0.02em; font-weight: 600; text-transform: none; }
+    .intro-actions { margin-top: 18px; display: flex; flex-wrap: wrap; gap: 12px; align-items: center; }
+    .intro-note { font-size: 0.86rem; color: var(--text-muted); }
+    .btn { display: inline-block; background: var(--blue); color: #ffffff; padding: 14px 40px; border-radius: 50px; font-size: 0.88rem; font-weight: 800; font-family: var(--font); border: none; cursor: pointer; letter-spacing: 0.06em; text-transform: uppercase; transition: background 0.2s, transform 0.18s, box-shadow 0.2s; box-shadow: none; }
+    .btn:hover { background: #146b4f; transform: translateY(-2px); box-shadow: none; }
+    .phase { display: none; }
+    .phase.active { display: block; }
+    .phase.active .intro-card, .phase.active .task-header, .phase.active .prompt-box, .phase.active .passage-box, .phase.active .question-card, .phase.active .summary-box, .phase.active .grammar-list, .phase.active .complete-card-inner { animation: riseIn 220ms ease-out; }
+    .task-header { background: linear-gradient(135deg, #eff6ff 0%, #ffffff 100%); border: 1px solid var(--blue-border); border-left: 5px solid var(--blue); padding: 16px 18px; border-radius: 14px; margin-bottom: 18px; box-shadow: none; }
+    .task-header h3 { font-size: 1.02rem; font-weight: 800; color: var(--navy-dark); margin-bottom: 4px; }
+    .task-header p { font-size: 0.88rem; color: var(--text-mid); }
+    .grammar-list { display: flex; flex-direction: column; gap: 16px; }
+    .question-card { background: linear-gradient(180deg, #ffffff 0%, #f8fbff 100%); border: 1.5px solid var(--border); border-radius: 16px; padding: 18px 20px; box-shadow: none; transition: border-color 0.2s; }
+    .question-card.answered { border-color: var(--blue); background: linear-gradient(180deg, #f0faf3 0%, #ffffff 100%); }
+    .q-number { font-size: 0.78rem; font-weight: 700; color: var(--blue); text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 10px; }
+    .q-text { font-size: 0.98rem; color: var(--text); line-height: 1.75; margin-bottom: 12px; font-weight: 500; }
+    .q-options { display: flex; flex-direction: column; gap: 8px; }
+    .q-option { display: flex; align-items: flex-start; gap: 10px; padding: 10px 14px; border: 1.5px solid var(--border); border-radius: 10px; cursor: pointer; transition: border-color 0.2s, background 0.2s; font-size: 0.94rem; color: var(--text-mid); line-height: 1.5; }
+    .q-option:hover { border-color: var(--blue-light); background: #f8fcfc; }
+    .q-option input[type="radio"] { appearance: none; width: 18px; height: 18px; border: 2px solid var(--border); border-radius: 50%; margin-top: 2px; flex-shrink: 0; position: relative; cursor: pointer; transition: border-color 0.2s, background 0.2s; }
+    .q-option input[type="radio"]:checked { border-color: var(--blue); background: var(--blue); }
+    .q-option input[type="radio"]:checked::after { content: ''; position: absolute; top: 4px; left: 4px; width: 6px; height: 6px; background: #ffffff; border-radius: 50%; }
+    .q-option.selected { border-color: var(--blue); background: rgba(31,139,106,0.06); color: var(--text); }
+    .passage-box { background: linear-gradient(180deg, #ffffff 0%, #f8fbff 100%); border: 1.5px solid var(--border); border-radius: 16px; padding: 20px 22px; margin-bottom: 18px; box-shadow: none; }
+    .passage-label { font-size: 0.78rem; font-weight: 700; color: var(--blue); text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 10px; }
+    .passage-box p { font-size: 0.95rem; color: var(--text); line-height: 1.85; }
+    .question-group { display: flex; flex-direction: column; gap: 16px; }
+    .question-group .question-card { margin: 0; }
+    .timer-icon { font-size: 1.1rem; }
+    .section-time { display: flex; align-items: center; gap: 8px; }
+    .nav-btns { display: flex; justify-content: flex-end; margin-top: 20px; }
+    .next-btn { padding: 14px 40px; background: var(--blue); color: #ffffff; border: none; border-radius: 50px; font-size: 0.88rem; font-weight: 800; font-family: var(--font); cursor: pointer; letter-spacing: 0.06em; text-transform: uppercase; transition: background 0.2s, transform 0.18s, box-shadow 0.2s; box-shadow: none; }
+    .next-btn:hover { background: #146b4f; transform: translateY(-2px); box-shadow: none; }
+    .next-btn:disabled { opacity: 0.5; cursor: not-allowed; transform: none; }
+    .complete-card { text-align: center; padding: 56px 24px; }
+    .complete-card h2 { font-size: 1.8rem; color: var(--navy-dark); margin-bottom: 10px; }
+    .complete-card p { color: var(--text-mid); font-size: 1rem; margin-bottom: 24px; }
+    .summary-box { background: linear-gradient(180deg, #f8fbff 0%, #ffffff 100%); border: 1.5px solid var(--border); border-radius: 16px; padding: 20px 24px; margin: 0 auto 28px; max-width: 440px; text-align: left; box-shadow: none; }
+    .summary-item { display: flex; justify-content: space-between; padding: 10px 0; border-bottom: 1px solid #edf2f7; font-size: 0.93rem; color: var(--text-mid); }
+    .summary-item:last-child { border-bottom: none; }
+    .summary-item .val { font-weight: 700; color: var(--navy-dark); }
+    .btn-row { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+    .btn-outline { padding: 12px 28px; background: transparent; color: var(--text-muted); border: 1.5px solid var(--border); border-radius: 50px; font-size: 0.84rem; font-weight: 700; font-family: var(--font); cursor: pointer; text-decoration: none; letter-spacing: 0.06em; text-transform: uppercase; transition: border-color 0.2s, color 0.2s; }
+    .btn-outline:hover { border-color: var(--text-muted); color: var(--text); }
+    .btn-primary { padding: 14px 40px; background: var(--blue); color: #ffffff; border: none; border-radius: 50px; font-size: 0.88rem; font-weight: 800; font-family: var(--font); cursor: pointer; text-decoration: none; letter-spacing: 0.06em; text-transform: uppercase; transition: background 0.2s, transform 0.18s, box-shadow 0.2s; box-shadow: none; }
+    .btn-primary:hover { background: #146b4f; transform: translateY(-2px); box-shadow: none; }
+    footer { background: var(--navy-dark); color: #8aa0c8; text-align: center; padding: 16px; font-family: var(--font-mono); font-size: 0.72rem; letter-spacing: 0.08em; border-top: 1px solid rgba(255,255,255,0.06); }
+    #sectionTimer { font-size: 1.2rem; font-weight: 800; color: var(--navy-dark); font-family: var(--font-mono); }
+    #sectionTimer.warn { color: var(--red); animation: pulse 1s infinite; }
+    @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.7; } }
+    @keyframes riseIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+    .exam-stats { display: flex; gap: 16px; flex-wrap: wrap; margin-bottom: 16px; background: linear-gradient(180deg, #f0faf3 0%, #ffffff 100%); border: 1px solid var(--blue-border); border-radius: 14px; padding: 14px 18px; }
+    .exam-stat { font-size: 0.83rem; color: var(--text-mid); }
+    .exam-stat strong { color: var(--navy-dark); }
+    .cefr-badge { display: inline-block; padding: 4px 12px; border-radius: 999px; font-size: 0.8rem; font-weight: 700; letter-spacing: 0.04em; }
+    .cefr-c1 { background: #d1f0e3; color: #0c3b2e; }
+    .cefr-b2 { background: #dbeafe; color: #1e40af; }
+    .cefr-b1 { background: #fef3c7; color: #92400e; }
+    .cefr-a2 { background: #fce4ec; color: #9a1b30; }
+    .progress-saved { display: flex; align-items: center; gap: 6px; font-size: 0.78rem; color: #16a34a; font-family: var(--font-mono); letter-spacing: 0.05em; }
+    .progress-saved::before { content: '✓'; font-weight: 700; font-size: 1rem; }
+    .phase-indicators { display: flex; gap: 8px; margin: 14px 0 20px; }
+    .phase-dot { width: 10px; height: 10px; border-radius: 50%; background: var(--border); transition: background 0.3s; }
+    .phase-dot.done { background: var(--blue); }
+    .phase-dot.active { background: var(--blue); box-shadow: 0 0 0 3px rgba(31,139,106,0.2); }
+    @media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation: none !important; transition: none !important; scroll-behavior: auto !important; } body::before { display: none; } }
+    @media (max-width: 700px) {
+      .container { margin: 16px 12px 24px; border-radius: 18px; }
+      header { padding: 24px 18px 20px; } nav { padding: 0 10px; }
+      nav a { padding: 0 10px; } .test-info { padding: 12px 16px; }
+      .card-area { padding: 20px 16px 18px; } .intro-card { padding: 22px 18px 18px; }
+      .intro-grid { grid-template-columns: 1fr; } .intro-copy h2 { font-size: 1.4rem; }
+      .btn, .next-btn, .btn-primary { width: 100%; text-align: center; }
+      .nav-btns { justify-content: stretch; } .nav-btns .next-btn { width: 100%; }
+      .btn-row { flex-direction: column; } .btn-row > * { width: 100%; text-align: center; }
+      .question-card { padding: 14px 14px; }
+      .passage-box { padding: 14px 16px; }
+    }
+  </style>
+  <link rel="stylesheet" href="assets/flat-style-system.css">
+  <link rel="stylesheet" href="assets/exam-booklet.css">
+  <link rel="stylesheet" href="assets/section-shell.css">
+  <link rel="stylesheet" href="assets/index-shell.css">
+  <script type="module" src="assets/student-gate.js"></script>
+  <link rel="stylesheet" href="assets/met-standard.css" />
+  <link rel="stylesheet" href="assets/exam-cockpit.css" />
+</head>
+<body class="section-page reading-cockpit">
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand" href="mock-home.html" aria-label="MET Mock Test 2 homepage">
+        <span>
+          <strong>MET Mock Test 2</strong>
+          <span>Michigan English Test Practice</span>
+        </span>
+      </a>
+      <nav class="main-nav" aria-label="Primary">
+        <a href="mock-home.html">Home</a>
+        <a href="Listening/listening.html?part=1">Listening</a>
+        <a class="active" aria-current="page" href="reading.html">Reading</a>
+        <a href="writing.html">Writing</a>
+        <a href="speaking.html">Speaking</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="section-main">
+<div class="container">
+  <header>
+    <div class="header-eyebrow">MET Mock Test 2</div>
+    <div class="header-title">Reading & Grammar</div>
+    <div class="header-subtitle">Reading passages &middot; Grammar questions</div>
+  </header>
+<div class="test-info">
+    <div class="section-time">Section Time: <span id="taskTimerDisplay">90:00</span></div>
+    <div class="task-badge" id="taskBadge">Part 1: Grammar</div>
+  </div>
+
+  <div class="exam-workspace">
+    <aside class="exam-rail" aria-label="Reading progress">
+      <div class="exam-rail-head">
+        <div class="exam-section-label">Reading & Grammar</div>
+        <div class="exam-section-meta">2 parts &middot; 90 minutes</div>
+        <div class="exam-section-meta" id="cockpitProgressText">Not started</div>
+        <div class="exam-progress-track" aria-hidden="true">
+          <div class="exam-progress-fill" id="cockpitProgressFill"></div>
+        </div>
+      </div>
+      <div class="exam-steps">
+        <div class="exam-step is-active" id="railGrammar">
+          <div class="exam-step-number">1</div>
+          <div>
+            <div class="exam-step-title">Part 1</div>
+            <div class="exam-step-subtitle">Grammar (20 Qs)</div>
+          </div>
+          <div class="exam-step-state" aria-hidden="true"></div>
+        </div>
+        <div class="exam-step" id="railReading1">
+          <div class="exam-step-number">2</div>
+          <div>
+            <div class="exam-step-title">Part 2a</div>
+            <div class="exam-step-subtitle">Passage 1 (5 Qs)</div>
+          </div>
+          <div class="exam-step-state" aria-hidden="true"></div>
+        </div>
+        <div class="exam-step" id="railReading2">
+          <div class="exam-step-number">3</div>
+          <div>
+            <div class="exam-step-title">Part 2b</div>
+            <div class="exam-step-subtitle">Passage 2 (5 Qs)</div>
+          </div>
+          <div class="exam-step-state" aria-hidden="true"></div>
+        </div>
+      </div>
+    </aside>
+
+  <div class="card-area">
+    <div class="phase-indicators">
+      <span class="phase-dot active" id="dotIntro" title="Introduction"></span>
+      <span class="phase-dot" id="dotGrammar" title="Grammar"></span>
+      <span class="phase-dot" id="dotReading1" title="Passage 1"></span>
+      <span class="phase-dot" id="dotReading2" title="Passage 2"></span>
+      <span class="phase-dot" id="dotComplete" title="Complete"></span>
+    </div>
+
+    <div id="phaseIntro" class="phase active">
+      <div class="intro-card">
+        <div class="intro-grid">
+          <div class="intro-copy">
+            <h2>Reading & Grammar Section</h2>
+            <p>This section tests your English grammar knowledge and reading comprehension. The full section lasts 90 minutes. You will complete 20 grammar questions and then read two passages with comprehension questions.</p>
+            <div class="intro-actions">
+              <button class="btn" onclick="startGrammar()">Begin Reading & Grammar</button>
+              <div class="intro-note">Work through the section in order. You cannot return to previous parts.</div>
+            </div>
+          </div>
+          <div class="features" aria-label="Section overview">
+            <div class="feature"><div class="feature-text">Part 1: Grammar<small>20 multiple-choice questions</small></div></div>
+            <div class="feature"><div class="feature-text">Part 2: Reading<small>2 passages &middot; 5 questions each</small></div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="phaseGrammar" class="phase">
+      <div class="task-header">
+        <h3>Part 1 — Grammar</h3>
+        <p>Choose the correct answer (A, B, C, or D) for each question. All 20 questions appear on this page.</p>
+      </div>
+      <div class="exam-stats">
+        <div class="exam-stat">Answered: <strong id="grammarAnswered">0</strong> / 20</div>
+        <div class="exam-stat">Unanswered: <strong id="grammarRemaining">20</strong></div>
+      </div>
+      <div class="grammar-list" id="grammarQuestions">
+      </div>
+      <div class="nav-btns">
+        <button class="next-btn" onclick="goToReading1()" id="grammarNextBtn">Next: Reading Passage 1</button>
+      </div>
+    </div>
+
+    <div id="phaseReading1" class="phase">
+      <div class="task-header">
+        <h3>Part 2a — Reading Passage 1</h3>
+        <p>Read the passage and answer the 5 comprehension questions below.</p>
+      </div>
+      <div class="exam-stats">
+        <div class="exam-stat">Passage 1 answered: <strong id="reading1Answered">0</strong> / 5</div>
+      </div>
+      <div class="passage-box">
+        <div class="passage-label">Reading Passage 1 — Urban Farming</div>
+        <p>Urban farming has become increasingly popular in cities around the world. From rooftop gardens to community plots, city residents are finding creative ways to grow their own food. Proponents argue that urban agriculture offers numerous benefits, including improved access to fresh produce, reduced transportation costs, and stronger community bonds. Critics, however, point to challenges such as soil contamination, limited space, and the relatively high cost of urban land. Despite these obstacles, many cities have begun incorporating urban farming into their planning policies. In Detroit, for example, vacant lots have been transformed into productive gardens that supply local farmers markets. Similarly, Singapore has integrated vertical farming into its urban landscape, using innovative technology to maximize food production in limited spaces. These initiatives not only provide fresh food but also create green spaces that improve air quality and reduce the urban heat island effect. As cities continue to grow, urban farming may become an essential component of sustainable urban development.</p>
+      </div>
+      <div class="question-group" id="reading1Questions">
+      </div>
+      <div class="nav-btns">
+        <button class="next-btn" onclick="goToReading2()" id="reading1NextBtn">Next: Reading Passage 2</button>
+      </div>
+    </div>
+
+    <div id="phaseReading2" class="phase">
+      <div class="task-header">
+        <h3>Part 2b — Reading Passage 2</h3>
+        <p>Read the passage and answer the 5 comprehension questions below.</p>
+      </div>
+      <div class="exam-stats">
+        <div class="exam-stat">Passage 2 answered: <strong id="reading2Answered">0</strong> / 5</div>
+      </div>
+      <div class="passage-box">
+        <div class="passage-label">Reading Passage 2 — The Science of Habit Formation</div>
+        <p>Habits are automatic behaviors triggered by specific cues in our environment. According to research by MIT neuroscientists, the brain's basal ganglia plays a central role in habit formation through a three-step loop: cue, routine, and reward. The cue triggers the behavior, the routine is the behavior itself, and the reward is the positive outcome that reinforces the loop. Understanding this cycle is key to changing unwanted habits. Charles Duhigg, author of The Power of Habit, suggests that rather than trying to eliminate a bad habit entirely, we should focus on changing the routine while keeping the same cue and reward. For example, if stress (cue) leads to eating junk food (routine) because it provides comfort (reward), replacing the routine with a short walk or meditation can transform the habit while still satisfying the underlying need. Research also shows that habit strength depends on context consistency. Performing a behavior in the same setting each time strengthens the cue-routine association. A study published in the European Journal of Social Psychology found that it takes an average of 66 days for a new behavior to become automatic, though this varies widely depending on the complexity of the behavior and individual differences.</p>
+      </div>
+      <div class="question-group" id="reading2Questions">
+      </div>
+      <div class="nav-btns">
+        <button class="next-btn" onclick="finishSection()" id="reading2NextBtn">Submit Reading & Grammar</button>
+      </div>
+    </div>
+
+    <div id="phaseComplete" class="phase complete-card">
+      <h2>Reading & Grammar Complete!</h2>
+      <p>You have submitted all sections. Review your results below.</p>
+      <div class="summary-box" style="max-width:480px;">
+        <div class="summary-item"><span>Grammar score</span><span class="val" id="finalGrammarScore">—</span></div>
+        <div class="summary-item"><span>Passage 1 score</span><span class="val" id="finalReading1Score">—</span></div>
+        <div class="summary-item"><span>Passage 2 score</span><span class="val" id="finalReading2Score">—</span></div>
+        <div class="summary-item"><span>Total score</span><span class="val" id="finalTotalScore">—</span></div>
+        <div class="summary-item"><span>CEFR Level</span><span class="val" id="finalCefrLevel">—</span></div>
+      </div>
+      <div id="narrator-zone-listening" class="narrator-zone" style="display:none">
+        <audio id="narrator-audio-listening" preload="metadata"></audio>
+        <div class="narrator-message">
+          <p class="narrator-text">Please listen to the next section introduction...</p>
+          <p class="narrator-note">(Audio playing)</p>
+        </div>
+      </div>
+      <div class="btn-row">
+        <a class="btn-primary" id="next-writing-btn" href="writing.html" disabled style="opacity:0.5;cursor:not-allowed;">Next: Writing</a>
+      </div>
+    </div>
+
+  </div>
+
+    <aside class="exam-side" aria-label="Reading status">
+      <div class="exam-side-card">
+        <div class="exam-side-title">Section timer</div>
+        <div class="exam-side-time" id="sideTimer">90:00</div>
+        <div class="exam-side-sub">90 minutes total.</div>
+      </div>
+      <div class="exam-side-card">
+        <div class="exam-side-title">Questions overview</div>
+        <div class="exam-side-row"><span>Grammar</span><strong id="sideGrammarStatus">Not started</strong></div>
+        <div class="exam-side-row"><span>Passage 1</span><strong id="sideReading1Status">Not started</strong></div>
+        <div class="exam-side-row"><span>Passage 2</span><strong id="sideReading2Status">Not started</strong></div>
+      </div>
+      <div class="exam-side-card">
+        <div class="exam-side-title">Answered</div>
+        <div class="exam-side-row"><span>Total</span><strong id="sideAnswered">0</strong></div>
+        <div class="exam-side-row"><span>Remaining</span><strong id="sideRemaining">30</strong></div>
+      </div>
+      <div class="exam-side-card exam-warning">
+        Manage your time carefully. You cannot return to previous parts once submitted.
+      </div>
+    </aside>
+  </div>
+
+    <footer class="exam-status-bar">
+      <div class="exam-status-item">
+        Secure exam environment
+        <strong>Do not refresh or close this page</strong>
+      </div>
+      <div class="exam-status-group">
+        <div class="exam-status-item">Section<strong>Reading & Grammar</strong></div>
+        <div class="exam-status-item">Progress<strong id="bottomProgress">Not started</strong></div>
+        <div class="exam-status-item">Time elapsed<strong id="bottomElapsed">00:00</strong></div>
+      </div>
+    </footer>
+</div>
+  </main>
+
+<script>
+const TOTAL_QUESTIONS = 30;
+const TOTAL_GRAMMAR = 20;
+const TOTAL_READING1 = 5;
+const TOTAL_READING2 = 5;
+
+const grammarData = [
+  { id: 1, stem: 'The manager asked that everyone ___ the meeting on time.', options: ['attends', 'attend', 'attended', 'attending'], correct: 1 },
+  { id: 2, stem: 'By the time we arrived, the concert ___.', options: ['already started', 'has already started', 'had already started', 'starts'], correct: 2 },
+  { id: 3, stem: 'She would have called you if she ___ your number.', options: ['had', 'has had', 'would have', 'had had'], correct: 3 },
+  { id: 4, stem: 'The report, ___ was submitted last week, contained several errors.', options: ['that', 'which', 'what', 'who'], correct: 1 },
+  { id: 5, stem: 'Neither the teacher nor the students ___ satisfied with the result.', options: ['was', 'were', 'is', 'has been'], correct: 1 },
+  { id: 6, stem: 'I wish I ___ more time to prepare for the exam.', options: ['have', 'had', 'would have', 'will have'], correct: 1 },
+  { id: 7, stem: 'The new policy ___ effect next month.', options: ['takes', 'will take', 'taking', 'took'], correct: 1 },
+  { id: 8, stem: 'She has been working here ___ she graduated from university.', options: ['for', 'since', 'during', 'from'], correct: 1 },
+  { id: 9, stem: 'It\'s essential that every student ___ the guidelines carefully.', options: ['follow', 'follows', 'following', 'followed'], correct: 0 },
+  { id: 10, stem: 'The experiment, ___ results were surprising, was conducted over six months.', options: ['whose', 'which', 'that', 'what'], correct: 0 },
+  { id: 11, stem: 'He speaks English as if he ___ a native speaker.', options: ['is', 'was', 'were', 'has been'], correct: 2 },
+  { id: 12, stem: 'Not until she arrived ___ the meeting had been postponed.', options: ['she realized', 'did she realize', 'she did realize', 'realized she'], correct: 1 },
+  { id: 13, stem: 'The number of applicants ___ significantly over the past year.', options: ['have increased', 'has increased', 'have been increasing', 'are increasing'], correct: 1 },
+  { id: 14, stem: 'She suggested that we ___ the deadline.', options: ['extend', 'extended', 'extends', 'extending'], correct: 0 },
+  { id: 15, stem: '___ his busy schedule, he always finds time to exercise.', options: ['Although', 'Despite', 'However', 'Because of'], correct: 1 },
+  { id: 16, stem: 'The article discusses the ___ of technology on modern education.', options: ['affect', 'effect', 'impact', 'both B and C'], correct: 3 },
+  { id: 17, stem: 'If I ___ you, I would accept the offer.', options: ['am', 'was', 'were', 'had been'], correct: 2 },
+  { id: 18, stem: 'She is the one ___ car was stolen last week.', options: ['who', 'whom', 'whose', 'which'], correct: 2 },
+  { id: 19, stem: 'The more you practice, ___ you become.', options: ['the more confident', 'the most confident', 'more confident', 'confident'], correct: 0 },
+  { id: 20, stem: 'By next year, they ___ building the new hospital.', options: ['will finish', 'will have finished', 'finish', 'are finishing'], correct: 1 }
+];
+
+const reading1Data = [
+  { id: 1, stem: 'What is the main idea of the passage?', options: ['Urban farming is too expensive for most cities', 'Urban farming provides multiple benefits despite challenges', 'Rooftop gardens are the most effective form of urban farming', 'Cities should focus on traditional agriculture'], correct: 1 },
+  { id: 2, stem: 'According to the passage, what has Detroit done with vacant lots?', options: ['Built new housing', 'Created parks', 'Transformed them into gardens', 'Sold them to developers'], correct: 2 },
+  { id: 3, stem: 'The word "proponents" in the passage is closest in meaning to:', options: ['Opponents', 'Supporters', 'Researchers', 'Farmers'], correct: 1 },
+  { id: 4, stem: 'What does the passage say about Singapore\'s approach?', options: ['It relies on traditional farming methods', 'It uses vertical farming with technology', 'It has abandoned urban farming', 'It focuses on rooftop gardens only'], correct: 1 },
+  { id: 5, stem: 'Which of the following is NOT mentioned as a benefit of urban farming?', options: ['Improved air quality', 'Lower food costs', 'Stronger community bonds', 'Reduced transportation costs'], correct: 1 }
+];
+
+const reading2Data = [
+  { id: 6, stem: 'According to the passage, what role does the basal ganglia play?', options: ['It stores long-term memories', 'It controls emotional responses', 'It is central to habit formation', 'It processes visual information'], correct: 2 },
+  { id: 7, stem: 'What does Charles Duhigg recommend for changing a habit?', options: ['Eliminate the cue entirely', 'Remove the reward', 'Change the routine but keep cue and reward', 'Avoid all triggers'], correct: 2 },
+  { id: 8, stem: 'The example of eating junk food when stressed is used to illustrate:', options: ['How habits are formed in childhood', 'How to replace a routine while keeping the same cue and reward', 'Why stress is harmful', 'How food affects brain chemistry'], correct: 1 },
+  { id: 9, stem: 'According to the study mentioned, how long does it typically take for a behavior to become automatic?', options: ['21 days', '30 days', '66 days', '90 days'], correct: 2 },
+  { id: 10, stem: 'What factor strengthens the cue-routine association according to the passage?', options: ['Repeating the behavior many times', 'Performing the behavior in the same setting', 'Having a strong motivation', 'Receiving external rewards'], correct: 1 }
+];
+
+const letters = ['A', 'B', 'C', 'D'];
+
+let totalSecs = 90 * 60;
+let timerInterval = null;
+let timerStartedAt = null;
+let currentPhase = 'intro';
+
+const answers = {};
+
+function renderGrammar() {
+  const container = document.getElementById('grammarQuestions');
+  container.innerHTML = '';
+  grammarData.forEach(q => {
+    const card = document.createElement('div');
+    card.className = 'question-card';
+    card.id = 'gq-' + q.id;
+    const optsHtml = q.options.map((opt, oi) => {
+      const checked = answers['g' + q.id] === oi ? ' checked' : '';
+      return '<label class="q-option' + (checked ? ' selected' : '') + '">' +
+        '<input type="radio" name="g' + q.id + '" value="' + oi + '"' + checked + ' onchange="selectGrammarAnswer(' + q.id + ', ' + oi + ')">' +
+        '<span><strong>' + letters[oi] + '.</strong> ' + opt + '</span></label>';
+    }).join('');
+    card.innerHTML = '<div class="q-number">Question ' + q.id + ' of 20</div>' +
+      '<div class="q-text">' + q.id + '. ' + q.stem + '</div>' +
+      '<div class="q-options">' + optsHtml + '</div>';
+    container.appendChild(card);
+  });
+  updateGrammarStats();
+}
+
+function selectGrammarAnswer(qid, oi) {
+  answers['g' + qid] = oi;
+  document.querySelectorAll('#gq-' + qid + ' .q-option').forEach((el, idx) => {
+    el.classList.toggle('selected', idx === oi);
+  });
+  document.getElementById('gq-' + qid).classList.add('answered');
+  updateGrammarStats();
+  updateSideStats();
+}
+
+function updateGrammarStats() {
+  const answered = grammarData.filter(q => answers['g' + q.id] !== undefined).length;
+  document.getElementById('grammarAnswered').textContent = answered;
+  document.getElementById('grammarRemaining').textContent = TOTAL_GRAMMAR - answered;
+}
+
+function renderReading1() {
+  const container = document.getElementById('reading1Questions');
+  container.innerHTML = '';
+  reading1Data.forEach(q => {
+    const card = document.createElement('div');
+    card.className = 'question-card';
+    card.id = 'r1q-' + q.id;
+    const optsHtml = q.options.map((opt, oi) => {
+      const checked = answers['r1' + q.id] === oi ? ' checked' : '';
+      return '<label class="q-option' + (checked ? ' selected' : '') + '">' +
+        '<input type="radio" name="r1_' + q.id + '" value="' + oi + '"' + checked + ' onchange="selectReading1Answer(' + q.id + ', ' + oi + ')">' +
+        '<span><strong>' + letters[oi] + '.</strong> ' + opt + '</span></label>';
+    }).join('');
+    card.innerHTML = '<div class="q-number">Question ' + q.id + ' of 5</div>' +
+      '<div class="q-text">' + q.id + '. ' + q.stem + '</div>' +
+      '<div class="q-options">' + optsHtml + '</div>';
+    container.appendChild(card);
+  });
+  updateReading1Stats();
+}
+
+function selectReading1Answer(qid, oi) {
+  answers['r1' + qid] = oi;
+  document.querySelectorAll('#r1q-' + qid + ' .q-option').forEach((el, idx) => {
+    el.classList.toggle('selected', idx === oi);
+  });
+  document.getElementById('r1q-' + qid).classList.add('answered');
+  updateReading1Stats();
+  updateSideStats();
+}
+
+function updateReading1Stats() {
+  const answered = reading1Data.filter(q => answers['r1' + q.id] !== undefined).length;
+  document.getElementById('reading1Answered').textContent = answered;
+}
+
+function renderReading2() {
+  const container = document.getElementById('reading2Questions');
+  container.innerHTML = '';
+  reading2Data.forEach(q => {
+    const card = document.createElement('div');
+    card.className = 'question-card';
+    card.id = 'r2q-' + q.id;
+    const optsHtml = q.options.map((opt, oi) => {
+      const checked = answers['r2' + q.id] === oi ? ' checked' : '';
+      return '<label class="q-option' + (checked ? ' selected' : '') + '">' +
+        '<input type="radio" name="r2_' + q.id + '" value="' + oi + '"' + checked + ' onchange="selectReading2Answer(' + q.id + ', ' + oi + ')">' +
+        '<span><strong>' + letters[oi] + '.</strong> ' + opt + '</span></label>';
+    }).join('');
+    card.innerHTML = '<div class="q-number">Question ' + (q.id - 5) + ' of 5</div>' +
+      '<div class="q-text">' + (q.id - 5) + '. ' + q.stem + '</div>' +
+      '<div class="q-options">' + optsHtml + '</div>';
+    container.appendChild(card);
+  });
+  updateReading2Stats();
+}
+
+function selectReading2Answer(qid, oi) {
+  answers['r2' + qid] = oi;
+  document.querySelectorAll('#r2q-' + qid + ' .q-option').forEach((el, idx) => {
+    el.classList.toggle('selected', idx === oi);
+  });
+  document.getElementById('r2q-' + qid).classList.add('answered');
+  updateReading2Stats();
+  updateSideStats();
+}
+
+function updateReading2Stats() {
+  const answered = reading2Data.filter(q => answers['r2' + q.id] !== undefined).length;
+  document.getElementById('reading2Answered').textContent = answered;
+}
+
+function updateSideStats() {
+  let totalAnswered = 0;
+  grammarData.forEach(q => { if (answers['g' + q.id] !== undefined) totalAnswered++; });
+  reading1Data.forEach(q => { if (answers['r1' + q.id] !== undefined) totalAnswered++; });
+  reading2Data.forEach(q => { if (answers['r2' + q.id] !== undefined) totalAnswered++; });
+  document.getElementById('sideAnswered').textContent = totalAnswered;
+  document.getElementById('sideRemaining').textContent = TOTAL_QUESTIONS - totalAnswered;
+}
+
+function formatTime(secs) {
+  const s = Math.max(0, secs);
+  const m = Math.floor(s / 60);
+  const sec = s % 60;
+  return m + ':' + sec.toString().padStart(2,'0');
+}
+
+function formatElapsed() {
+  const elapsed = 90 * 60 - totalSecs;
+  const m = Math.floor(Math.max(0, elapsed) / 60);
+  const s = Math.max(0, elapsed) % 60;
+  return m.toString().padStart(2,'0') + ':' + s.toString().padStart(2,'0');
+}
+
+function syncTimers() {
+  const d = formatTime(totalSecs);
+  const w = totalSecs <= 300;
+  document.getElementById('taskTimerDisplay').textContent = d;
+  document.getElementById('sideTimer').textContent = d;
+  ['taskTimerDisplay', 'sideTimer'].forEach(id => {
+    document.getElementById(id).classList.toggle('warn', w);
+  });
+  updateCockpitState();
+}
+
+function startTimer() {
+  if (timerInterval) return;
+  if (!timerStartedAt) timerStartedAt = Date.now();
+  syncTimers();
+  timerInterval = setInterval(() => {
+    totalSecs--;
+    syncTimers();
+    if (totalSecs <= 0) {
+      clearInterval(timerInterval);
+      timerInterval = null;
+      finishSection();
+    }
+  }, 1000);
+}
+
+function updateCockpitState() {
+  document.getElementById('bottomElapsed').textContent = formatElapsed();
+
+  const gDone = grammarData.filter(q => answers['g' + q.id] !== undefined).length;
+  const r1Done = reading1Data.filter(q => answers['r1' + q.id] !== undefined).length;
+  const r2Done = reading2Data.filter(q => answers['r2' + q.id] !== undefined).length;
+
+  const railProgress = currentPhase === 'intro' ? 'Not started'
+    : currentPhase === 'grammar' ? 'Grammar: ' + gDone + '/20'
+    : currentPhase === 'reading1' ? 'Passage 1: ' + r1Done + '/5'
+    : currentPhase === 'reading2' ? 'Passage 2: ' + r2Done + '/5'
+    : 'Complete';
+  document.getElementById('cockpitProgressText').textContent = railProgress;
+  document.getElementById('bottomProgress').textContent = railProgress;
+
+  const totalDone = gDone + r1Done + r2Done;
+  const pct = currentPhase === 'complete' ? 100 : Math.round((totalDone / TOTAL_QUESTIONS) * 100);
+  document.getElementById('cockpitProgressFill').style.width = Math.min(100, pct) + '%';
+
+  document.getElementById('railGrammar').classList.toggle('is-active', currentPhase === 'grammar');
+  document.getElementById('railGrammar').classList.toggle('is-done', currentPhase === 'reading1' || currentPhase === 'reading2' || currentPhase === 'complete');
+  document.getElementById('railReading1').classList.toggle('is-active', currentPhase === 'reading1');
+  document.getElementById('railReading1').classList.toggle('is-done', currentPhase === 'reading2' || currentPhase === 'complete');
+  document.getElementById('railReading2').classList.toggle('is-active', currentPhase === 'reading2');
+  document.getElementById('railReading2').classList.toggle('is-done', currentPhase === 'complete');
+
+  const sideStatus = currentPhase === 'intro' ? 'Not started' : currentPhase === 'grammar' ? 'In progress' : 'Completed';
+  document.getElementById('sideGrammarStatus').textContent = currentPhase === 'complete' ? 'Completed' : currentPhase === 'reading2' || currentPhase === 'reading1' ? 'Completed' : sideStatus;
+  document.getElementById('sideReading1Status').textContent = currentPhase === 'reading2' || currentPhase === 'complete' ? 'Completed' : currentPhase === 'reading1' ? 'In progress' : 'Not started';
+  document.getElementById('sideReading2Status').textContent = currentPhase === 'complete' ? 'Completed' : currentPhase === 'reading2' ? 'In progress' : 'Not started';
+
+  const dotIds = ['dotIntro', 'dotGrammar', 'dotReading1', 'dotReading2', 'dotComplete'];
+  const phaseMap = { intro: 0, grammar: 1, reading1: 2, reading2: 3, complete: 4 };
+  const idx = phaseMap[currentPhase] || 0;
+  dotIds.forEach((id, i) => {
+    const el = document.getElementById(id);
+    el.classList.toggle('active', i === idx);
+    el.classList.toggle('done', i < idx);
+  });
+}
+
+function setPhase(id) {
+  document.querySelectorAll('.phase').forEach(p => p.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+  window.scrollTo({ top: 0, left: 0 });
+}
+
+function startGrammar() {
+  startTimer();
+  currentPhase = 'grammar';
+  document.getElementById('taskBadge').textContent = 'Part 1: Grammar';
+  renderGrammar();
+  setPhase('phaseGrammar');
+  updateCockpitState();
+}
+
+function goToReading1() {
+  currentPhase = 'reading1';
+  document.getElementById('taskBadge').textContent = 'Part 2a: Reading Passage 1';
+  renderReading1();
+  setPhase('phaseReading1');
+  updateCockpitState();
+}
+
+function goToReading2() {
+  currentPhase = 'reading2';
+  document.getElementById('taskBadge').textContent = 'Part 2b: Reading Passage 2';
+  renderReading2();
+  setPhase('phaseReading2');
+  updateCockpitState();
+}
+
+function calculateScore() {
+  let gCorrect = 0;
+  grammarData.forEach(q => {
+    if (answers['g' + q.id] === q.correct) gCorrect++;
+  });
+  let r1Correct = 0;
+  reading1Data.forEach(q => {
+    if (answers['r1' + q.id] === q.correct) r1Correct++;
+  });
+  let r2Correct = 0;
+  reading2Data.forEach(q => {
+    if (answers['r2' + q.id] === q.correct) r2Correct++;
+  });
+  const totalCorrect = gCorrect + r1Correct + r2Correct;
+  const pct = Math.round((totalCorrect / TOTAL_QUESTIONS) * 100);
+
+  let cefr;
+  if (pct >= 78) cefr = 'C1';
+  else if (pct >= 61) cefr = 'B2';
+  else if (pct >= 40) cefr = 'B1';
+  else cefr = 'A2';
+
+  return { gCorrect, r1Correct, r2Correct, totalCorrect, pct, cefr };
+}
+
+function saveSectionResponses(section, payload) {
+  if (!location.protocol.startsWith('http')) return;
+  fetch('/api/save-responses', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ section, timestamp: new Date().toISOString(), payload })
+  }).catch(() => {});
+}
+
+function finishSection() {
+  clearInterval(timerInterval);
+  timerInterval = null;
+  currentPhase = 'complete';
+
+  const score = calculateScore();
+
+  document.getElementById('finalGrammarScore').textContent = score.gCorrect + '/20';
+  document.getElementById('finalReading1Score').textContent = score.r1Correct + '/5';
+  document.getElementById('finalReading2Score').textContent = score.r2Correct + '/5';
+  document.getElementById('finalTotalScore').textContent = score.totalCorrect + '/30 (' + score.pct + '%)';
+
+  const cefrEl = document.getElementById('finalCefrLevel');
+  cefrEl.textContent = score.cefr;
+  cefrEl.className = 'val cefr-badge cefr-' + score.cefr.toLowerCase();
+
+  saveSectionResponses('reading', {
+    remainingSeconds: totalSecs,
+    answers: answers,
+    score: score
+  });
+
+  setPhase('phaseComplete');
+  updateCockpitState();
+}
+
+syncTimers();
+
+(function initNav() {
+  const nav = document.querySelector('.main-nav');
+  if (!nav) return;
+  const current = location.pathname.split('/').pop() || 'reading.html';
+  nav.querySelectorAll('a[href]').forEach(link => {
+    const href = link.getAttribute('href');
+    if (href && href.split('/').pop() === current) {
+      link.classList.add('active');
+      link.setAttribute('aria-current', 'page');
+    }
+  });
+})();
+
+window.narratorSystem.init({
+  'listening': '',
+  'reading': '',
+  'speaking': '',
+  'part2': '',
+  'part3': ''
+});
+
+const originalSetPhase = window.setPhase;
+window.setPhase = function(id) {
+  if (originalSetPhase) originalSetPhase(id);
+  if (id === 'phaseComplete') {
+    const zone = document.getElementById('narrator-zone-listening');
+    if (zone) zone.style.display = 'block';
+    window.narratorSystem.play('listening', 'next-writing-btn');
+  }
+};
+</script>
+</body>
+</html>

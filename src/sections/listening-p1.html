@@ -1,0 +1,451 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Listening Part 1 — MET Mock Test 2</title>
+  <link rel="stylesheet" href="../css/met-brand.css">
+  <link rel="stylesheet" href="../css/met-standard.css">
+  <link rel="stylesheet" href="../css/met-shell.css">
+</head>
+<body class="met-shell">
+
+  <div class="met-top-bar">
+    <div class="met-info-bar">
+      <span class="met-test-name">Michigan English Test Mock 2</span>
+    </div>
+    <div class="met-timer-bar">
+      <span class="met-timer-label">Section Time Remaining</span>
+      <span class="met-timer" id="metTimer">00:35:00</span>
+      <div class="met-progress-track">
+        <div class="met-progress-fill" id="metProgressFill" style="width: 0%;"></div>
+      </div>
+      <span class="met-progress-percent" id="metProgressPercent">0%</span>
+      <button class="met-finish-btn" id="metFinishBtn">Finish Section</button>
+    </div>
+  </div>
+
+  <div class="met-layout">
+    <aside class="met-sidebar" id="metSidebar">
+      <div class="met-sidebar-header">
+        <span class="met-sidebar-title">▲ Listening Part 1</span>
+      </div>
+      <div class="met-sidebar-buttons" id="metSidebarButtons">
+        <button class="met-sb-btn" data-met-page="0">0</button>
+        <button class="met-sb-btn" data-met-page="1">1</button>
+        <button class="met-sb-btn" data-met-page="2">2</button>
+        <button class="met-sb-btn" data-met-page="3">3</button>
+        <button class="met-sb-btn" data-met-page="4">4</button>
+        <button class="met-sb-btn" data-met-page="5">5</button>
+        <button class="met-sb-btn" data-met-page="6">6</button>
+        <button class="met-sb-btn" data-met-page="7">7</button>
+        <button class="met-sb-btn" data-met-page="8">8</button>
+        <button class="met-sb-btn" data-met-page="9">9</button>
+        <button class="met-sb-btn" data-met-page="10">10</button>
+        <button class="met-sb-btn" data-met-page="11">11</button>
+        <button class="met-sb-btn" data-met-page="12">12</button>
+        <button class="met-sb-btn" data-met-page="13">13</button>
+        <button class="met-sb-btn" data-met-page="14">14</button>
+        <button class="met-sb-btn" data-met-page="15">15</button>
+        <button class="met-sb-btn" data-met-page="16">16</button>
+        <button class="met-sb-btn" data-met-page="17">17</button>
+        <button class="met-sb-btn" data-met-page="18">18</button>
+        <button class="met-sb-btn" data-met-page="19">19</button>
+      </div>
+      <div class="met-sidebar-footer">
+        <span class="met-sidebar-title">▼</span>
+      </div>
+    </aside>
+
+    <main class="met-content-wrap" id="metContentWrap" data-next-section="listening-p2.html">
+
+      <!-- PAGE 0: Instructions -->
+      <section class="met-page" data-met-page="0">
+        <div class="met-page-header">
+          <h2>Listening — Part 1</h2>
+        </div>
+        <div class="met-page-body">
+          <p>You will hear 19 short audio clips. After each clip, choose the best answer from the four options.</p>
+          <p>You will hear each clip only once. Listen carefully.</p>
+          <div class="met-audio-player">
+            <button class="met-play-btn" onclick="document.getElementById('instructionsAudio').play(); this.blur();">▶</button>
+            <div class="met-audio-track">
+              <div class="met-audio-progress" id="instructionsAudioProgress"></div>
+            </div>
+            <span class="met-audio-time" id="instructionsAudioTime">0:00 / 0:00</span>
+            <audio id="instructionsAudio" src="../../assets/audio/listening-p1-instructions.mp3" preload="auto"></audio>
+          </div>
+          <p class="met-hint">Click <strong>Next</strong> to begin.</p>
+        </div>
+      </section>
+
+      <!-- PAGE 1 -->
+      <section class="met-page" data-met-page="1">
+        <div class="met-page-body">
+          <span class="met-task-label">Part 1 — Question 1 of 19</span>
+          <button class="met-play-once-btn" onclick="playAudio('../../assets/audio/listening/part1/part1_conv01.mp3', this)">▶ Play</button>
+          <p class="met-question-text">What is the woman concerned about?</p>
+          <div class="met-options">
+            <label class="met-option"><input type="radio" name="q1" value="A"> A. Class cancellation</label>
+            <label class="met-option"><input type="radio" name="q1" value="B"> B. Holiday opening hours</label>
+            <label class="met-option"><input type="radio" name="q1" value="C"> C. Equipment availability</label>
+            <label class="met-option"><input type="radio" name="q1" value="D"> D. Gym membership cost</label>
+          </div>
+        </div>
+      </section>
+
+      <!-- PAGE 2 -->
+      <section class="met-page" data-met-page="2">
+        <div class="met-page-body">
+          <span class="met-task-label">Part 1 — Question 2 of 19</span>
+          <button class="met-play-once-btn" onclick="playAudio('../../assets/audio/listening/part1/part1_conv02.mp3', this)">▶ Play</button>
+          <p class="met-question-text">What are the speakers discussing?</p>
+          <div class="met-options">
+            <label class="met-option"><input type="radio" name="q2" value="A"> A. Lab equipment problems</label>
+            <label class="met-option"><input type="radio" name="q2" value="B"> B. A science project result</label>
+            <label class="met-option"><input type="radio" name="q2" value="C"> C. Changes to an event schedule</label>
+            <label class="met-option"><input type="radio" name="q2" value="D"> D. A report they submitted</label>
+          </div>
+        </div>
+      </section>
+
+      <!-- PAGE 3 -->
+      <section class="met-page" data-met-page="3">
+        <div class="met-page-body">
+          <span class="met-task-label">Part 1 — Question 3 of 19</span>
+          <button class="met-play-once-btn" onclick="playAudio('../../assets/audio/listening/part1/part1_conv03.mp3', this)">▶ Play</button>
+          <p class="met-question-text">What does the woman want to do?</p>
+          <div class="met-options">
+            <label class="met-option"><input type="radio" name="q3" value="A"> A. Exchange an item she bought</label>
+            <label class="met-option"><input type="radio" name="q3" value="B"> B. Complain about quality</label>
+            <label class="met-option"><input type="radio" name="q3" value="C"> C. Ask about a discount</label>
+            <label class="met-option"><input type="radio" name="q3" value="D"> D. Get a refund for a jacket</label>
+          </div>
+        </div>
+      </section>
+
+      <!-- PAGE 4 -->
+      <section class="met-page" data-met-page="4">
+        <div class="met-page-body">
+          <span class="met-task-label">Part 1 — Question 4 of 19</span>
+          <button class="met-play-once-btn" onclick="playAudio('../../assets/audio/listening/part1/part1_conv04.mp3', this)">▶ Play</button>
+          <p class="met-question-text">Why does the man mention not having eaten?</p>
+          <div class="met-options">
+            <label class="met-option"><input type="radio" name="q4" value="A"> A. The café doesn't serve food</label>
+            <label class="met-option"><input type="radio" name="q4" value="B"> B. He wants to eat while they study</label>
+            <label class="met-option"><input type="radio" name="q4" value="C"> C. They are meeting near a restaurant</label>
+            <label class="met-option"><input type="radio" name="q4" value="D"> D. He forgot to bring lunch</label>
+          </div>
+        </div>
+      </section>
+
+      <!-- PAGE 5 -->
+      <section class="met-page" data-met-page="5">
+        <div class="met-page-body">
+          <span class="met-task-label">Part 1 — Question 5 of 19</span>
+          <button class="met-play-once-btn" onclick="playAudio('../../assets/audio/listening/part1/part1_conv05.mp3', this)">▶ Play</button>
+          <p class="met-question-text">Why does the woman mention her umbrella?</p>
+          <div class="met-options">
+            <label class="met-option"><input type="radio" name="q5" value="A"> A. She broke it at work</label>
+            <label class="met-option"><input type="radio" name="q5" value="B"> B. She wants to borrow one</label>
+            <label class="met-option"><input type="radio" name="q5" value="C"> C. She bought a new one</label>
+            <label class="met-option"><input type="radio" name="q5" value="D"> D. She cannot locate it</label>
+          </div>
+        </div>
+      </section>
+
+      <!-- PAGE 6 -->
+      <section class="met-page" data-met-page="6">
+        <div class="met-page-body">
+          <span class="met-task-label">Part 1 — Question 6 of 19</span>
+          <button class="met-play-once-btn" onclick="playAudio('../../assets/audio/listening/part1/part1_conv06.mp3', this)">▶ Play</button>
+          <p class="met-question-text">What does the professor tell the man to do?</p>
+          <div class="met-options">
+            <label class="met-option"><input type="radio" name="q6" value="A"> A. Work with another student</label>
+            <label class="met-option"><input type="radio" name="q6" value="B"> B. Find a different topic</label>
+            <label class="met-option"><input type="radio" name="q6" value="C"> C. Submit the essay by himself</label>
+            <label class="met-option"><input type="radio" name="q6" value="D"> D. Ask a classmate for help</label>
+          </div>
+        </div>
+      </section>
+
+      <!-- PAGE 7 -->
+      <section class="met-page" data-met-page="7">
+        <div class="met-page-body">
+          <span class="met-task-label">Part 1 — Question 7 of 19</span>
+          <button class="met-play-once-btn" onclick="playAudio('../../assets/audio/listening/part1/part1_conv07.mp3', this)">▶ Play</button>
+          <p class="met-question-text">What is the woman happy about?</p>
+          <div class="met-options">
+            <label class="met-option"><input type="radio" name="q7" value="A"> A. Getting praised by a coworker</label>
+            <label class="met-option"><input type="radio" name="q7" value="B"> B. A quiet day at work</label>
+            <label class="met-option"><input type="radio" name="q7" value="C"> C. Leaving work early</label>
+            <label class="met-option"><input type="radio" name="q7" value="D"> D. How quickly the shift passed</label>
+          </div>
+        </div>
+      </section>
+
+      <!-- PAGE 8 -->
+      <section class="met-page" data-met-page="8">
+        <div class="met-page-body">
+          <span class="met-task-label">Part 1 — Question 8 of 19</span>
+          <button class="met-play-once-btn" onclick="playAudio('../../assets/audio/listening/part1/part1_conv08.mp3', this)">▶ Play</button>
+          <p class="met-question-text">Why did the woman miss part of the festival?</p>
+          <div class="met-options">
+            <label class="met-option"><input type="radio" name="q8" value="A"> A. She only wanted the last film</label>
+            <label class="met-option"><input type="radio" name="q8" value="B"> B. She went to the wrong venue</label>
+            <label class="met-option"><input type="radio" name="q8" value="C"> C. She was delayed by traffic</label>
+            <label class="met-option"><input type="radio" name="q8" value="D"> D. She left before it ended</label>
+          </div>
+        </div>
+      </section>
+
+      <!-- PAGE 9 -->
+      <section class="met-page" data-met-page="9">
+        <div class="met-page-body">
+          <span class="met-task-label">Part 1 — Question 9 of 19</span>
+          <button class="met-play-once-btn" onclick="playAudio('../../assets/audio/listening/part1/part1_conv09.mp3', this)">▶ Play</button>
+          <p class="met-question-text">What do we learn about the woman?</p>
+          <div class="met-options">
+            <label class="met-option"><input type="radio" name="q9" value="A"> A. She has a research degree</label>
+            <label class="met-option"><input type="radio" name="q9" value="B"> B. She applied for the department head role</label>
+            <label class="met-option"><input type="radio" name="q9" value="C"> C. She previously worked with Dr. Torres</label>
+            <label class="met-option"><input type="radio" name="q9" value="D"> D. She knows the new head personally</label>
+          </div>
+        </div>
+      </section>
+
+      <!-- PAGE 10 -->
+      <section class="met-page" data-met-page="10">
+        <div class="met-page-body">
+          <span class="met-task-label">Part 1 — Question 10 of 19</span>
+          <button class="met-play-once-btn" onclick="playAudio('../../assets/audio/listening/part1/part1_conv10.mp3', this)">▶ Play</button>
+          <p class="met-question-text">What does the woman prefer to do before buying?</p>
+          <div class="met-options">
+            <label class="met-option"><input type="radio" name="q10" value="A"> A. Read online reviews</label>
+            <label class="met-option"><input type="radio" name="q10" value="B"> B. Try a laptop in person</label>
+            <label class="met-option"><input type="radio" name="q10" value="C"> C. Ask a technician</label>
+            <label class="met-option"><input type="radio" name="q10" value="D"> D. Compare prices online</label>
+          </div>
+        </div>
+      </section>
+
+      <!-- PAGE 11 -->
+      <section class="met-page" data-met-page="11">
+        <div class="met-page-body">
+          <span class="met-task-label">Part 1 — Question 11 of 19</span>
+          <button class="met-play-once-btn" onclick="playAudio('../../assets/audio/listening/part1/part1_conv11.mp3', this)">▶ Play</button>
+          <p class="met-question-text">How does the man feel about another cancellation?</p>
+          <div class="met-options">
+            <label class="met-option"><input type="radio" name="q11" value="A"> A. Not surprised</label>
+            <label class="met-option"><input type="radio" name="q11" value="B"> B. Disappointed</label>
+            <label class="met-option"><input type="radio" name="q11" value="C"> C. Worried</label>
+            <label class="met-option"><input type="radio" name="q11" value="D"> D. Excited</label>
+          </div>
+        </div>
+      </section>
+
+      <!-- PAGE 12 -->
+      <section class="met-page" data-met-page="12">
+        <div class="met-page-body">
+          <span class="met-task-label">Part 1 — Question 12 of 19</span>
+          <button class="met-play-once-btn" onclick="playAudio('../../assets/audio/listening/part1/part1_conv12.mp3', this)">▶ Play</button>
+          <p class="met-question-text">What does the man suggest about Carlos?</p>
+          <div class="met-options">
+            <label class="met-option"><input type="radio" name="q12" value="A"> A. He wants to join them</label>
+            <label class="met-option"><input type="radio" name="q12" value="B"> B. He is waiting for them</label>
+            <label class="met-option"><input type="radio" name="q12" value="C"> C. He should not be disturbed</label>
+            <label class="met-option"><input type="radio" name="q12" value="D"> D. He finished his work already</label>
+          </div>
+        </div>
+      </section>
+
+      <!-- PAGE 13 -->
+      <section class="met-page" data-met-page="13">
+        <div class="met-page-body">
+          <span class="met-task-label">Part 1 — Question 13 of 19</span>
+          <button class="met-play-once-btn" onclick="playAudio('../../assets/audio/listening/part1/part1_conv13.mp3', this)">▶ Play</button>
+          <p class="met-question-text">What is the woman's reaction?</p>
+          <div class="met-options">
+            <label class="met-option"><input type="radio" name="q13" value="A"> A. She plans to move closer</label>
+            <label class="met-option"><input type="radio" name="q13" value="B"> B. She wants to complain</label>
+            <label class="met-option"><input type="radio" name="q13" value="C"> C. She thinks the increase is unfair</label>
+            <label class="met-option"><input type="radio" name="q13" value="D"> D. She is not shocked by it</label>
+          </div>
+        </div>
+      </section>
+
+      <!-- PAGE 14 -->
+      <section class="met-page" data-met-page="14">
+        <div class="met-page-body">
+          <span class="met-task-label">Part 1 — Question 14 of 19</span>
+          <button class="met-play-once-btn" onclick="playAudio('../../assets/audio/listening/part1/part1_conv14.mp3', this)">▶ Play</button>
+          <p class="met-question-text">What will the speakers do next?</p>
+          <div class="met-options">
+            <label class="met-option"><input type="radio" name="q14" value="A"> A. Talk to their professor</label>
+            <label class="met-option"><input type="radio" name="q14" value="B"> B. Read their textbook alone</label>
+            <label class="met-option"><input type="radio" name="q14" value="C"> C. Review study material together</label>
+            <label class="met-option"><input type="radio" name="q14" value="D"> D. Meet other students</label>
+          </div>
+        </div>
+      </section>
+
+      <!-- PAGE 15 -->
+      <section class="met-page" data-met-page="15">
+        <div class="met-page-body">
+          <span class="met-task-label">Part 1 — Question 15 of 19</span>
+          <button class="met-play-once-btn" onclick="playAudio('../../assets/audio/listening/part1/part1_conv15.mp3', this)">▶ Play</button>
+          <p class="met-question-text">Why does the man take this bus?</p>
+          <div class="met-options">
+            <label class="met-option"><input type="radio" name="q15" value="A"> A. It stops closer to the station</label>
+            <label class="met-option"><input type="radio" name="q15" value="B"> B. He does not want to wait for a direct one</label>
+            <label class="met-option"><input type="radio" name="q15" value="C"> C. It arrives faster</label>
+            <label class="met-option"><input type="radio" name="q15" value="D"> D. His ticket is only valid here</label>
+          </div>
+        </div>
+      </section>
+
+      <!-- PAGE 16 -->
+      <section class="met-page" data-met-page="16">
+        <div class="met-page-body">
+          <span class="met-task-label">Part 1 — Question 16 of 19</span>
+          <button class="met-play-once-btn" onclick="playAudio('../../assets/audio/listening/part1/part1_conv16.mp3', this)">▶ Play</button>
+          <p class="met-question-text">What happened in the electronics section?</p>
+          <div class="met-options">
+            <label class="met-option"><input type="radio" name="q16" value="A"> A. New items arrived</label>
+            <label class="met-option"><input type="radio" name="q16" value="B"> B. Products were sold out during a promotion</label>
+            <label class="met-option"><input type="radio" name="q16" value="C"> C. Staff forgot to restock</label>
+            <label class="met-option"><input type="radio" name="q16" value="D"> D. Shelves were damaged</label>
+          </div>
+        </div>
+      </section>
+
+      <!-- PAGE 17 -->
+      <section class="met-page" data-met-page="17">
+        <div class="met-page-body">
+          <span class="met-task-label">Part 1 — Question 17 of 19</span>
+          <button class="met-play-once-btn" onclick="playAudio('../../assets/audio/listening/part1/part1_conv17.mp3', this)">▶ Play</button>
+          <p class="met-question-text">How does the man feel about street photography?</p>
+          <div class="met-options">
+            <label class="met-option"><input type="radio" name="q17" value="A"> A. It does not interest him</label>
+            <label class="met-option"><input type="radio" name="q17" value="B"> B. He finds it confusing</label>
+            <label class="met-option"><input type="radio" name="q17" value="C"> C. He has never heard of it</label>
+            <label class="met-option"><input type="radio" name="q17" value="D"> D. He loves it</label>
+          </div>
+        </div>
+      </section>
+
+      <!-- PAGE 18 -->
+      <section class="met-page" data-met-page="18">
+        <div class="met-page-body">
+          <span class="met-task-label">Part 1 — Question 18 of 19</span>
+          <button class="met-play-once-btn" onclick="playAudio('../../assets/audio/listening/part1/part1_conv18.mp3', this)">▶ Play</button>
+          <p class="met-question-text">What are the speakers discussing?</p>
+          <div class="met-options">
+            <label class="met-option"><input type="radio" name="q18" value="A"> A. A book they are both reading</label>
+            <label class="met-option"><input type="radio" name="q18" value="B"> B. A film script</label>
+            <label class="met-option"><input type="radio" name="q18" value="C"> C. A homework assignment</label>
+            <label class="met-option"><input type="radio" name="q18" value="D"> D. A story the man is writing</label>
+          </div>
+        </div>
+      </section>
+
+      <!-- PAGE 19 -->
+      <section class="met-page" data-met-page="19">
+        <div class="met-page-body">
+          <span class="met-task-label">Part 1 — Question 19 of 19</span>
+          <button class="met-play-once-btn" onclick="playAudio('../../assets/audio/listening/part1/part1_conv19.mp3', this)">▶ Play</button>
+          <p class="met-question-text">What will the speakers do?</p>
+          <div class="met-options">
+            <label class="met-option"><input type="radio" name="q19" value="A"> A. Schedule a meeting instead</label>
+            <label class="met-option"><input type="radio" name="q19" value="B"> B. Have dinner on Friday</label>
+            <label class="met-option"><input type="radio" name="q19" value="C"> C. Cancel the dinner</label>
+            <label class="met-option"><input type="radio" name="q19" value="D"> D. Adjust the dinner time</label>
+          </div>
+        </div>
+      </section>
+
+    </main>
+  </div>
+
+  <footer class="met-bottom-bar">
+    <button class="met-nav-btn" id="metBackBtn">◀ Back</button>
+    <button class="met-nav-btn" id="metNextBtn">Next ▶</button>
+  </footer>
+
+  <!-- Loading Modal -->
+  <div class="met-modal" id="metLoadingModal">
+    <div class="met-modal-content">
+      <p>Please wait…</p>
+      <div class="met-spinner"></div>
+      <p>Loading</p>
+    </div>
+  </div>
+
+  <!-- Proceed Modal -->
+  <div class="met-modal" id="metProceedModal">
+    <div class="met-modal-content">
+      <p>Are you sure you want to proceed?</p>
+      <p>⚠ You have not answered this question. Do you want to continue without answering?</p>
+      <div class="met-modal-actions">
+        <button class="met-modal-btn" id="metProceedNo">No</button>
+        <button class="met-modal-btn" id="metProceedYes">Yes</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Finish Modal 1 (confirmation) -->
+  <div class="met-modal" id="metFinishModal1">
+    <div class="met-modal-content">
+      <p>Are you sure?</p>
+      <p>⚠ You have not answered this question. Do you want to continue without answering?</p>
+      <div class="met-modal-actions">
+        <button class="met-modal-btn" id="metFinishCancel1">Cancel</button>
+        <button class="met-modal-btn" id="metFinishConfirm1">Finish</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Finish Modal 2 (section complete) -->
+  <div class="met-modal" id="metFinishModal2">
+    <div class="met-modal-content">
+      <p>Confirm Finish Section</p>
+      <p>Are you sure you want to finish Part 1? You will continue to Part 2.</p>
+      <div class="met-modal-actions">
+        <button class="met-modal-btn" id="metFinishCancel2">Cancel</button>
+        <button class="met-modal-btn" id="metFinishConfirm2">Finish</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="../js/met-shell.js"></script>
+  <script>
+    function playAudio(src, btn) {
+      var audio = new Audio(src);
+      btn.disabled = true;
+      btn.textContent = '▶ Playing…';
+      audio.play().catch(function(e) {
+        console.warn('Audio playback failed:', e);
+        btn.disabled = false;
+        btn.textContent = '▶ Play';
+      });
+      audio.addEventListener('ended', function() {
+        btn.disabled = false;
+        btn.textContent = '▶ Play';
+      });
+    }
+
+    document.addEventListener('DOMContentLoaded', function() {
+      if (typeof METShell !== 'undefined') {
+        METShell.init({
+          totalSeconds: 2100,
+          timerStorageKey: 'met:timer:listening',
+          listeningMode: true,
+          hasSidebar: true,
+          totalPages: 20,
+          nextSection: 'listening-p2.html'
+        });
+      }
+    });
+  </script>
+</body>
+</html>

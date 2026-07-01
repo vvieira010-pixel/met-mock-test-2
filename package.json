@@ -1,0 +1,7 @@
+{
+  "name": "met-proficiency",
+  "private": true,
+  "scripts": {
+    "build": "echo 'static site - no build needed'"
+  }
+}

@@ -1,0 +1,222 @@
+/* ============================================================
+   met-brand.css — MET Prep Platform Design Tokens
+   Azul Marinho navy + Orange/Amber accent
+   Single source of truth for all pages
+   ============================================================ */
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
+:root {
+  /* ── Azul Marinho Palette ─────────────────────────────────── */
+  --azul-wash:  #EBF4FB;   /* page background wash              */
+  --azul-light: #AED6F1;   /* borders, subtle highlights        */
+  --azul-sky:   #7AB5D8;   /* hover states, dividers            */
+  --azul-mid:   #4A8EC4;   /* focus rings, secondary accents    */
+  --azul-blue:  #2B6097;   /* primary brand blue                */
+  --azul-navy:  #1B3A6B;   /* nav, bars, strong navy            */
+  --azul-deep:  #0F1F4D;   /* darkest — text, footers           */
+
+  /* ── Orange / Amber Accent ───────────────────────────────── */
+  --orange:       #E07000;  /* primary CTA, active states        */
+  --orange-dark:  #C06000;  /* hover on orange                   */
+  --orange-light: #F4A261;  /* soft variant, badges              */
+  --orange-bg:    #FFF4E6;  /* tinted surface for orange items   */
+
+  /* ── MET Brand Shorthand ─────────────────────────────────── */
+  --met-navy:   #0F1F4D;
+  --met-blue:   #2B6097;
+  --met-sky:    #AED6F1;
+  --met-wash:   #EBF4FB;
+  --met-light:  #F5F8FC;
+  --met-slate:  #4A5568;
+
+  /* ── Font Stack ──────────────────────────────────────────── */
+  --met-font-heading:    "Plus Jakarta Sans", "Aptos", "Segoe UI", system-ui, sans-serif;
+  --met-font-subheading: "Plus Jakarta Sans", "Aptos", "Segoe UI", system-ui, sans-serif;
+  --met-font-body:       "Plus Jakarta Sans", "Aptos", "Segoe UI", system-ui, sans-serif;
+  --font:                var(--met-font-body);
+
+  /* ── Semantic Aliases ────────────────────────────────────── */
+  --navy:        var(--azul-navy);
+  --navy-dark:   var(--azul-deep);
+  --navy-light:  var(--azul-blue);
+  --sky:         var(--azul-mid);
+  --sky-light:   var(--azul-sky);
+  --wash:        var(--azul-light);
+  --bg-wash:     var(--azul-wash);
+
+  --ink:         var(--met-navy);
+  --text:        var(--met-navy);
+  --muted:       var(--met-slate);
+  --ink-soft:    var(--met-slate);
+  --text-mid:    var(--met-slate);
+  --text-muted:  var(--met-slate);
+
+  --primary:       var(--orange);
+  --primary-dark:  var(--orange-dark);
+  --primary-soft:  var(--orange-bg);
+
+  /* Legacy aliases — kept for backward compatibility */
+  --teal:          var(--azul-blue);
+  --blue:          var(--azul-blue);
+  --blue-mid:      var(--azul-mid);
+  --blue-light:    var(--azul-wash);
+  --blue-border:   rgba(43, 96, 151, 0.25);
+  --amber:         var(--orange-light);
+  --amber-dark:    var(--orange);
+
+  /* ── Surface & Background ────────────────────────────────── */
+  --surface:       #ffffff;
+  --bg-white:      #ffffff;
+  --surface-alt:   var(--met-light);
+  --page-bg:       var(--met-light);
+  --bg:            var(--met-light);
+
+  /* ── Borders ─────────────────────────────────────────────── */
+  --line:          rgba(15, 31, 77, 0.10);
+  --line-strong:   rgba(15, 31, 77, 0.20);
+  --border:        #D0DFF0;
+  --border-lt:     #E8F0F8;
+
+  /* ── Status Colors ───────────────────────────────────────── */
+  --green:         #059669;
+  --green-bg:      #ECFDF5;
+  --red:           #DC2626;
+  --red-bg:        #FEF2F2;
+
+  /* ── Dashboard text scale ───────────────────────────────── */
+  --ink-max:     #020617;   /* metric numbers, strong headings       */
+  --ink-mid:     #49617f;   /* card body text                        */
+  --ink-muted:   #4A5568;   /* nav labels, metadata (AA 4.7:1)       */
+  --ink-faint:   #4A5568;   /* formerly #73829b — bumped to pass AA  */
+
+  /* ── Dashboard borders ──────────────────────────────────── */
+  --border-card: #d5e0ec;   /* card / grid borders                   */
+  --border-soft: #dbe4ef;   /* section heading border                */
+  --border-xlt:  #e8eef5;   /* card footer dividers                  */
+
+  /* ── Shadows ─────────────────────────────────────────────── */
+  --shadow-sm:     0 1px 3px rgba(15,31,77,.07);
+  --shadow-md:     0 4px 16px rgba(15,31,77,.10);
+  --shadow-lg:     0 8px 32px rgba(15,31,77,.14);
+  --shadow-xl:     0 16px 48px rgba(15,31,77,.18);
+
+  /* ── Radius ──────────────────────────────────────────────── */
+  --r-xs:    4px;
+  --r-sm:    8px;
+  --r-md:    12px;
+  --r-lg:    20px;
+  --r-xl:    28px;
+  --r-pill:  999px;
+
+  /* ── Type Scale (intentional literals — no scale tokens) ── */
+  /* caption  11px  — word count, timestamps, labels           */
+  /* note     12px  — supplementary info, mobile overrides     */
+  /* small    13px  — nav, task labels, metadata               */
+  /* body     14px  — default body text, options, inputs       */
+  /* read     15px  — reading shell body text                  */
+  /* sub      16px  — timer, info bar, speaking tasks          */
+  /* title    17px  — speaking task titles                     */
+  /* heading  18px  — question text, section titles            */
+  /* display  22px  — page titles                              */
+
+  /* ── Extended Navy Scale ────────────────────────────────── */
+  --navy-900: #0a1a3e;
+  --navy-800: #0f2354;
+  --navy-700: #15306e;
+  --navy-600: #1b3a8a;
+  --navy-500: #2652b8;
+  --navy-400: #4a72d4;
+  --navy-300: #7a9fe8;
+  --navy-200: #b8cff5;
+  --navy-100: #e0eaff;
+  --navy-50:  #f0f4ff;
+
+  /* ── Teal Scale ──────────────────────────────────────────── */
+  --teal-700: #0e7490;
+  --teal-600: #0891b2;
+  --teal-500: #06b6d4;
+  --teal-100: #cffafe;
+
+  /* ── Amber Scale (replaces loose orange-* names) ────────── */
+  --amber-600: #b45309;
+  --amber-500: #d97706;
+  --amber-400: #f59e0b;
+  --amber-100: #fef3c7;
+
+  /* ── Exam Shell Colors ──────────────────────────────────── */
+  --met-topbar-bg:        var(--navy-900);   /* top/bottom bar deep navy      */
+  --met-infobar-bg:       var(--teal-700);   /* info bar, nav buttons         */
+  --met-btn-nav-bg:       var(--teal-600);   /* back/next navigation buttons  */
+  --met-btn-nav-hover:    var(--teal-700);   /* hover on back/next buttons    */
+  --met-player-bg:        var(--navy-800);   /* audio player dark slate       */
+  --met-page-bg:          var(--navy-50);    /* body/content-area background  */
+  --met-q-text-bg:        #f3f5f6;           /* question text highlight       */
+
+  /* ── Exam Shell: Q-circle states ───────────────────────── */
+  --met-q-answered:       var(--teal-600);   /* answered question marker      */
+  --met-q-current:        var(--navy-800);   /* currently active question     */
+  --met-q-info:           var(--navy-800);   /* info/section label marker     */
+  --met-q-info-hover:     var(--navy-700);   /* hover on info markers         */
+
+  /* ── Exam Shell: Sidebar chrome ────────────────────────── */
+  --met-sidebar-bg:       #ffffff;           /* sidebar panel background      */
+  --met-sidebar-border:   #e2e8f0;           /* sidebar border + locked blocks*/
+
+  /* ── Exam Shell: Content area ──────────────────────────── */
+  --met-border-shell:     #cbd5e1;           /* content wrap border, textarea */
+  --met-option-border:    #334155;           /* MCQ option default border     */
+  --met-overlay:          rgba(10,26,62,0.55); /* modal backdrop              */
+
+  /* ── Exam Shell: Finish button ─────────────────────────── */
+  --met-btn-finish-bg:    var(--amber-500);  /* finish button — amber scale   */
+  --met-btn-finish-hover: var(--amber-600);  /* finish button hover           */
+  --met-btn-finish-text:  #ffffff;           /* white on amber passes WCAG AA */
+}
+
+/* ── Typography Base ────────────────────────────────────────── */
+body {
+  font-family: var(--met-font-body) !important;
+  color: var(--met-navy) !important;
+}
+h1, h2 {
+  font-family: var(--met-font-heading) !important;
+  font-weight: 700 !important;
+  color: var(--met-navy) !important;
+  letter-spacing: -0.01em;
+}
+h3, h4, h5, h6,
+nav a,
+.section-label, .process-kicker, .cta-kicker {
+  font-family: var(--met-font-subheading) !important;
+  font-weight: 600 !important;
+}
+
+/* ── Buttons ─────────────────────────────────────────────────── */
+.btn, .btn-primary, .button.primary, .action-btn.primary,
+.start-btn, .next-btn, .submit-btn, .listening-selector-link {
+  background:   var(--orange) !important;
+  border-color: var(--orange) !important;
+  color: #ffffff !important;
+  font-weight: 700 !important;
+  border-radius: var(--r-sm) !important;
+}
+.btn:hover, .btn-primary:hover, .button.primary:hover,
+.action-btn.primary:hover, .start-btn:hover, .next-btn:hover,
+.submit-btn:hover, .listening-selector-link:hover {
+  background:   var(--orange-dark) !important;
+  border-color: var(--orange-dark) !important;
+}
+.btn-outline, .button.secondary, .action-btn.secondary {
+  border-color: var(--border) !important;
+  color: var(--met-navy) !important;
+  background: transparent !important;
+}
+.btn-outline:hover, .button.secondary:hover, .action-btn.secondary:hover {
+  background: var(--bg-wash) !important;
+}
+
+/* ── Focus ring ──────────────────────────────────────────────── */
+a:focus-visible, button:focus-visible,
+input:focus-visible, textarea:focus-visible, select:focus-visible {
+  outline: 3px solid rgba(224, 112, 0, 0.40) !important;
+  outline-offset: 3px !important;
+}

@@ -1,0 +1,323 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Test Complete — MET Mock Test</title>
+  <link rel="stylesheet" href="../css/met-brand.css" />
+  <link rel="stylesheet" href="../css/met-standard.css" />
+  <style>
+    body {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--azul-wash);
+      padding: 24px 16px;
+    }
+    main {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--r-sm);
+      box-shadow: var(--shadow-md);
+      max-width: 480px;
+      width: 100%;
+      padding: 40px 36px;
+      text-align: center;
+    }
+    .done-icon {
+      width: 56px; height: 56px;
+      background: var(--green-bg);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      margin: 0 auto 20px;
+      font-size: 28px;
+      color: var(--green);
+    }
+    .kicker {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.10em;
+      text-transform: uppercase;
+      color: var(--orange);
+      display: block;
+      margin-bottom: 10px;
+    }
+    h1 {
+      font-size: 26px;
+      font-weight: 800 !important;
+      color: var(--azul-deep) !important;
+      margin-bottom: 10px;
+      letter-spacing: -0.02em;
+    }
+    .sub {
+      font-size: 14px;
+      color: var(--met-slate);
+      line-height: 1.65;
+      margin-bottom: 28px;
+    }
+
+    /* ── Submission form ─────────────────────────────────────── */
+    .submit-form { text-align: left; margin-bottom: 24px; }
+    .submit-form label {
+      display: block;
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--azul-deep);
+      margin-bottom: 5px;
+      letter-spacing: 0.03em;
+    }
+    .submit-form input[type="text"],
+    .submit-form input[type="email"] {
+      width: 100%;
+      border: 1.5px solid var(--border);
+      border-radius: var(--r-xs);
+      padding: 9px 12px;
+      font-size: 14px;
+      font-family: inherit;
+      color: var(--azul-deep);
+      background: var(--surface);
+      outline: none;
+      margin-bottom: 14px;
+      transition: border-color 0.15s;
+    }
+    .submit-form input:focus {
+      border-color: var(--azul-mid);
+      box-shadow: 0 0 0 3px rgba(74,142,196,.12);
+    }
+
+    .btn-submit {
+      width: 100%;
+      background: var(--orange);
+      color: #fff;
+      font-weight: 800;
+      font-size: 14px;
+      padding: 12px;
+      border: none;
+      border-radius: var(--r-xs);
+      cursor: pointer;
+      transition: background 0.15s;
+      letter-spacing: 0.02em;
+      font-family: inherit;
+    }
+    .btn-submit:hover { background: var(--orange-dark); }
+    .btn-submit:disabled { opacity: 0.5; cursor: not-allowed; }
+
+    /* ── Success state ───────────────────────────────────────── */
+    .success-msg { display: none; }
+    .success-msg.visible { display: block; }
+    .form-block.hidden { display: none; }
+
+    .btn-home {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--orange);
+      color: #fff;
+      font-weight: 700;
+      font-size: 14px;
+      padding: 12px 28px;
+      border-radius: var(--r-xs);
+      text-decoration: none;
+      transition: background 0.15s;
+      margin-top: 20px;
+    }
+    .btn-home:hover { background: var(--orange-dark); }
+
+    .privacy-note {
+      font-size: 11px;
+      color: var(--met-slate);
+      margin-top: 10px;
+      line-height: 1.5;
+    }
+
+    /* ── Student identity card ───────────────────────────────── */
+    .student-card {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      background: var(--azul-wash);
+      border: 1px solid var(--border);
+      border-radius: var(--r-xs);
+      padding: 12px 16px;
+      margin-bottom: 20px;
+      text-align: left;
+    }
+    .student-card__avatar {
+      width: 36px; height: 36px;
+      background: var(--azul-mid);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 16px;
+      color: #fff;
+      flex-shrink: 0;
+    }
+    .student-card__name {
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--azul-deep);
+      line-height: 1.3;
+    }
+    .student-card__email {
+      font-size: 12px;
+      color: var(--met-slate);
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <div class="done-icon">✓</div>
+    <span class="kicker">All Sections Recorded</span>
+    <h1>Well done.</h1>
+    <p class="sub">Your answers will be sent to your teacher automatically.</p>
+
+    <!-- NETLIFY FORM — data-netlify="true" activates Netlify's form handler -->
+    <div class="form-block" id="formBlock">
+
+      <!-- Student identity (populated from localStorage registration) -->
+      <div class="student-card" id="studentCard">
+        <div class="student-card__avatar">👤</div>
+        <div>
+          <div class="student-card__name" id="cardName">Loading…</div>
+          <div class="student-card__email" id="cardEmail"></div>
+        </div>
+      </div>
+
+      <form action="thanks.html?success=1" class="submit-form" id="submissionForm" method="POST" name="met-submission">
+
+        <input type="hidden" name="form-name" value="met-submission" />
+        <p style="display:none"><label>Don't fill this: <input name="bot-field" /></label></p>
+
+        <!-- Filled by JS from localStorage; not shown to student -->
+        <input type="hidden" id="studentName" name="studentName" />
+        <input type="hidden" id="studentEmail" name="studentEmail" />
+
+        <!-- Hidden fields populated by JS before submit -->
+        <input type="hidden" name="submittedAt" id="submittedAt" />
+        <input type="hidden" name="sessionId" id="sessionId" />
+        <input type="hidden" name="readingAnswers" id="readingAnswers" />
+        <input type="hidden" name="listeningAnswers" id="listeningAnswers" />
+        <input type="hidden" name="writingAnswers" id="writingAnswers" />
+        <input type="hidden" name="sectionsCompleted" id="sectionsCompleted" />
+
+        <button class="btn-submit" type="submit" id="submitBtn">Submit my answers →</button>
+        <p class="privacy-note">Your answers are only shared with your teacher.</p>
+      </form>
+    </div>
+
+    <!-- SUCCESS STATE (shown after Netlify redirect or JS success) -->
+    <div class="success-msg" id="successMsg">
+      <p class="sub" style="margin-bottom:0">Your answers have been submitted. Your teacher will review them and send feedback.</p>
+      <a class="btn-home" href="mock-home.html">← Return to Dashboard</a>
+    </div>
+  </main>
+
+  <script src="../js/speaking-upload.js"></script>
+  <script>
+  (function () {
+    var ANSWERS_KEY = 'met:answers:v1';
+    var TIMER_KEYS  = {
+      reading:   'met:timer:reading',
+      listening: 'met:timer:listening',
+      speaking:  'met:timer:speaking',
+      writing:   'met:timer:writing',
+    };
+
+    // ── Populate student identity from registration (set on mock-home.html)
+    var storedName  = '';
+    var storedEmail = '';
+    try {
+      storedName  = localStorage.getItem('met:student:name')  || '';
+      storedEmail = localStorage.getItem('met:student:email') || '';
+    } catch (_) {}
+
+    if (storedName) {
+      document.getElementById('cardName').textContent  = storedName;
+      document.getElementById('cardEmail').textContent = storedEmail;
+      document.getElementById('studentName').value  = storedName;
+      document.getElementById('studentEmail').value = storedEmail;
+    } else {
+      // No registration found — redirect back to home to register
+      window.location.replace('mock-home.html');
+    }
+
+    // ── Check if submitted via Netlify redirect (URL has ?success=1)
+    if (new URLSearchParams(location.search).get('success') === '1') {
+      showSuccess();
+    }
+
+    function showSuccess() {
+      document.getElementById('formBlock').classList.add('hidden');
+      document.getElementById('successMsg').classList.add('visible');
+      // Clean up answers from localStorage
+      try { localStorage.removeItem(ANSWERS_KEY); } catch (_) {}
+    }
+
+    // ── Gather answers from localStorage on form submit
+    document.getElementById('submissionForm').addEventListener('submit', function (e) {
+      var answers = {};
+      try { answers = JSON.parse(localStorage.getItem(ANSWERS_KEY) || '{}'); } catch (_) {}
+
+      function filterByPrefix(prefix) {
+        var out = {};
+        Object.keys(answers).forEach(function (k) {
+          if (k.indexOf(prefix) === 0) out[k] = answers[k];
+        });
+        return Object.keys(out).length ? JSON.stringify(out) : '';
+      }
+
+      document.getElementById('submittedAt').value = new Date().toISOString();
+      // Link this form submission to any speaking recordings stored in Netlify Blobs
+      try {
+        var sid = (typeof window.getSpeakingSessionId === 'function')
+          ? window.getSpeakingSessionId()
+          : (localStorage.getItem('met:session:id') || '');
+        document.getElementById('sessionId').value = sid;
+      } catch (_) {}
+      document.getElementById('readingAnswers').value  = filterByPrefix('met:timer:reading');
+      document.getElementById('listeningAnswers').value = filterByPrefix('met:timer:listening');
+      document.getElementById('writingAnswers').value  = filterByPrefix('met:timer:writing');
+
+      // Which sections were attempted (timer key exists and had some time removed)
+      var completed = [];
+      Object.keys(TIMER_KEYS).forEach(function (sec) {
+        try {
+          var snap = JSON.parse(localStorage.getItem(TIMER_KEYS[sec]) || 'null');
+          if (snap) completed.push(sec);
+        } catch (_) {}
+      });
+      document.getElementById('sectionsCompleted').value = completed.join(', ');
+
+      // Save a normalized copy for admin reporting (best effort).
+      try {
+        var payload = {
+          studentName: document.getElementById('studentName').value || '',
+          studentEmail: document.getElementById('studentEmail').value || '',
+          submittedAt: document.getElementById('submittedAt').value || '',
+          sessionId: document.getElementById('sessionId').value || '',
+          readingAnswers: document.getElementById('readingAnswers').value || '',
+          listeningAnswers: document.getElementById('listeningAnswers').value || '',
+          writingAnswers: document.getElementById('writingAnswers').value || '',
+          sectionsCompleted: document.getElementById('sectionsCompleted').value || ''
+        };
+        var body = JSON.stringify(payload);
+        if (navigator.sendBeacon) {
+          var blob = new Blob([body], { type: 'application/json' });
+          navigator.sendBeacon('/api/save-submission', blob);
+        } else {
+          fetch('/api/save-submission', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: body,
+            keepalive: true
+          }).catch(function () {});
+        }
+      } catch (_) {}
+
+      document.getElementById('submitBtn').disabled = true;
+      document.getElementById('submitBtn').textContent = 'Submitting…';
+    });
+  })();
+  </script>
+</body>
+</html>

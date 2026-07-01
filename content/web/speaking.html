@@ -1,0 +1,1097 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Speaking — MET Mock Test 2</title>
+  <meta name="description" content="MET Mock Test 2 Speaking section. 5 speaking tasks with audio prompts, preparation timers, and recording.">
+  <link rel="stylesheet" href="assets/site.css">
+  <link rel="stylesheet" href="assets/brand-guidelines.css">
+  <link rel="stylesheet" href="assets/met-brand.css">
+  <script src="assets/narrator-system.js"></script>
+  <style>
+    :root {
+      --bg-start:    #ddf0e4;
+      --bg-end:      #e8f7ee;
+      --surface:     #ffffff;
+      --surface-alt: #f0faf3;
+      --navy:        #0c3b2e;
+      --navy-dark:   #082820;
+      --blue:        #1f8b6a;
+      --blue-mid:    #2a9d7a;
+      --blue-light:  #d1f0e3;
+      --blue-border: #a8dfcc;
+      --amber:       #92400e;
+      --amber-bg:    #fef3c7;
+      --amber-border:#f59e0b;
+      --red:         #dc2626;
+      --green:       #16a34a;
+      --text:        #0f1f3d;
+      --text-mid:    #374b6e;
+      --text-muted:  #5a6e8c;
+      --border:      #dde6f5;
+      --radius:      12px;
+      --radius-sm:   8px;
+      --font:        "Aptos", "Segoe UI", sans-serif;
+      --font-mono:   "Aptos", "Segoe UI", sans-serif;
+      --shadow-card: none;
+      --shadow-lg:   none;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: var(--font); background: linear-gradient(160deg, var(--bg-start) 0%, var(--bg-end) 50%, #d1f0e3 100%); background-attachment: fixed; color: var(--text); min-height: 100vh; }
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      background:
+        radial-gradient(circle at 18% 10%, rgba(15, 76, 129, 0.08), transparent 28%),
+        radial-gradient(circle at 82% 18%, rgba(31, 139, 106, 0.08), transparent 26%),
+        radial-gradient(circle at 65% 86%, rgba(185, 106, 22, 0.05), transparent 22%);
+    }
+    .container { max-width: 820px; margin: 32px auto 48px; background: rgba(255,255,255,0.92); border: 1px solid rgba(168,223,204,0.9); border-radius: 22px; box-shadow: none; padding: 0 0 28px 0; overflow: hidden; backdrop-filter: blur(10px); }
+    header { background: linear-gradient(135deg, var(--navy-dark) 0%, var(--navy) 60%, #146b4f 100%); padding: 30px 28px 26px; text-align: center; position: relative; overflow: hidden; }
+    header::after { content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 3px; background: linear-gradient(90deg, transparent, #5ce5b6, transparent); }
+    .header-eyebrow { font-family: var(--font-mono); font-size: 0.70rem; letter-spacing: 0.20em; text-transform: uppercase; color: #93f0d0; margin-bottom: 8px; }
+    .header-title { font-size: 2rem; font-weight: 800; color: #ffffff; letter-spacing: -0.01em; }
+    .header-subtitle { font-size: 0.84rem; color: #93f0d0; margin-top: 6px; font-weight: 500; }
+    nav { background: var(--navy-dark); display: flex; padding: 0 16px; height: 46px; align-items: center; overflow-x: auto; scrollbar-width: none; gap: 2px; border-bottom: 1px solid rgba(255,255,255,0.06); }
+    nav::-webkit-scrollbar { display: none; }
+    nav a { color: #93f0d0; text-decoration: none; font-size: 0.80rem; font-weight: 600; padding: 0 13px; height: 46px; display: flex; align-items: center; border-bottom: 2px solid transparent; white-space: nowrap; letter-spacing: 0.01em; transition: color 0.2s, border-color 0.2s; }
+    nav a:focus-visible { outline: 2px solid #1f8b6a; outline-offset: 4px; border-radius: 4px; }
+    nav a:hover { color: #ffffff; border-bottom-color: rgba(147,240,208,0.5); }
+    nav a.active { color: #ffffff; border-bottom-color: #5ce5b6; }
+    .test-info { display: flex; justify-content: space-between; align-items: center; padding: 14px 28px; background: linear-gradient(180deg, #f8fbff 0%, #eef4ff 100%); border-bottom: 1px solid var(--border); flex-wrap: wrap; gap: 12px; }
+    .section-time { font-family: var(--font-mono); font-size: 0.85rem; color: var(--text-muted); display: flex; align-items: center; gap: 8px; }
+    #sectionTimerDisplay { color: var(--navy-dark); font-weight: 800; }
+    #sectionTimerDisplay.warn { color: var(--red); animation: pulse 1s infinite; }
+    .task-badge { font-size: 0.8rem; color: var(--navy-dark); background: var(--surface); border: 1px solid var(--blue-border); border-radius: 999px; padding: 8px 14px; font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase; }
+    .card-area { padding: 28px 30px 24px; min-height: 420px; }
+    .intro-card { text-align: left; padding: 26px 24px 24px; background: linear-gradient(180deg, rgba(209,240,227,0.35), rgba(255,255,255,0.95)); border: 1px solid rgba(168,223,204,0.8); border-radius: 18px; box-shadow: none; }
+    .intro-grid { display: grid; grid-template-columns: minmax(0, 1.35fr) minmax(240px, 0.85fr); gap: 20px; align-items: start; }
+    .intro-copy h2 { font-size: 1.65rem; color: var(--navy-dark); margin-bottom: 12px; }
+    .intro-copy p { color: var(--text-mid); font-size: 1rem; line-height: 1.75; max-width: 620px; margin-bottom: 18px; }
+    .features { display: grid; gap: 12px; }
+    .feature { background: var(--surface); border: 1px solid var(--blue-border); border-left: 4px solid var(--blue); border-radius: 14px; padding: 14px 16px; box-shadow: none; }
+    .feature-text { font-size: 0.83rem; color: var(--navy); font-weight: 800; letter-spacing: 0.05em; text-transform: uppercase; line-height: 1.4; }
+    .feature-text small { display: block; margin-top: 4px; font-size: 0.76rem; color: var(--text-mid); letter-spacing: 0.02em; font-weight: 600; text-transform: none; }
+    .intro-actions { margin-top: 18px; display: flex; flex-wrap: wrap; gap: 12px; align-items: center; }
+    .intro-note { font-size: 0.86rem; color: var(--text-muted); }
+    .btn { display: inline-block; background: var(--blue); color: #ffffff; padding: 14px 40px; border-radius: 50px; font-size: 0.88rem; font-weight: 800; font-family: var(--font); border: none; cursor: pointer; letter-spacing: 0.06em; text-transform: uppercase; transition: background 0.2s, transform 0.18s, box-shadow 0.2s; box-shadow: none; }
+    .btn:hover { background: #146b4f; transform: translateY(-2px); box-shadow: none; }
+    .btn:disabled { opacity: 0.4; cursor: not-allowed; transform: none; }
+    .btn-sm { padding: 10px 24px; font-size: 0.8rem; }
+    .phase { display: none; }
+    .phase.active { display: block; }
+    .phase.active .intro-card, .phase.active .task-header, .phase.active .prompt-box, .phase.active .audio-area, .phase.active .timer-group, .phase.active .control-group, .phase.active .playback-area, .phase.active .summary-box { animation: riseIn 220ms ease-out; }
+    .task-header { background: linear-gradient(135deg, #eff6ff 0%, #ffffff 100%); border: 1px solid var(--blue-border); border-left: 5px solid var(--blue); padding: 16px 18px; border-radius: 14px; margin-bottom: 18px; box-shadow: none; }
+    .task-header h3 { font-size: 1.02rem; font-weight: 800; color: var(--navy-dark); margin-bottom: 4px; }
+    .task-header p { font-size: 0.88rem; color: var(--text-mid); }
+    .prompt-box { background: linear-gradient(180deg, var(--surface-alt) 0%, #ffffff 100%); border: 1.5px solid var(--border); border-radius: 16px; padding: 20px 20px; margin-bottom: 18px; box-shadow: none; }
+    .prompt-label { font-size: 0.78rem; font-weight: 700; color: var(--blue); text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 8px; }
+    .prompt-box p { font-size: 0.98rem; color: var(--text); line-height: 1.75; }
+    .audio-area { background: linear-gradient(180deg, #f0faf3 0%, #ffffff 100%); border: 1.5px solid var(--blue-border); border-radius: 16px; padding: 16px 20px; margin-bottom: 18px; display: flex; align-items: center; gap: 14px; }
+    .audio-icon { width: 44px; height: 44px; background: var(--blue); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-size: 1.3rem; flex-shrink: 0; }
+    .audio-info { flex: 1; }
+    .audio-info .audio-label { font-size: 0.78rem; font-weight: 700; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.04em; margin-bottom: 2px; }
+    .audio-info .audio-title { font-size: 0.92rem; color: var(--navy-dark); font-weight: 600; }
+    .audio-info .audio-note { font-size: 0.8rem; color: var(--text-muted); margin-top: 2px; }
+    .timer-group { display: flex; gap: 16px; margin-bottom: 18px; flex-wrap: wrap; }
+    .timer-card { flex: 1; min-width: 140px; background: linear-gradient(180deg, #ffffff 0%, #f8fbff 100%); border: 1px solid var(--blue-border); border-radius: 14px; padding: 12px 16px; box-shadow: none; text-align: center; }
+    .timer-label { font-size: 0.72rem; font-weight: 700; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 4px; }
+    .timer-value { font-size: 1.8rem; font-weight: 800; color: var(--navy-dark); font-variant-numeric: tabular-nums; }
+    .timer-value.warn { color: var(--red); }
+    .timer-value.active { color: var(--blue); }
+    .control-group { display: flex; gap: 12px; margin-bottom: 18px; flex-wrap: wrap; }
+    .btn-record { background: var(--red); color: #ffffff; padding: 12px 28px; border-radius: 50px; font-size: 0.85rem; font-weight: 800; font-family: var(--font); border: none; cursor: pointer; letter-spacing: 0.06em; text-transform: uppercase; transition: background 0.2s, transform 0.18s; }
+    .btn-record:hover { background: #b91c1c; transform: translateY(-2px); }
+    .btn-record:disabled { opacity: 0.4; cursor: not-allowed; transform: none; }
+    .btn-record.recording { animation: recPulse 1.2s infinite; }
+    @keyframes recPulse { 0%, 100% { box-shadow: 0 0 0 0 rgba(220,38,38,0.4); } 50% { box-shadow: 0 0 0 8px rgba(220,38,38,0); } }
+    .btn-stop { background: #6b7280; color: #ffffff; padding: 12px 28px; border-radius: 50px; font-size: 0.85rem; font-weight: 800; font-family: var(--font); border: none; cursor: pointer; letter-spacing: 0.06em; text-transform: uppercase; transition: background 0.2s, transform 0.18s; }
+    .btn-stop:hover { background: #4b5563; transform: translateY(-2px); }
+    .btn-stop:disabled { opacity: 0.4; cursor: not-allowed; transform: none; }
+    .btn-prep { background: var(--amber-border); color: #ffffff; padding: 12px 28px; border-radius: 50px; font-size: 0.85rem; font-weight: 800; font-family: var(--font); border: none; cursor: pointer; letter-spacing: 0.06em; text-transform: uppercase; transition: background 0.2s, transform 0.18s; }
+    .btn-prep:hover { background: #d97706; transform: translateY(-2px); }
+    .btn-prep:disabled { opacity: 0.4; cursor: not-allowed; transform: none; }
+    .playback-area { display: none; background: linear-gradient(180deg, #f0faf3 0%, #ffffff 100%); border: 1.5px solid var(--blue-border); border-radius: 16px; padding: 14px 20px; margin-bottom: 18px; align-items: center; gap: 14px; }
+    .playback-area.visible { display: flex; }
+    .playback-area audio { flex: 1; height: 40px; }
+    .playback-label { font-size: 0.78rem; font-weight: 700; color: var(--green); text-transform: uppercase; letter-spacing: 0.04em; white-space: nowrap; }
+    .nav-btns { display: flex; justify-content: flex-end; margin-top: 20px; }
+    .next-btn { padding: 14px 40px; background: var(--blue); color: #ffffff; border: none; border-radius: 50px; font-size: 0.88rem; font-weight: 800; font-family: var(--font); cursor: pointer; letter-spacing: 0.06em; text-transform: uppercase; transition: background 0.2s, transform 0.18s, box-shadow 0.2s; box-shadow: none; }
+    .next-btn:hover { background: #146b4f; transform: translateY(-2px); box-shadow: none; }
+    .next-btn:disabled { opacity: 0.4; cursor: not-allowed; transform: none; }
+    .complete-card { text-align: center; padding: 56px 24px; }
+    .complete-card h2 { font-size: 1.8rem; color: var(--navy-dark); margin-bottom: 10px; }
+    .complete-card p { color: var(--text-mid); font-size: 1rem; margin-bottom: 24px; }
+    .summary-box { background: linear-gradient(180deg, #f8fbff 0%, #ffffff 100%); border: 1.5px solid var(--border); border-radius: 16px; padding: 20px 24px; margin: 0 auto 28px; max-width: 520px; text-align: left; box-shadow: none; }
+    .summary-item { display: flex; justify-content: space-between; padding: 10px 0; border-bottom: 1px solid #edf2f7; font-size: 0.93rem; color: var(--text-mid); }
+    .summary-item:last-child { border-bottom: none; }
+    .summary-item .val { font-weight: 700; color: var(--navy-dark); }
+    .summary-item .val.recorded { color: var(--green); }
+    .summary-item .val.skipped { color: var(--red); }
+    .btn-row { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+    .btn-outline { padding: 12px 28px; background: transparent; color: var(--text-muted); border: 1.5px solid var(--border); border-radius: 50px; font-size: 0.84rem; font-weight: 700; font-family: var(--font); cursor: pointer; text-decoration: none; letter-spacing: 0.06em; text-transform: uppercase; transition: border-color 0.2s, color 0.2s; }
+    .btn-outline:hover { border-color: var(--text-muted); color: var(--text); }
+    .btn-primary { padding: 14px 40px; background: var(--blue); color: #ffffff; border: none; border-radius: 50px; font-size: 0.88rem; font-weight: 800; font-family: var(--font); cursor: pointer; text-decoration: none; letter-spacing: 0.06em; text-transform: uppercase; transition: background 0.2s, transform 0.18s, box-shadow 0.2s; box-shadow: none; }
+    .btn-primary:hover { background: #146b4f; transform: translateY(-2px); box-shadow: none; }
+    .btn-primary:disabled { opacity: 0.5; cursor: not-allowed; transform: none; }
+    footer { background: var(--navy-dark); color: #8aa0c8; text-align: center; padding: 16px; font-family: var(--font-mono); font-size: 0.72rem; letter-spacing: 0.08em; border-top: 1px solid rgba(255,255,255,0.06); }
+    #sectionTimer { font-size: 1.2rem; font-weight: 800; color: var(--navy-dark); font-family: var(--font-mono); }
+    #sectionTimer.warn { color: var(--red); animation: pulse 1s infinite; }
+    .timer-icon { font-size: 1.1rem; }
+    .progress-dots { display: flex; gap: 8px; align-items: center; margin-bottom: 20px; }
+    .progress-dot { width: 12px; height: 12px; border-radius: 50%; background: var(--border); transition: background 0.3s, transform 0.2s; }
+    .progress-dot.done { background: var(--blue); }
+    .progress-dot.active { background: var(--blue); transform: scale(1.3); box-shadow: 0 0 0 3px rgba(31,139,106,0.2); }
+    .progress-label { font-size: 0.8rem; color: var(--text-muted); font-weight: 600; margin-left: 8px; }
+    .phase-label { display: inline-block; font-size: 0.78rem; font-weight: 700; color: var(--navy); background: var(--blue-light); border-radius: 999px; padding: 4px 12px; letter-spacing: 0.04em; text-transform: uppercase; margin-bottom: 12px; }
+    .status-badge { display: inline-flex; align-items: center; gap: 6px; font-size: 0.78rem; font-weight: 700; padding: 6px 14px; border-radius: 999px; }
+    .status-badge.idle { background: #f3f4f6; color: var(--text-muted); }
+    .status-badge.prepping { background: var(--amber-bg); color: var(--amber); }
+    .status-badge.recording { background: #fee2e2; color: var(--red); }
+    .status-badge.done { background: #dcfce7; color: var(--green); }
+    .recording-indicator { display: none; align-items: center; gap: 8px; font-size: 0.85rem; font-weight: 700; color: var(--red); }
+    .recording-indicator.visible { display: flex; }
+    .recording-indicator .rec-dot { width: 10px; height: 10px; border-radius: 50%; background: var(--red); animation: recBlink 0.8s infinite; }
+    @keyframes recBlink { 0%, 100% { opacity: 1; } 50% { opacity: 0.3; } }
+    @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.7; } }
+    @keyframes riseIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+    .progress-saved { display: flex; align-items: center; gap: 6px; font-size: 0.78rem; color: #16a34a; font-family: var(--font-mono); letter-spacing: 0.05em; }
+    .progress-saved::before { content: '\2713'; font-weight: 700; font-size: 1rem; }
+    .timer-icon { font-size: 1.1rem; }
+    .mic-test-area { background: var(--amber-bg); border: 1px solid var(--amber-border); border-radius: 14px; padding: 12px 16px; margin-bottom: 18px; display: flex; align-items: center; gap: 12px; flex-wrap: wrap; }
+    .mic-test-area .mic-label { font-size: 0.78rem; font-weight: 700; color: var(--amber); text-transform: uppercase; letter-spacing: 0.04em; }
+    .mic-test-area .mic-status { font-size: 0.85rem; color: var(--text-mid); }
+    .btn-mic-test { padding: 8px 18px; background: transparent; color: var(--amber); border: 1.5px solid var(--amber-border); border-radius: 50px; font-size: 0.78rem; font-weight: 700; font-family: var(--font); cursor: pointer; letter-spacing: 0.04em; text-transform: uppercase; transition: background 0.2s; }
+    .btn-mic-test:hover { background: var(--amber-bg); }
+    .btn-mic-test:disabled { opacity: 0.5; cursor: not-allowed; }
+    @media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation: none !important; transition: none !important; scroll-behavior: auto !important; } body::before { display: none; } }
+    @media (max-width: 700px) {
+      .container { margin: 16px 12px 24px; border-radius: 18px; }
+      header { padding: 24px 18px 20px; } nav { padding: 0 10px; }
+      nav a { padding: 0 10px; } .test-info { padding: 12px 16px; }
+      .card-area { padding: 20px 16px 18px; } .intro-card { padding: 22px 18px 18px; }
+      .intro-grid { grid-template-columns: 1fr; } .intro-copy h2 { font-size: 1.4rem; }
+      .timer-group { flex-direction: column; }
+      .btn, .next-btn, .btn-primary, .btn-record, .btn-stop, .btn-prep { width: 100%; text-align: center; }
+      .nav-btns { justify-content: stretch; } .nav-btns .next-btn { width: 100%; }
+      .btn-row { flex-direction: column; } .btn-row > * { width: 100%; text-align: center; }
+      .control-group { flex-direction: column; }
+      .playback-area { flex-direction: column; }
+      .playback-area audio { width: 100%; }
+    }
+  </style>
+  <link rel="stylesheet" href="assets/flat-style-system.css">
+  <link rel="stylesheet" href="assets/exam-booklet.css">
+  <link rel="stylesheet" href="assets/section-shell.css">
+  <link rel="stylesheet" href="assets/index-shell.css">
+  <script type="module" src="assets/student-gate.js"></script>
+  <link rel="stylesheet" href="assets/met-standard.css" />
+  <link rel="stylesheet" href="assets/exam-cockpit.css" />
+</head>
+<body class="section-page speaking-cockpit">
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand" href="mock-home.html" aria-label="MET Mock Test 2 homepage">
+        <span>
+          <strong>MET Mock Test 2</strong>
+          <span>Michigan English Test Practice</span>
+        </span>
+      </a>
+      <nav class="main-nav" aria-label="Primary">
+        <a href="mock-home.html">Home</a>
+        <a href="Listening/listening.html?part=1">Listening</a>
+        <a href="reading.html">Reading</a>
+        <a href="writing.html">Writing</a>
+        <a class="active" aria-current="page" href="speaking.html">Speaking</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="section-main">
+<div class="container">
+  <header>
+    <div class="header-eyebrow">MET Mock Test 2</div>
+    <div class="header-title">Speaking</div>
+    <div class="header-subtitle">5 tasks &middot; Audio prompts</div>
+  </header>
+<div class="test-info">
+    <div class="section-time">Section Time: <span id="sectionTimerDisplay">12:30</span></div>
+    <div class="task-badge" id="taskBadge">Not started</div>
+  </div>
+
+  <div class="exam-workspace">
+    <aside class="exam-rail" aria-label="Speaking progress">
+      <div class="exam-rail-head">
+        <div class="exam-section-label">Speaking</div>
+        <div class="exam-section-meta">5 tasks &middot; 12.5 minutes</div>
+        <div class="exam-section-meta" id="cockpitProgressText">Not started</div>
+        <div class="exam-progress-track" aria-hidden="true">
+          <div class="exam-progress-fill" id="cockpitProgressFill"></div>
+        </div>
+      </div>
+      <div class="exam-steps">
+        <div class="exam-step is-active" id="railIntro">
+          <div class="exam-step-number"><span>&#9679;</span></div>
+          <div>
+            <div class="exam-step-title">Intro</div>
+            <div class="exam-step-subtitle">Welcome</div>
+          </div>
+          <div class="exam-step-state" aria-hidden="true"></div>
+        </div>
+        <div class="exam-step" id="railA1">
+          <div class="exam-step-number">A1</div>
+          <div>
+            <div class="exam-step-title">Task 1</div>
+            <div class="exam-step-subtitle">Personal</div>
+          </div>
+          <div class="exam-step-state" aria-hidden="true"></div>
+        </div>
+        <div class="exam-step" id="railA2">
+          <div class="exam-step-number">A2</div>
+          <div>
+            <div class="exam-step-title">Task 2</div>
+            <div class="exam-step-subtitle">Personal</div>
+          </div>
+          <div class="exam-step-state" aria-hidden="true"></div>
+        </div>
+        <div class="exam-step" id="railA3">
+          <div class="exam-step-number">A3</div>
+          <div>
+            <div class="exam-step-title">Task 3</div>
+            <div class="exam-step-subtitle">Personal</div>
+          </div>
+          <div class="exam-step-state" aria-hidden="true"></div>
+        </div>
+        <div class="exam-step" id="railB1">
+          <div class="exam-step-number">B1</div>
+          <div>
+            <div class="exam-step-title">Task 4</div>
+            <div class="exam-step-subtitle">Persuasive</div>
+          </div>
+          <div class="exam-step-state" aria-hidden="true"></div>
+        </div>
+        <div class="exam-step" id="railB2">
+          <div class="exam-step-number">B2</div>
+          <div>
+            <div class="exam-step-title">Task 5</div>
+            <div class="exam-step-subtitle">Persuasive</div>
+          </div>
+          <div class="exam-step-state" aria-hidden="true"></div>
+        </div>
+      </div>
+    </aside>
+
+  <div class="card-area">
+    <div class="progress-dots">
+      <span class="progress-dot active" id="dotIntro" title="Introduction"></span>
+      <span class="progress-dot" id="dotA1" title="Task A1"></span>
+      <span class="progress-dot" id="dotA2" title="Task A2"></span>
+      <span class="progress-dot" id="dotA3" title="Task A3"></span>
+      <span class="progress-dot" id="dotB1" title="Task B1"></span>
+      <span class="progress-dot" id="dotB2" title="Task B2"></span>
+      <span class="progress-dot" id="dotComplete" title="Complete"></span>
+      <span class="progress-label" id="progressLabel">Intro</span>
+    </div>
+
+    <div id="phaseIntro" class="phase active">
+      <div class="intro-card">
+        <div class="intro-grid">
+          <div class="intro-copy">
+            <h2>Speaking Section</h2>
+            <p>This section tests your ability to speak in English. You will complete <strong>5 tasks</strong> across two parts. Your responses will be recorded. Speak clearly and manage your time carefully.</p>
+            <div class="mic-test-area">
+              <div class="mic-label">Microphone</div>
+              <div class="mic-status" id="micStatus">Not tested</div>
+              <button class="btn-mic-test" id="micTestBtn" onclick="testMicrophone()">Test Microphone</button>
+            </div>
+            <div class="intro-actions">
+              <button class="btn" onclick="beginSection()">Begin Speaking</button>
+              <div class="intro-note">The section timer will start when you begin.</div>
+            </div>
+          </div>
+          <div class="features" aria-label="Speaking section overview">
+            <div class="feature"><div class="feature-text">Part A: Personal Questions<small>3 tasks &middot; ~30s prep &middot; ~45s recording each</small></div></div>
+            <div class="feature"><div class="feature-text">Part B: Persuasive Tasks<small>2 tasks &middot; ~60s prep &middot; ~90s recording each</small></div></div>
+            <div class="feature"><div class="feature-text">Total Time<small>12 minutes 30 seconds shared across all tasks</small></div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="phaseA1" class="phase">
+      <div class="phase-label">Part A &mdash; Personal Questions</div>
+      <div class="task-header">
+        <h3>Task A1 &mdash; Describe a hobby</h3>
+        <p>30 seconds preparation &middot; 45 seconds to record your response</p>
+      </div>
+      <div class="prompt-box">
+        <div class="prompt-label">Speaking Prompt</div>
+        <p>Describe a hobby or activity you enjoy. Why do you like it? How often do you do it? Explain how you started doing it.</p>
+      </div>
+      <div class="audio-area">
+        <div class="audio-icon">&#9654;</div>
+        <div class="audio-info">
+          <div class="audio-label">Audio Prompt</div>
+          <div class="audio-title">Task A1 Prompt</div>
+          <div class="audio-note">Audio prompt placeholder &mdash; the narrator will read the prompt aloud.</div>
+        </div>
+      </div>
+      <div class="status-badge idle" id="statusA1">Not started</div>
+      <div class="recording-indicator" id="recIndicatorA1">
+        <span class="rec-dot"></span> Recording in progress...
+      </div>
+      <div class="timer-group">
+        <div class="timer-card">
+          <div class="timer-label">Preparation</div>
+          <div class="timer-value" id="prepTimerA1">30</div>
+        </div>
+        <div class="timer-card">
+          <div class="timer-label">Recording</div>
+          <div class="timer-value" id="recTimerA1">45</div>
+        </div>
+      </div>
+      <div class="control-group">
+        <button class="btn-prep" id="prepBtnA1" onclick="startPrep('a1')">Start Preparation</button>
+        <button class="btn-record" id="recordBtnA1" onclick="startRecording('a1')" disabled>Start Recording</button>
+        <button class="btn-stop" id="stopBtnA1" onclick="stopRecording('a1')" disabled>Stop Recording</button>
+      </div>
+      <div class="playback-area" id="playbackA1">
+        <span class="playback-label">Your Recording</span>
+        <audio id="playbackAudioA1" controls></audio>
+      </div>
+      <div class="nav-btns">
+        <button class="next-btn" id="nextA1" onclick="goToTask('a2')" disabled>Next: Task A2</button>
+      </div>
+    </div>
+
+    <div id="phaseA2" class="phase">
+      <div class="phase-label">Part A &mdash; Personal Questions</div>
+      <div class="task-header">
+        <h3>Task A2 &mdash; Influential person</h3>
+        <p>30 seconds preparation &middot; 45 seconds to record your response</p>
+      </div>
+      <div class="prompt-box">
+        <div class="prompt-label">Speaking Prompt</div>
+        <p>Talk about a person who has influenced you. Who is this person? How have they influenced your life? What have you learned from them?</p>
+      </div>
+      <div class="audio-area">
+        <div class="audio-icon">&#9654;</div>
+        <div class="audio-info">
+          <div class="audio-label">Audio Prompt</div>
+          <div class="audio-title">Task A2 Prompt</div>
+          <div class="audio-note">Audio prompt placeholder &mdash; the narrator will read the prompt aloud.</div>
+        </div>
+      </div>
+      <div class="status-badge idle" id="statusA2">Not started</div>
+      <div class="recording-indicator" id="recIndicatorA2">
+        <span class="rec-dot"></span> Recording in progress...
+      </div>
+      <div class="timer-group">
+        <div class="timer-card">
+          <div class="timer-label">Preparation</div>
+          <div class="timer-value" id="prepTimerA2">30</div>
+        </div>
+        <div class="timer-card">
+          <div class="timer-label">Recording</div>
+          <div class="timer-value" id="recTimerA2">45</div>
+        </div>
+      </div>
+      <div class="control-group">
+        <button class="btn-prep" id="prepBtnA2" onclick="startPrep('a2')">Start Preparation</button>
+        <button class="btn-record" id="recordBtnA2" onclick="startRecording('a2')" disabled>Start Recording</button>
+        <button class="btn-stop" id="stopBtnA2" onclick="stopRecording('a2')" disabled>Stop Recording</button>
+      </div>
+      <div class="playback-area" id="playbackA2">
+        <span class="playback-label">Your Recording</span>
+        <audio id="playbackAudioA2" controls></audio>
+      </div>
+      <div class="nav-btns">
+        <button class="next-btn" id="nextA2" onclick="goToTask('a3')" disabled>Next: Task A3</button>
+      </div>
+    </div>
+
+    <div id="phaseA3" class="phase">
+      <div class="phase-label">Part A &mdash; Personal Questions</div>
+      <div class="task-header">
+        <h3>Task A3 &mdash; Favorite place to relax</h3>
+        <p>30 seconds preparation &middot; 45 seconds to record your response</p>
+      </div>
+      <div class="prompt-box">
+        <div class="prompt-label">Speaking Prompt</div>
+        <p>Describe your favorite place to relax. Where is it? Why do you feel comfortable there? What do you usually do when you are there?</p>
+      </div>
+      <div class="audio-area">
+        <div class="audio-icon">&#9654;</div>
+        <div class="audio-info">
+          <div class="audio-label">Audio Prompt</div>
+          <div class="audio-title">Task A3 Prompt</div>
+          <div class="audio-note">Audio prompt placeholder &mdash; the narrator will read the prompt aloud.</div>
+        </div>
+      </div>
+      <div class="status-badge idle" id="statusA3">Not started</div>
+      <div class="recording-indicator" id="recIndicatorA3">
+        <span class="rec-dot"></span> Recording in progress...
+      </div>
+      <div class="timer-group">
+        <div class="timer-card">
+          <div class="timer-label">Preparation</div>
+          <div class="timer-value" id="prepTimerA3">30</div>
+        </div>
+        <div class="timer-card">
+          <div class="timer-label">Recording</div>
+          <div class="timer-value" id="recTimerA3">45</div>
+        </div>
+      </div>
+      <div class="control-group">
+        <button class="btn-prep" id="prepBtnA3" onclick="startPrep('a3')">Start Preparation</button>
+        <button class="btn-record" id="recordBtnA3" onclick="startRecording('a3')" disabled>Start Recording</button>
+        <button class="btn-stop" id="stopBtnA3" onclick="stopRecording('a3')" disabled>Stop Recording</button>
+      </div>
+      <div class="playback-area" id="playbackA3">
+        <span class="playback-label">Your Recording</span>
+        <audio id="playbackAudioA3" controls></audio>
+      </div>
+      <div class="nav-btns">
+        <button class="next-btn" id="nextA3" onclick="goToTask('b1')" disabled>Next: Task B1</button>
+      </div>
+    </div>
+
+    <div id="phaseB1" class="phase">
+      <div class="phase-label">Part B &mdash; Persuasive Tasks</div>
+      <div class="task-header">
+        <h3>Task B1 &mdash; Technology debate</h3>
+        <p>60 seconds preparation &middot; 90 seconds to record your response</p>
+      </div>
+      <div class="prompt-box">
+        <div class="prompt-label">Speaking Prompt</div>
+        <p>Some people believe that technology makes our lives better. Others argue that it creates more problems than it solves. What is your opinion? Provide specific reasons and examples to support your position.</p>
+      </div>
+      <div class="audio-area">
+        <div class="audio-icon">&#9654;</div>
+        <div class="audio-info">
+          <div class="audio-label">Audio Prompt</div>
+          <div class="audio-title">Task B1 Prompt</div>
+          <div class="audio-note">Audio prompt placeholder &mdash; the narrator will read the prompt aloud.</div>
+        </div>
+      </div>
+      <div class="status-badge idle" id="statusB1">Not started</div>
+      <div class="recording-indicator" id="recIndicatorB1">
+        <span class="rec-dot"></span> Recording in progress...
+      </div>
+      <div class="timer-group">
+        <div class="timer-card">
+          <div class="timer-label">Preparation</div>
+          <div class="timer-value" id="prepTimerB1">60</div>
+        </div>
+        <div class="timer-card">
+          <div class="timer-label">Recording</div>
+          <div class="timer-value" id="recTimerB1">90</div>
+        </div>
+      </div>
+      <div class="control-group">
+        <button class="btn-prep" id="prepBtnB1" onclick="startPrep('b1')">Start Preparation</button>
+        <button class="btn-record" id="recordBtnB1" onclick="startRecording('b1')" disabled>Start Recording</button>
+        <button class="btn-stop" id="stopBtnB1" onclick="stopRecording('b1')" disabled>Stop Recording</button>
+      </div>
+      <div class="playback-area" id="playbackB1">
+        <span class="playback-label">Your Recording</span>
+        <audio id="playbackAudioB1" controls></audio>
+      </div>
+      <div class="nav-btns">
+        <button class="next-btn" id="nextB1" onclick="goToTask('b2')" disabled>Next: Task B2</button>
+      </div>
+    </div>
+
+    <div id="phaseB2" class="phase">
+      <div class="phase-label">Part B &mdash; Persuasive Tasks</div>
+      <div class="task-header">
+        <h3>Task B2 &mdash; Transportation proposal</h3>
+        <p>60 seconds preparation &middot; 90 seconds to record your response</p>
+      </div>
+      <div class="prompt-box">
+        <div class="prompt-label">Speaking Prompt</div>
+        <p>Your city is considering building a new public transportation system. Some people prefer a subway system, while others prefer more bus routes. Which option would you recommend and why? Consider cost, convenience, and environmental impact.</p>
+      </div>
+      <div class="audio-area">
+        <div class="audio-icon">&#9654;</div>
+        <div class="audio-info">
+          <div class="audio-label">Audio Prompt</div>
+          <div class="audio-title">Task B2 Prompt</div>
+          <div class="audio-note">Audio prompt placeholder &mdash; the narrator will read the prompt aloud.</div>
+        </div>
+      </div>
+      <div class="status-badge idle" id="statusB2">Not started</div>
+      <div class="recording-indicator" id="recIndicatorB2">
+        <span class="rec-dot"></span> Recording in progress...
+      </div>
+      <div class="timer-group">
+        <div class="timer-card">
+          <div class="timer-label">Preparation</div>
+          <div class="timer-value" id="prepTimerB2">60</div>
+        </div>
+        <div class="timer-card">
+          <div class="timer-label">Recording</div>
+          <div class="timer-value" id="recTimerB2">90</div>
+        </div>
+      </div>
+      <div class="control-group">
+        <button class="btn-prep" id="prepBtnB2" onclick="startPrep('b2')">Start Preparation</button>
+        <button class="btn-record" id="recordBtnB2" onclick="startRecording('b2')" disabled>Start Recording</button>
+        <button class="btn-stop" id="stopBtnB2" onclick="stopRecording('b2')" disabled>Stop Recording</button>
+      </div>
+      <div class="playback-area" id="playbackB2">
+        <span class="playback-label">Your Recording</span>
+        <audio id="playbackAudioB2" controls></audio>
+      </div>
+      <div class="nav-btns">
+        <button class="next-btn" id="nextB2" onclick="finishSection()" disabled>Submit Speaking</button>
+      </div>
+    </div>
+
+    <div id="phaseComplete" class="phase complete-card">
+      <h2>Speaking Complete!</h2>
+      <p>You have completed all 5 speaking tasks. Review your summary below.</p>
+      <div class="summary-box">
+        <div class="summary-item"><span>Task A1 &mdash; Hobby</span><span class="val" id="finalA1">Not recorded</span></div>
+        <div class="summary-item"><span>Task A2 &mdash; Influential person</span><span class="val" id="finalA2">Not recorded</span></div>
+        <div class="summary-item"><span>Task A3 &mdash; Favorite place</span><span class="val" id="finalA3">Not recorded</span></div>
+        <div class="summary-item"><span>Task B1 &mdash; Technology debate</span><span class="val" id="finalB1">Not recorded</span></div>
+        <div class="summary-item"><span>Task B2 &mdash; Transportation proposal</span><span class="val" id="finalB2">Not recorded</span></div>
+        <div class="summary-item"><span>Total tasks completed</span><span class="val" id="finalTotal">0 / 5</span></div>
+      </div>
+      <div id="narrator-zone-listening" class="narrator-zone" style="display:none">
+        <audio id="narrator-audio-listening" preload="metadata"></audio>
+        <div class="narrator-message">
+          <p class="narrator-text">Please listen to the next section introduction...</p>
+          <p class="narrator-note">(Audio playing)</p>
+        </div>
+      </div>
+      <div class="btn-row">
+        <a class="btn-outline" href="mock-home.html">Return to Home</a>
+        <a class="btn-primary" id="next-listening-btn" href="Listening/listening.html" disabled style="opacity:0.5;cursor:not-allowed;">Next: Listening</a>
+      </div>
+    </div>
+
+  </div>
+
+    <aside class="exam-side" aria-label="Speaking status">
+      <div class="exam-side-card">
+        <div class="exam-side-title">Section timer</div>
+        <div class="exam-side-time" id="sideTimer">12:30</div>
+        <div class="exam-side-sub">12 minutes 30 seconds total.</div>
+      </div>
+      <div class="exam-side-card">
+        <div class="exam-side-title">Tasks overview</div>
+        <div class="exam-side-row"><span>A1 &mdash; Hobby</span><strong id="sideA1">Not started</strong></div>
+        <div class="exam-side-row"><span>A2 &mdash; Person</span><strong id="sideA2">Not started</strong></div>
+        <div class="exam-side-row"><span>A3 &mdash; Place</span><strong id="sideA3">Not started</strong></div>
+        <div class="exam-side-row"><span>B1 &mdash; Technology</span><strong id="sideB1">Not started</strong></div>
+        <div class="exam-side-row"><span>B2 &mdash; Transport</span><strong id="sideB2">Not started</strong></div>
+      </div>
+      <div class="exam-side-card">
+        <div class="exam-side-title">Recordings</div>
+        <div class="exam-side-row"><span>Completed</span><strong id="sideRecorded">0</strong></div>
+        <div class="exam-side-row"><span>Remaining</span><strong id="sideRemaining">5</strong></div>
+      </div>
+      <div class="exam-side-card exam-warning">
+        Speak clearly into your microphone. You cannot re-record tasks once submitted.
+      </div>
+    </aside>
+  </div>
+
+    <footer class="exam-status-bar">
+      <div class="exam-status-item">
+        Secure exam environment
+        <strong>Do not refresh or close this page</strong>
+      </div>
+      <div class="exam-status-group">
+        <div class="exam-status-item">Section<strong>Speaking</strong></div>
+        <div class="exam-status-item">Progress<strong id="bottomProgress">Not started</strong></div>
+        <div class="exam-status-item">Time elapsed<strong id="bottomElapsed">00:00</strong></div>
+      </div>
+    </footer>
+</div>
+  </main>
+
+<script>
+const TOTAL_TIME = 750;
+const TASK_ORDER = ['a1', 'a2', 'a3', 'b1', 'b2'];
+
+const tasks = {
+  a1: { part: 'A', prepDur: 30, recDur: 45, label: 'Task A1', prompt: 'Describe a hobby or activity you enjoy.' },
+  a2: { part: 'A', prepDur: 30, recDur: 45, label: 'Task A1', prompt: 'Talk about a person who has influenced you.' },
+  a3: { part: 'A', prepDur: 30, recDur: 45, label: 'Task A1', prompt: 'Describe your favorite place to relax.' },
+  b1: { part: 'B', prepDur: 60, recDur: 90, label: 'Task B1', prompt: 'Technology makes our lives better or worse?' },
+  b2: { part: 'B', prepDur: 60, recDur: 90, label: 'Task B2', prompt: 'Subway system or more bus routes?' }
+};
+
+const taskState = {};
+TASK_ORDER.forEach(id => {
+  taskState[id] = {
+    status: 'idle',
+    prepRemaining: tasks[id].prepDur,
+    recRemaining: tasks[id].recDur,
+    audioUrl: null,
+    mediaRecorder: null,
+    audioChunks: [],
+    prepInterval: null,
+    recInterval: null
+  };
+});
+
+let totalSecs = TOTAL_TIME;
+let sectionInterval = null;
+let currentPhase = 'intro';
+let micStream = null;
+
+function formatTime(secs) {
+  const s = Math.max(0, secs);
+  const m = Math.floor(s / 60);
+  const sec = s % 60;
+  return m + ':' + sec.toString().padStart(2, '0');
+}
+
+function formatElapsed() {
+  const elapsed = TOTAL_TIME - totalSecs;
+  const m = Math.floor(Math.max(0, elapsed) / 60);
+  const s = Math.max(0, elapsed) % 60;
+  return m.toString().padStart(2, '0') + ':' + s.toString().padStart(2, '0');
+}
+
+function setPhase(id) {
+  document.querySelectorAll('.phase').forEach(p => p.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+  window.scrollTo({ top: 0, left: 0 });
+}
+
+function getSectionPhase(id) {
+  if (id === 'intro') return 'phaseIntro';
+  return 'phase' + id.toUpperCase();
+}
+
+function syncTimers() {
+  const d = formatTime(totalSecs);
+  const w = totalSecs <= 60;
+  document.getElementById('sectionTimerDisplay').textContent = d;
+  document.getElementById('sectionTimerDisplay').classList.toggle('warn', w);
+  document.getElementById('sideTimer').textContent = d;
+  document.getElementById('sideTimer').classList.toggle('warn', w);
+  document.getElementById('bottomElapsed').textContent = formatElapsed();
+  updateCockpitState();
+}
+
+function startSectionTimer() {
+  if (sectionInterval) return;
+  syncTimers();
+  sectionInterval = setInterval(() => {
+    totalSecs--;
+    syncTimers();
+    if (totalSecs <= 0) {
+      clearInterval(sectionInterval);
+      sectionInterval = null;
+      finishSection();
+    }
+  }, 1000);
+}
+
+function updateCockpitState() {
+  let completed = 0;
+  TASK_ORDER.forEach(id => {
+    if (taskState[id].status === 'done') completed++;
+  });
+
+  const pct = currentPhase === 'complete' ? 100 : Math.round((completed / TASK_ORDER.length) * 100);
+  document.getElementById('cockpitProgressFill').style.width = Math.min(100, pct) + '%';
+
+  const progressText = currentPhase === 'intro' ? 'Not started'
+    : currentPhase === 'complete' ? 'Complete'
+    : completed + ' of 5 tasks completed';
+  document.getElementById('cockpitProgressText').textContent = progressText;
+  document.getElementById('bottomProgress').textContent = progressText;
+
+  const railOrder = ['intro', 'a1', 'a2', 'a3', 'b1', 'b2'];
+  const orderIdx = {};
+  railOrder.forEach((id, i) => orderIdx[id] = i);
+  const curIdx = orderIdx[currentPhase] || 0;
+
+  railOrder.forEach((id, i) => {
+    const railId = id === 'intro' ? 'railIntro' : 'rail' + id.toUpperCase();
+    const el = document.getElementById(railId);
+    if (!el) return;
+    el.classList.toggle('is-active', i === curIdx && currentPhase !== 'complete');
+    el.classList.toggle('is-done', i < curIdx || currentPhase === 'complete');
+  });
+
+  const sideMap = ['sideA1', 'sideA2', 'sideA3', 'sideB1', 'sideB2'];
+  TASK_ORDER.forEach((id, i) => {
+    const st = taskState[id].status;
+    const el = document.getElementById(sideMap[i]);
+    if (el) el.textContent = st === 'idle' ? 'Not started' : st === 'prepping' ? 'Preparing' : st === 'recording' ? 'Recording' : 'Recorded';
+  });
+
+  document.getElementById('sideRecorded').textContent = completed;
+  document.getElementById('sideRemaining').textContent = TASK_ORDER.length - completed;
+
+  const dotIds = ['dotIntro', 'dotA1', 'dotA2', 'dotA3', 'dotB1', 'dotB2', 'dotComplete'];
+  const phaseMap = { intro: 0, a1: 1, a2: 2, a3: 3, b1: 4, b2: 5, complete: 6 };
+  const idx = phaseMap[currentPhase] || 0;
+  dotIds.forEach((id, i) => {
+    const el = document.getElementById(id);
+    if (!el) return;
+    el.classList.toggle('active', i === idx);
+    el.classList.toggle('done', i < idx);
+  });
+
+  const dotLabels = ['Intro', 'A1', 'A2', 'A3', 'B1', 'B2', 'Done'];
+  document.getElementById('progressLabel').textContent = dotLabels[idx] || '';
+}
+
+function testMicrophone() {
+  const btn = document.getElementById('micTestBtn');
+  btn.disabled = true;
+  btn.textContent = 'Testing...';
+  navigator.mediaDevices.getUserMedia({ audio: true })
+    .then(stream => {
+      document.getElementById('micStatus').textContent = 'Microphone working';
+      document.getElementById('micStatus').style.color = 'var(--green)';
+      btn.textContent = 'Microphone OK';
+      btn.style.borderColor = 'var(--green)';
+      btn.style.color = 'var(--green)';
+      stream.getTracks().forEach(t => t.stop());
+    })
+    .catch(() => {
+      document.getElementById('micStatus').textContent = 'Microphone access denied';
+      document.getElementById('micStatus').style.color = 'var(--red)';
+      btn.textContent = 'Retry';
+      btn.disabled = false;
+    });
+}
+
+function beginSection() {
+  const micBtn = document.getElementById('micTestBtn');
+  if (micBtn.textContent !== 'Microphone OK') {
+    navigator.mediaDevices.getUserMedia({ audio: true })
+      .then(stream => {
+        stream.getTracks().forEach(t => t.stop());
+        proceedToFirstTask();
+      })
+      .catch(() => {
+        if (!confirm('Microphone access is required for speaking tasks. Please allow microphone access and try again. Continue anyway?')) return;
+        proceedToFirstTask();
+      });
+  } else {
+    proceedToFirstTask();
+  }
+}
+
+function proceedToFirstTask() {
+  currentPhase = 'a1';
+  document.getElementById('taskBadge').textContent = 'Task A1 of 5';
+  startSectionTimer();
+  setPhase('phaseA1');
+  updateCockpitState();
+}
+
+function startPrep(taskId) {
+  const state = taskState[taskId];
+  if (state.status !== 'idle') return;
+  state.status = 'prepping';
+  state.prepRemaining = tasks[taskId].prepDur;
+
+  updateTaskUI(taskId);
+  updateCockpitState();
+
+  state.prepInterval = setInterval(() => {
+    state.prepRemaining--;
+    updatePrepTimer(taskId);
+    if (state.prepRemaining <= 0) {
+      clearInterval(state.prepInterval);
+      state.prepInterval = null;
+      if (state.status === 'prepping') {
+        startRecording(taskId);
+      }
+    }
+  }, 1000);
+}
+
+function updatePrepTimer(taskId) {
+  const state = taskState[taskId];
+  const el = document.getElementById('prepTimer' + taskId.toUpperCase());
+  if (el) {
+    el.textContent = state.prepRemaining;
+    el.classList.toggle('warn', state.prepRemaining <= 10 && state.prepRemaining > 0);
+  }
+}
+
+function updateTaskUI(taskId) {
+  const state = taskState[taskId];
+  const upper = taskId.toUpperCase();
+  const statusEl = document.getElementById('status' + upper);
+  const prepBtn = document.getElementById('prepBtn' + upper);
+  const recBtn = document.getElementById('recordBtn' + upper);
+  const stopBtn = document.getElementById('stopBtn' + upper);
+  const nextBtn = document.getElementById('next' + upper);
+  const recIndicator = document.getElementById('recIndicator' + upper);
+  const playback = document.getElementById('playback' + upper);
+
+  if (statusEl) {
+    statusEl.className = 'status-badge ' + state.status;
+    const labels = { idle: 'Not started', prepping: 'Preparing...', recording: 'Recording...', done: 'Recorded' };
+    statusEl.textContent = labels[state.status] || state.status;
+  }
+
+  if (prepBtn) {
+    prepBtn.disabled = state.status !== 'idle';
+    if (state.status === 'idle') prepBtn.textContent = 'Start Preparation';
+  }
+
+  if (recBtn) {
+    recBtn.disabled = state.status !== 'prepping';
+    if (state.status === 'recording') {
+      recBtn.disabled = true;
+      recBtn.classList.add('recording');
+    } else {
+      recBtn.classList.remove('recording');
+    }
+  }
+
+  if (stopBtn) {
+    stopBtn.disabled = state.status !== 'recording';
+  }
+
+  if (nextBtn) {
+    nextBtn.disabled = state.status !== 'done' && state.status !== 'recording';
+    if (state.status === 'done') nextBtn.disabled = false;
+  }
+
+  if (recIndicator) {
+    recIndicator.classList.toggle('visible', state.status === 'recording');
+  }
+
+  if (playback) {
+    playback.classList.toggle('visible', state.status === 'done' && state.audioUrl);
+  }
+
+  updatePrepTimer(taskId);
+  updateRecTimer(taskId);
+}
+
+function updateRecTimer(taskId) {
+  const state = taskState[taskId];
+  const el = document.getElementById('recTimer' + taskId.toUpperCase());
+  if (el) {
+    el.textContent = state.recRemaining;
+    el.classList.toggle('warn', state.recRemaining <= 10 && state.recRemaining > 0);
+    el.classList.toggle('active', state.status === 'recording');
+  }
+}
+
+function startRecording(taskId) {
+  const state = taskState[taskId];
+  if (state.status === 'recording') return;
+
+  if (state.prepInterval) {
+    clearInterval(state.prepInterval);
+    state.prepInterval = null;
+  }
+
+  state.status = 'recording';
+  state.recRemaining = tasks[taskId].recDur;
+  state.audioChunks = [];
+
+  updateTaskUI(taskId);
+  updateCockpitState();
+  updateRecTimer(taskId);
+
+  navigator.mediaDevices.getUserMedia({ audio: true })
+    .then(stream => {
+      micStream = stream;
+      state.mediaRecorder = new MediaRecorder(stream);
+      state.mediaRecorder.ondataavailable = e => state.audioChunks.push(e.data);
+      state.mediaRecorder.onstop = () => {
+        const audioBlob = new Blob(state.audioChunks, { type: 'audio/webm' });
+        state.audioUrl = URL.createObjectURL(audioBlob);
+        const audioEl = document.getElementById('playbackAudio' + taskId.toUpperCase());
+        if (audioEl) audioEl.src = state.audioUrl;
+        if (micStream) {
+          micStream.getTracks().forEach(t => t.stop());
+          micStream = null;
+        }
+        state.status = 'done';
+        updateTaskUI(taskId);
+        updateCockpitState();
+      };
+      state.mediaRecorder.start();
+
+      state.recInterval = setInterval(() => {
+        state.recRemaining--;
+        updateRecTimer(taskId);
+        if (state.recRemaining <= 0) {
+          stopRecording(taskId);
+        }
+      }, 1000);
+    })
+    .catch(() => {
+      state.status = 'idle';
+      updateTaskUI(taskId);
+      alert('Microphone access is required for recording. Please allow microphone permissions and try again.');
+    });
+}
+
+function stopRecording(taskId) {
+  const state = taskState[taskId];
+  if (state.status !== 'recording') return;
+
+  if (state.recInterval) {
+    clearInterval(state.recInterval);
+    state.recInterval = null;
+  }
+
+  if (state.mediaRecorder && state.mediaRecorder.state !== 'inactive') {
+    state.mediaRecorder.stop();
+  }
+}
+
+function goToTask(taskId) {
+  const prevId = TASK_ORDER[TASK_ORDER.indexOf(taskId) - 1];
+  if (prevId && taskState[prevId] && taskState[prevId].status !== 'done') {
+    const upper = prevId.toUpperCase();
+    taskState[prevId].status = 'done';
+    if (taskState[prevId].mediaRecorder && taskState[prevId].mediaRecorder.state !== 'inactive') {
+      taskState[prevId].mediaRecorder.stop();
+    }
+    if (taskState[prevId].prepInterval) {
+      clearInterval(taskState[prevId].prepInterval);
+      taskState[prevId].prepInterval = null;
+    }
+    if (taskState[prevId].recInterval) {
+      clearInterval(taskState[prevId].recInterval);
+      taskState[prevId].recInterval = null;
+    }
+    if (micStream) {
+      micStream.getTracks().forEach(t => t.stop());
+      micStream = null;
+    }
+    updateTaskUI(prevId);
+  }
+
+  currentPhase = taskId;
+  const taskIndex = TASK_ORDER.indexOf(taskId) + 1;
+  document.getElementById('taskBadge').textContent = 'Task ' + taskIndex + ' of 5';
+  setPhase('phase' + taskId.toUpperCase());
+  updateCockpitState();
+}
+
+function finishSection() {
+  TASK_ORDER.forEach(id => {
+    const state = taskState[id];
+    if (state.status === 'recording') {
+      if (state.recInterval) {
+        clearInterval(state.recInterval);
+        state.recInterval = null;
+      }
+      if (state.mediaRecorder && state.mediaRecorder.state !== 'inactive') {
+        try { state.mediaRecorder.stop(); } catch(e) {}
+      }
+      state.status = 'done';
+    }
+    if (state.prepInterval) {
+      clearInterval(state.prepInterval);
+      state.prepInterval = null;
+    }
+    if (state.recInterval) {
+      clearInterval(state.recInterval);
+      state.recInterval = null;
+    }
+  });
+
+  if (micStream) {
+    micStream.getTracks().forEach(t => t.stop());
+    micStream = null;
+  }
+
+  if (sectionInterval) {
+    clearInterval(sectionInterval);
+    sectionInterval = null;
+  }
+
+  currentPhase = 'complete';
+  document.getElementById('taskBadge').textContent = 'Complete';
+
+  TASK_ORDER.forEach(id => {
+    const state = taskState[id];
+    const el = document.getElementById('final' + id.toUpperCase());
+    if (el) {
+      if (state.audioUrl) {
+        el.textContent = 'Recorded';
+        el.className = 'val recorded';
+      } else {
+        el.textContent = 'Not recorded';
+        el.className = 'val';
+      }
+    }
+  });
+
+  const completed = TASK_ORDER.filter(id => taskState[id].audioUrl).length;
+  document.getElementById('finalTotal').textContent = completed + ' / 5';
+
+  saveSectionResponses('speaking', {
+    remainingSeconds: totalSecs,
+    tasks: TASK_ORDER.map(id => ({
+      id: id,
+      recorded: !!taskState[id].audioUrl,
+      duration: taskState[id].audioUrl ? tasks[id].recDur : 0
+    }))
+  });
+
+  setPhase('phaseComplete');
+  updateCockpitState();
+}
+
+function saveSectionResponses(section, payload) {
+  if (!location.protocol.startsWith('http')) return;
+  fetch('/api/save-responses', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ section, timestamp: new Date().toISOString(), payload })
+  }).catch(() => {});
+}
+
+syncTimers();
+
+(function initNav() {
+  const nav = document.querySelector('.main-nav');
+  if (!nav) return;
+  const current = location.pathname.split('/').pop() || 'speaking.html';
+  nav.querySelectorAll('a[href]').forEach(link => {
+    const href = link.getAttribute('href');
+    if (href && href.split('/').pop() === current) {
+      link.classList.add('active');
+      link.setAttribute('aria-current', 'page');
+    }
+  });
+})();
+
+window.narratorSystem.init({
+  'listening': '',
+  'reading': '',
+  'speaking': '',
+  'part2': '',
+  'part3': ''
+});
+
+const originalSetPhase = window.setPhase;
+window.setPhase = function(id) {
+  if (originalSetPhase) originalSetPhase(id);
+  if (id === 'phaseComplete') {
+    const zone = document.getElementById('narrator-zone-listening');
+    if (zone) zone.style.display = 'block';
+    window.narratorSystem.play('listening', 'next-listening-btn');
+  }
+};
+</script>
+</body>
+</html>

@@ -1,0 +1,169 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Speaking Task 5 — MET Mock Test 2</title>
+  <meta name="description" content="MET Mock Test 2 — Speaking Task 5">
+  <meta name="theme-color" content="#1B3A6B">
+  <link rel="stylesheet" href="../css/met-brand.css">
+  <link rel="stylesheet" href="../css/met-standard.css">
+  <link rel="stylesheet" href="../css/met-shell.css">
+</head>
+<body class="met-shell met-speaking-shell">
+
+<!-- TOP BAR -->
+<header class="met-top-bar">
+  <div class="met-top-bar__left">
+    <span class="met-top-bar__page-label" id="met-page-label">Page: Instructions</span><br>
+    <span class="met-top-bar__section-label" id="met-section-label">Section: Speaking</span>
+  </div>
+  <div class="met-top-bar__center">
+    <span class="met-top-bar__timer-label">Section Time Remaining</span>
+    <span class="met-top-bar__timer" id="met-timer" aria-live="polite">00:10:00</span>
+    <div class="met-progress-wrap">
+      <div class="met-progress-bar-outer">
+        <div class="met-progress-bar-inner" id="met-progress-bar" style="width:0%"></div>
+      </div>
+      <span class="met-progress-pct" id="met-progress-pct">0%</span>
+    </div>
+  </div>
+  <div class="met-top-bar__right">
+    <button class="met-btn-finish" id="met-btn-finish">Finish Section</button>
+  </div>
+</header>
+
+<!-- INFO BAR -->
+<div class="met-info-bar">
+  <span>Michigan English Test Mock 2</span>
+</div>
+
+<!-- BODY ROW -->
+<div class="met-body-row">
+
+  <!-- SIDEBAR -->
+  <nav class="met-sidebar" id="met-sidebar" aria-label="Speaking Task 5 navigator">
+    <button class="met-sidebar__scroll" type="button" aria-label="Scroll section navigation up">▲</button>
+    <div class="met-sidebar__section-label">Speaking Task 5</div>
+    <div class="met-sidebar__numbers" id="met-sidebar-numbers">
+      <button class="met-sidebar__num met-sidebar__num--info" type="button" data-target="0" aria-label="Instructions">0</button>
+      <button class="met-sidebar__num met-sidebar__num--info" type="button" data-target="1" aria-label="Microphone">Mic</button>
+      <button class="met-sidebar__num" type="button" data-target="1" aria-label="Task 1">1</button>
+    </div>
+    <button class="met-sidebar__scroll" type="button" aria-label="Scroll section navigation down">▼</button>
+  </nav>
+
+  <!-- MAIN CONTENT -->
+  <main class="met-content-wrap">
+    <div class="met-content" id="met-content">
+
+      <!-- PAGE 0: Task 5 Instructions -->
+      <div class="met-page" data-met-page="0" data-page-label="Task 5 Instructions" data-section-label="Section: Speaking">
+        <div class="met-instructions-text">
+          <h2>Task 5 Instructions</h2>
+          <p>In this task, you will express and support an opinion on a given topic.</p>
+          <p>You will have <strong>20 seconds</strong> to prepare your response and <strong>60 seconds</strong> to speak.</p>
+          <p>Click <strong>Next</strong> to begin.</p>
+        </div>
+      </div>
+
+      <!-- PAGE 1: Task 5 — Express an Opinion -->
+      <div class="met-page" data-met-page="1" data-page-label="Task 5 — Express an Opinion" data-section-label="Section: Speaking">
+        <p class="met-speaking-task-title">Task 5 — Express an Opinion</p>
+        <div class="met-audio-player">
+          <audio controls src="../../assets/audio/speaking/speaking_prompt05.mp3" preload="auto">Your browser does not support the audio element.</audio>
+        </div>
+        <p class="met-speaking-prompt">Do you think it is important to learn about other cultures? Why or why not?</p>
+        <div class="met-speaking-countdown-outer">
+          <div class="met-speaking-countdown-inner">
+            <span class="met-speaking-countdown-label">Preparation Time</span>
+            <span class="met-speaking-countdown" id="met-prep-time">20</span>
+          </div>
+        </div>
+        <div class="met-speaking-countdown-outer">
+          <div class="met-speaking-countdown-inner">
+            <span class="met-speaking-countdown-label">Speaking Time</span>
+            <span class="met-speaking-countdown" id="met-speaking-time">60</span>
+          </div>
+        </div>
+        <div class="met-audio-capture">
+          <button class="met-btn-record" id="met-btn-record">Record</button>
+          <button class="met-btn-stop" id="met-btn-stop" style="display:none">Stop</button>
+          <span class="met-recording-status" id="met-recording-status">Ready</span>
+        </div>
+        <div class="met-speaking-end" id="met-speaking-end" style="display:none">
+          <p class="met-speaking-end-text">End of Speaking section</p>
+          <button class="met-btn-finish-section" id="met-btn-finish-section">Finish Section</button>
+        </div>
+      </div>
+
+    </div><!-- /met-content -->
+  </main>
+</div><!-- /met-body-row -->
+
+<!-- BOTTOM NAV -->
+<footer class="met-bottom-bar">
+  <div class="met-bottom-bar__nav">
+    <button class="met-btn-back" id="met-btn-back" style="display:none">◀ Back</button>
+    <button class="met-btn-next" id="met-btn-next" style="display:none">Next ▶</button>
+  </div>
+</footer>
+
+<!-- MODALS -->
+<div class="met-modal-overlay" id="met-modal-loading">
+  <div class="met-modal">
+    <div class="met-modal__header">Please wait…</div>
+    <div class="met-modal__body">
+      <div class="met-loading-spinner"></div>
+      <p>Loading</p>
+    </div>
+  </div>
+</div>
+
+<div class="met-modal-overlay" id="met-modal-proceed">
+  <div class="met-modal">
+    <div class="met-modal__header">Are you sure?</div>
+    <div class="met-modal__body">
+      <p class="met-modal__icon">?</p>
+      <p>You have not answered this question. Do you want to continue without answering?</p>
+      <div class="met-modal__btns">
+        <button class="met-modal-btn met-modal-btn--no" id="met-proceed-no">No</button>
+        <button class="met-modal-btn met-modal-btn--yes" id="met-proceed-yes">Yes</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="met-modal-overlay" id="met-modal-finish1">
+  <div class="met-modal">
+    <div class="met-modal__header">Task Complete</div>
+    <div class="met-modal__body">
+      <p>Your response has been recorded.</p>
+      <div class="met-modal__btns">
+        <button class="met-modal-btn met-modal-btn--yes" id="met-finish1-ok">OK</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="met-scroll-toast" id="met-scroll-toast">
+  ⚠ This page requires scrolling to view all content.
+  <button class="met-scroll-toast__close" id="met-scroll-toast-close" aria-label="Close">✕</button>
+</div>
+
+<a data-next-section="thanks.html" hidden></a>
+
+<script src="../js/met-shell.js"></script>
+<script>
+  METShell.init({
+    totalSeconds: 600,
+    timerStorageKey: 'met:timer:speaking',
+    hasSidebar: true,
+    listeningMode: false,
+    hasBack: false,
+    hasFinishSection: true,
+    sectionLabel: 'Speaking'
+  });
+</script>
+</body>
+</html>

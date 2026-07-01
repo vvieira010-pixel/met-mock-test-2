@@ -1,0 +1,101 @@
+body {
+  background: #f2f2f2;
+}
+
+.container {
+  background: #ffffff;
+}
+
+header {
+  background: #ffffff;
+  color: #111111;
+  border: 0;
+  box-shadow: none;
+}
+
+.header-eyebrow,
+.header-subtitle {
+  color: #333333;
+}
+
+.header-title {
+  display: block;
+  background: #231f20;
+  color: #ffffff;
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 0;
+  font-family: "Aptos", "Segoe UI", sans-serif;
+  font-size: 1.1rem;
+  font-weight: 800;
+  line-height: 1.2;
+  padding: 6px 12px;
+  border-radius: 0;
+}
+
+.card-area,
+.intro-card,
+.task-header,
+.prompt-box,
+.tips-box,
+.passage-col,
+.questions-col,
+.complete-card,
+.question-item,
+.rules-box {
+  border-radius: 0;
+  box-shadow: none;
+}
+
+.passage-header,
+.prompt-label,
+.tips-label,
+.section-label {
+  color: #111111;
+  letter-spacing: 0;
+}
+
+.q-block,
+.question-item {
+  border-color: #d0d0d0;
+}
+
+.q-label,
+.q-number,
+.option-letter {
+  background: #231f20;
+  color: #ffffff;
+}
+
+.option,
+.q-options .option {
+  border-radius: 0;
+  border-color: #bdbdbd;
+  background: #ffffff;
+}
+
+.option:hover,
+.option.selected,
+.q-options .option:hover,
+.q-options .option.selected {
+  border-color: #231f20;
+  background: #f4f4f4;
+}
+
+.btn,
+.next-btn,
+.submit-btn,
+.start-btn,
+.action-btn,
+.btn-primary,
+.btn-outline {
+  border-radius: 0;
+  box-shadow: none;
+}
+
+.question-item.active-question {
+  border-color: #111111;
+  border-left-color: #111111;
+  background: #ffffff;
+  box-shadow: inset 0 0 0 2px #111111;
+}

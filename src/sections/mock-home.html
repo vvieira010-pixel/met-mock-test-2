@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Michigan English Test Practice — MET Mock Test 2</title>
+  <meta name="theme-color" content="#0a1a3e" />
+  <link rel="stylesheet" href="../css/met-brand.css">
+  <link rel="stylesheet" href="../css/met-standard.css">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      background: var(--met-page-bg);
+    }
+
+    /* ── Registration overlay ─────────────────────────────────── */
+    .reg-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(10,26,62,.6);
+      backdrop-filter: blur(3px);
+      z-index: 9000;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+    .reg-overlay.active { display: flex; }
+    .reg-box {
+      background: var(--surface);
+      border: 1.5px solid var(--border);
+      border-radius: var(--r-xs);
+      padding: 32px 28px 28px;
+      width: min(420px, 100%);
+      box-shadow: var(--shadow-xl);
+    }
+    .reg-box__kicker {
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: .09em;
+      color: var(--orange);
+      margin-bottom: 8px;
+    }
+    .reg-box h2 {
+      font-size: 20px;
+      font-weight: 800;
+      color: var(--azul-deep);
+      margin-bottom: 6px;
+    }
+    .reg-box p {
+      font-size: 13px;
+      color: var(--met-slate);
+      line-height: 1.6;
+      margin-bottom: 20px;
+    }
+    .reg-field { margin-bottom: 14px; }
+    .reg-field label {
+      display: block;
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--azul-deep);
+      margin-bottom: 5px;
+    }
+    .reg-field input {
+      width: 100%;
+      border: 1.5px solid var(--border);
+      border-radius: var(--r-xs);
+      padding: 9px 12px;
+      font-size: 14px;
+      font-family: inherit;
+      color: var(--azul-deep);
+      background: var(--surface);
+      outline: none;
+      transition: border-color .15s;
+    }
+    .reg-field input:focus {
+      border-color: var(--azul-mid);
+      box-shadow: 0 0 0 3px rgba(74,142,196,.12);
+    }
+    .reg-submit {
+      width: 100%;
+      background: var(--orange);
+      color: #fff;
+      border: none;
+      border-radius: var(--r-xs);
+      padding: 11px;
+      font-size: 14px;
+      font-weight: 800;
+      cursor: pointer;
+      font-family: inherit;
+      transition: background .15s;
+      margin-top: 4px;
+    }
+    .reg-submit:hover { background: var(--orange-dark); }
+
+    /* ── Locked card state (before registration) ──────────────── */
+    .home-ability--locked {
+      opacity: 0.55;
+      pointer-events: none;
+      cursor: default;
+      position: relative;
+      user-select: none;
+    }
+    .home-ability--locked .home-ability__lock-icon {
+      display: inline-block;
+      position: absolute;
+      top: 8px;
+      right: 10px;
+      font-size: 13px;
+      color: var(--met-slate);
+      background: var(--azul-wash);
+      border-radius: var(--r-xs);
+      padding: 1px 7px;
+      letter-spacing: .04em;
+      text-transform: uppercase;
+      font-weight: 700;
+      font-size: 10px;
+    }
+
+    /* ── Top bar ──────────────────────────────────────────────── */
+    .home-topbar {
+      background: var(--azul-deep);
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 20px;
+      min-height: 48px;
+      flex-shrink: 0;
+    }
+    .home-topbar__brand { font-size: 14px; font-weight: 700; color: #fff; }
+    .home-topbar__badge {
+      font-size: 11px; font-weight: 700;
+      background: var(--orange); color: #fff;
+      border-radius: var(--r-xs); padding: 3px 10px;
+      letter-spacing: .04em; text-transform: uppercase;
+    }
+
+    /* ── Info bar ─────────────────────────────────────────────── */
+    .home-infobar {
+      background: var(--azul-navy);
+      color: rgba(255,255,255,.88);
+      font-size: 13px;
+      padding: 4px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .home-infobar__student {
+      font-weight: 700;
+      color: #fff;
+      font-size: 12px;
+    }
+
+    /* ── Main ─────────────────────────────────────────────────── */
+    .home-wrap {
+      width: min(880px, calc(100% - 32px));
+      margin: 28px auto 40px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    /* ── Locked-section banner ────────────────────────────────── */
+    .locked-banner {
+      display: none;
+      background: var(--orange-bg);
+      border: 1.5px solid var(--orange-light);
+      border-left: 4px solid var(--orange);
+      border-radius: var(--r-xs);
+      padding: 12px 16px;
+      font-size: 13px;
+      color: var(--azul-deep);
+      font-weight: 600;
+    }
+    .locked-banner.visible { display: block; }
+
+    /* ── Hero ─────────────────────────────────────────────────── */
+    .home-hero {
+      background: linear-gradient(135deg, var(--azul-deep) 0%, var(--azul-navy) 60%, var(--azul-blue) 100%);
+      border-radius: var(--r-xs);
+      padding: 28px 28px 24px;
+      color: #fff;
+      position: relative;
+      overflow: hidden;
+      box-shadow: var(--shadow-lg);
+    }
+    .home-hero::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at 90% 20%, rgba(224,112,0,.18), transparent 55%);
+      pointer-events: none;
+    }
+    .home-hero__title {
+      font-size: clamp(22px, 4vw, 34px);
+      font-weight: 800;
+      line-height: 1.1;
+      letter-spacing: -.02em;
+      margin-bottom: 6px;
+      color: #fff !important;
+    }
+    .home-hero__sub { font-size: 15px; opacity: .85; margin-bottom: 18px; }
+    .home-hero__meta { display: flex; flex-wrap: wrap; gap: 10px; }
+    .home-hero__pill {
+      font-size: 12px; font-weight: 700;
+      background: rgba(255,255,255,.14);
+      border: 1px solid rgba(255,255,255,.25);
+      border-radius: var(--r-xs);
+      padding: 4px 12px; color: #fff; letter-spacing: .02em;
+    }
+    .home-hero__pill--orange { background: var(--orange); border-color: var(--orange-dark); }
+
+    /* ── Cards ────────────────────────────────────────────────── */
+    .home-card {
+      background: var(--surface);
+      border: 1.5px solid var(--border);
+      border-radius: var(--r-xs);
+      padding: 20px 22px;
+      box-shadow: var(--shadow-sm);
+    }
+    .home-card__title {
+      font-size: 15px; font-weight: 800; color: var(--azul-deep);
+      margin-bottom: 14px;
+      display: flex; align-items: center; gap: 8px;
+    }
+    .home-card__title::before {
+      content: "";
+      display: inline-block;
+      width: 4px; height: 18px;
+      background: var(--orange);
+      border-radius: 2px;
+      flex-shrink: 0;
+    }
+
+    /* ── Checklist ────────────────────────────────────────────── */
+    .home-checklist { list-style: none; display: flex; flex-direction: column; gap: 9px; }
+    .home-checklist li {
+      font-size: 14px; color: var(--met-slate); line-height: 1.58;
+      padding-left: 22px; position: relative;
+    }
+    .home-checklist li::before {
+      content: "\2713"; position: absolute; left: 0;
+      color: var(--azul-blue); font-weight: 800; font-size: 13px;
+    }
+
+    /* ── Ability grid ─────────────────────────────────────────── */
+    .home-abilities { display: grid; grid-template-columns: repeat(2,1fr); gap: 10px; }
+    .home-ability {
+      display: flex; flex-direction: column; gap: 4px;
+      text-decoration: none;
+      background: var(--surface);
+      border: 1.5px solid var(--border);
+      border-radius: var(--r-xs);
+      padding: 14px 16px;
+      transition: border-color .15s, box-shadow .15s, transform .1s;
+      position: relative;
+    }
+    .home-ability:not(.home-ability--done):not(.home-ability--locked):hover {
+      border-color: var(--orange);
+      box-shadow: 0 0 0 3px rgba(224,112,0,.12);
+      transform: translateY(-1px);
+    }
+    .home-ability--done {
+      opacity: .7;
+      pointer-events: none;
+      background: var(--azul-wash);
+    }
+    .home-ability__name { font-size: 15px; font-weight: 800; color: var(--azul-deep); }
+    .home-ability__detail { font-size: 12px; color: var(--met-slate); }
+    .home-ability__badge {
+      display: inline-block; margin-top: 6px;
+      font-size: 11px; font-weight: 700;
+      background: var(--azul-wash); color: var(--azul-navy);
+      border-radius: var(--r-xs); padding: 2px 8px; align-self: flex-start;
+    }
+    .home-ability--done .home-ability__badge {
+      background: var(--green-bg); color: var(--green);
+    }
+    .home-ability__done-mark {
+      position: absolute; top: 10px; right: 12px;
+      font-size: 16px; color: var(--green);
+    }
+
+    /* ── Start button ─────────────────────────────────────────── */
+    .home-start {
+      display: inline-flex; align-items: center; gap: 8px;
+      margin-top: 16px;
+      background: var(--orange); color: #fff;
+      border: none; border-radius: var(--r-xs);
+      padding: 12px 22px; font-size: 15px; font-weight: 800;
+      text-decoration: none; cursor: pointer;
+      transition: background .15s, box-shadow .15s;
+      letter-spacing: .02em;
+      box-shadow: 0 4px 14px rgba(224,112,0,.30);
+    }
+    .home-start:hover { background: var(--orange-dark); box-shadow: 0 6px 18px rgba(224,112,0,.35); }
+    .home-start__arrow { font-size: 17px; line-height: 1; }
+
+    @media (max-width: 540px) {
+      .home-abilities { grid-template-columns: 1fr; }
+      .home-wrap { margin-top: 20px; }
+      .home-hero { padding: 20px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- REGISTRATION OVERLAY -->
+  <div class="reg-overlay" id="regOverlay" role="dialog" aria-modal="true" aria-labelledby="regTitle">
+    <div class="reg-box">
+      <p class="reg-box__kicker">Before you begin</p>
+      <h2 id="regTitle">Register to start the test</h2>
+      <p>Your name and email will be sent to your teacher when you submit your answers at the end.</p>
+      <div class="reg-field">
+        <label for="regName">Full name *</label>
+        <input type="text" id="regName" placeholder="e.g. Maria Silva" autocomplete="name" required />
+      </div>
+      <div class="reg-field">
+        <label for="regEmail">Email address *</label>
+        <input type="email" id="regEmail" placeholder="e.g. maria@email.com" autocomplete="email" required />
+      </div>
+      <button class="reg-submit" id="regSubmit" type="button">Confirm &amp; enter test &rarr;</button>
+    </div>
+  </div>
+
+  <!-- TOP BAR -->
+  <header class="home-topbar">
+    <span class="home-topbar__brand">MET Prep Platform</span>
+    <span class="home-topbar__badge">Mock Test 2</span>
+  </header>
+
+  <!-- INFO BAR -->
+  <div class="home-infobar">
+    <span>Michigan English Test &mdash; Digital Sample Test</span>
+    <span class="home-infobar__student" id="studentGreeting"></span>
+  </div>
+
+  <main class="home-wrap">
+
+    <!-- Locked-section notice (shown when student returns after finishing a section) -->
+    <div class="locked-banner" id="lockedBanner">
+      &#9888; That section has already been submitted and is now locked. Continue with the next one below.
+    </div>
+
+    <!-- HERO -->
+    <div class="home-hero">
+      <h1 class="home-hero__title">Michigan English Test Practice</h1>
+      <p class="home-hero__sub">Complete all four sections to finish Mock Test 2.</p>
+      <div class="home-hero__meta">
+        <span class="home-hero__pill home-hero__pill--orange">Mock Test 2</span>
+        <span class="home-hero__pill">4 Sections</span>
+        <span class="home-hero__pill">~2 h 55 min total</span>
+        <span class="home-hero__pill">50 Reading + Listening &middot; Writing &middot; Speaking</span>
+      </div>
+    </div>
+
+    <!-- INSTRUCTIONS -->
+    <div class="home-card">
+      <h2 class="home-card__title">Before You Begin</h2>
+      <ul class="home-checklist">
+        <li>Complete all four abilities: <strong>Listening</strong>, <strong>Reading &amp; Grammar</strong>, <strong>Writing</strong>, and <strong>Speaking</strong>.</li>
+        <li>Each section has its own countdown timer &mdash; it starts when you open the section.</li>
+        <li>Do not refresh during an active section unless absolutely necessary.</li>
+        <li>In Speaking, prompts play automatically; preparation and speaking time then begin.</li>
+        <li>Once a section is submitted it is <strong>locked</strong> &mdash; you cannot re-enter it.</li>
+        <li>Reading &rarr; Listening &rarr; Speaking &rarr; Writing order is recommended.</li>
+      </ul>
+    </div>
+
+    <!-- 4 ABILITIES -->
+    <div class="home-card">
+      <h2 class="home-card__title">4 Abilities</h2>
+      <div class="home-abilities" id="abilitiesGrid">
+        <a class="home-ability home-ability--locked" id="card-listening" href="listening-p1.html">
+          <span class="home-ability__done-mark" id="done-listening" style="display:none">&#10004;</span>
+          <span class="home-ability__lock-icon">&#128274; Locked</span>
+          <span class="home-ability__name">Listening</span>
+          <span class="home-ability__detail">30 questions &middot; Parts 1&ndash;3</span>
+          <span class="home-ability__badge" id="badge-listening">35 min</span>
+        </a>
+        <a class="home-ability home-ability--locked" id="card-reading" href="reading-p1.html">
+          <span class="home-ability__done-mark" id="done-reading" style="display:none">&#10004;</span>
+          <span class="home-ability__lock-icon">&#128274; Locked</span>
+          <span class="home-ability__name">Reading &amp; Grammar</span>
+          <span class="home-ability__detail">50 questions &middot; Parts 1&ndash;3</span>
+          <span class="home-ability__badge" id="badge-reading">65 min</span>
+        </a>
+        <a class="home-ability home-ability--locked" id="card-writing" href="writing-task1.html">
+          <span class="home-ability__done-mark" id="done-writing" style="display:none">&#10004;</span>
+          <span class="home-ability__lock-icon">&#128274; Locked</span>
+          <span class="home-ability__name">Writing</span>
+          <span class="home-ability__detail">2 tasks &middot; free-response</span>
+          <span class="home-ability__badge" id="badge-writing">45 min</span>
+        </a>
+        <a class="home-ability home-ability--locked" id="card-speaking" href="speaking-p1.html">
+          <span class="home-ability__done-mark" id="done-speaking" style="display:none">&#10004;</span>
+          <span class="home-ability__lock-icon">&#128274; Locked</span>
+          <span class="home-ability__name">Speaking</span>
+          <span class="home-ability__detail">5 tasks &middot; recorded responses</span>
+          <span class="home-ability__badge" id="badge-speaking">10 min</span>
+        </a>
+      </div>
+      <a class="home-start" href="reading-p1.html" id="startBtn">
+        Start Mock Test 2 <span class="home-start__arrow">&#9654;</span>
+      </a>
+    </div>
+
+  </main>
+
+  <script>
+  (function () {
+    var NAME_KEY  = 'met:student:name';
+    var EMAIL_KEY = 'met:student:email';
+
+    var SECTIONS = [
+      { id: 'reading',   doneKey: 'met:done:met:timer:reading',   cardId: 'card-reading',   doneId: 'done-reading',   badgeId: 'badge-reading' },
+      { id: 'listening', doneKey: 'met:done:met:timer:listening', cardId: 'card-listening', doneId: 'done-listening', badgeId: 'badge-listening' },
+      { id: 'speaking',  doneKey: 'met:done:met:timer:speaking',  cardId: 'card-speaking',  doneId: 'done-speaking',  badgeId: 'badge-speaking' },
+      { id: 'writing',   doneKey: 'met:done:met:timer:writing',   cardId: 'card-writing',   doneId: 'done-writing',   badgeId: 'badge-writing' },
+    ];
+    var serverLocked = {};
+
+    // ── Show locked banner if redirected from a locked section ─
+    if (new URLSearchParams(location.search).get('locked') === '1') {
+      document.getElementById('lockedBanner').classList.add('visible');
+      history.replaceState(null, '', location.pathname);
+    }
+
+    // ── Unlock all section cards (remove locked visual state) ──
+    function unlockSectionCards() {
+      var cards = document.querySelectorAll('.home-ability--locked');
+      for (var i = 0; i < cards.length; i++) {
+        cards[i].classList.remove('home-ability--locked');
+      }
+    }
+
+    // ── Render section completion state ───────────────────────
+    function refreshSectionCards() {
+      var allDone = true;
+      var nextHref = null;
+      SECTIONS.forEach(function (s) {
+        var localDone = localStorage.getItem(s.doneKey) === '1';
+        var done = localDone || !!serverLocked[s.id];
+        if (done && !localDone) {
+          try { localStorage.setItem(s.doneKey, '1'); } catch (_) {}
+        }
+        var card  = document.getElementById(s.cardId);
+        var mark  = document.getElementById(s.doneId);
+        var badge = document.getElementById(s.badgeId);
+        if (done) {
+          card.classList.add('home-ability--done');
+          if (mark) mark.style.display = '';
+          if (badge) badge.textContent = 'Completed \u2713';
+        } else {
+          allDone = false;
+          if (!nextHref) nextHref = card.getAttribute('href');
+        }
+      });
+      // Point start button at the first incomplete section
+      var btn = document.getElementById('startBtn');
+      if (nextHref) {
+        btn.href = nextHref;
+        btn.innerHTML = (nextHref === 'reading-p1.html' ? 'Start Mock Test 2' : 'Continue Mock Test 2') + ' <span class="home-start__arrow">\u25B6</span>';
+      } else {
+        btn.textContent = 'All sections completed \u2713';
+        btn.style.background = 'var(--green)';
+        btn.style.boxShadow = 'none';
+        btn.removeAttribute('href');
+        btn.style.cursor = 'default';
+      }
+    }
+
+    // ── Registration ───────────────────────────────────────────
+    var storedName  = localStorage.getItem(NAME_KEY)  || '';
+    var storedEmail = localStorage.getItem(EMAIL_KEY) || '';
+
+    if (!storedName || !storedEmail) {
+      document.getElementById('regOverlay').classList.add('active');
+      document.getElementById('regName').focus();
+    } else {
+      document.getElementById('studentGreeting').textContent = storedName;
+      unlockSectionCards();
+      refreshSectionCards();
+    }
+
+    document.getElementById('regSubmit').addEventListener('click', function () {
+      var name  = document.getElementById('regName').value.trim();
+      var email = document.getElementById('regEmail').value.trim();
+      if (!name || !email || !email.includes('@')) {
+        document.getElementById('regName').style.borderColor  = name  ? '' : 'var(--red)';
+        document.getElementById('regEmail').style.borderColor = email && email.includes('@') ? '' : 'var(--red)';
+        return;
+      }
+      try {
+        localStorage.setItem(NAME_KEY,  name);
+        localStorage.setItem(EMAIL_KEY, email);
+      } catch (_) {}
+      document.getElementById('regOverlay').classList.remove('active');
+      document.getElementById('studentGreeting').textContent = name;
+      unlockSectionCards();
+      refreshSectionCards();
+    });
+
+    // Allow Enter key in registration fields
+    ['regName','regEmail'].forEach(function(id) {
+      document.getElementById(id).addEventListener('keydown', function(e) {
+        if (e.key === 'Enter') document.getElementById('regSubmit').click();
+      });
+    });
+  })();
+  </script>
+
+</body>
+</html>

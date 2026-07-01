@@ -1,0 +1,206 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Admin Progress (Mock 2) - Michigan English Test by Vinicius Vieira</title>
+  <style>
+    :root { --radius: 8px; }
+    * { box-sizing: border-box; font-family: Aptos, "Segoe UI", sans-serif !important; }
+    body { margin: 0; background: var(--bg); color: var(--ink); font-family: Aptos, "Segoe UI", sans-serif; line-height: 1.6; }
+    main { width: min(1180px, calc(100% - 36px)); margin: 0 auto; padding: 32px 0; }
+    header { display: flex; align-items: flex-start; justify-content: space-between; gap: 16px; margin-bottom: 18px; }
+    h1 { margin: 0 0 6px; font-size: clamp(2rem, 4vw, 3.4rem); line-height: 1; }
+    p { color: var(--muted); }
+    .button { min-height: 44px; display: inline-flex; align-items: center; justify-content: center; border: 0; border-radius: var(--radius); padding: 0 16px; background: var(--primary); color: #fff; font: inherit; font-weight: 800; text-decoration: none; cursor: pointer; }
+    .auth-grid { display: grid; gap: 10px; max-width: 420px; margin: 10px 0 12px; }
+    .auth-input { min-height: 42px; border: 1px solid var(--line); border-radius: var(--radius); padding: 0 12px; font: inherit; background: #fff; color: var(--ink); }
+    .actions { display: flex; flex-wrap: wrap; gap: 10px; }
+    .panel, .submission { background: var(--surface); border: 1px solid var(--line); border-radius: 12px; box-shadow: 0 8px 18px rgba(8, 24, 61, 0.06); padding: 18px; }
+    .panel { margin-bottom: 16px; }
+    .submissions { display: grid; gap: 12px; }
+    .submission h2 { margin: 0 0 4px; font-size: 1.15rem; }
+    .meta { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 10px; color: var(--muted); font-size: 0.95rem; }
+    .tag { padding: 4px 8px; border-radius: 999px; background: #E6F2F1; color: #1F847F; font-weight: 800; }
+    .feedback-grid { display: grid; gap: 10px; grid-template-columns: repeat(2, minmax(0, 1fr)); margin: 12px 0; }
+    .feedback-box { border: 1px solid var(--line); border-radius: var(--radius); padding: 12px; background: #f8fafc; }
+    .feedback-box h3 { margin: 0 0 6px; font-size: 0.95rem; }
+    .feedback-box ul { margin: 0; padding-left: 18px; color: var(--muted); }
+    .feedback-copy { margin: 10px 0; padding: 12px; border: 1px solid rgba(43,96,151,.22); border-radius: var(--radius); background: #EBF4FB; color: #0B1F3A; }
+    pre { max-height: 260px; overflow: auto; padding: 12px; border-radius: var(--radius); background: #F5F7FA; color: #0B1F3A; white-space: pre-wrap; }
+    @media (max-width: 720px) { .feedback-grid { grid-template-columns: 1fr; } }
+  </style>
+  <link rel="stylesheet" href="../src/css/met-brand.css" />
+  <link rel="stylesheet" href="../src/css/met-standard.css" />
+</head>
+<body>
+  <main>
+    <header>
+      <div>
+        <h1>Student progress</h1>
+        <p>Admin view for Mock 2 — answers, speaking transcripts, and recording links.</p>
+      </div>
+      <a class="button" href="/index.html">Back to site</a>
+    </header>
+
+    <section class="panel">
+      <p id="status">Use the admin email account in Netlify Identity to load submissions.</p>
+      <div class="auth-grid">
+        <input class="auth-input" id="email" type="email" autocomplete="username" placeholder="Admin email" />
+        <input class="auth-input" id="password" type="password" autocomplete="current-password" placeholder="Password" />
+      </div>
+      <div class="actions">
+        <button class="button" id="login">Admin login</button>
+        <button class="button" id="load" hidden>Load submissions</button>
+      </div>
+    </section>
+
+    <section class="submissions" id="submissions" aria-live="polite"></section>
+  </main>
+
+  <script type="module">
+    const statusEl = document.getElementById("status");
+    const emailEl = document.getElementById("email");
+    const passwordEl = document.getElementById("password");
+    const loginButton = document.getElementById("login");
+    const loadButton = document.getElementById("load");
+    const submissionsEl = document.getElementById("submissions");
+
+    // Escape all server-supplied strings before inserting into HTML
+    function esc(str) {
+      return String(str ?? "").replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;").replace(/'/g, "&#x27;");
+    }
+
+    function listItems(items) {
+      return Array.isArray(items) && items.length
+        ? `<ul>${items.map((item) => `<li>${esc(item)}</li>`).join("")}</ul>`
+        : "<p>No items added.</p>";
+    }
+
+    function renderSubmission(item, recordingsBySession) {
+      const sessionId = item.sessionId || "";
+      const recordings = recordingsBySession[sessionId] || [];
+      const recordingHtml = recordings.length
+        ? `<div class="feedback-box"><h3>Speaking recordings</h3><ul>${recordings.map((rec) =>
+            `<li><a href="/api/recording/${encodeURIComponent(rec)}" target="_blank" rel="noopener">${esc(rec)}</a></li>`
+          ).join("")}</ul></div>`
+        : `<div class="feedback-box"><h3>Speaking recordings</h3><p>No recordings linked to this session.</p></div>`;
+
+      return `<article class="submission">
+        <h2>${esc(item.studentName || item.studentEmail || "Student")}</h2>
+        <div class="meta">
+          <span class="tag">Answer submission</span>
+          <span>${esc(item.studentEmail || "")}</span>
+          <span>${esc(item.submittedAt || "")}</span>
+          <span>Session: ${esc(sessionId)}</span>
+        </div>
+        <div class="feedback-grid">
+          <div class="feedback-box"><h3>Writing answers</h3><pre>${esc(item.writingAnswers || "No writing answers saved.")}</pre></div>
+          <div class="feedback-box"><h3>Reading answers</h3><pre>${esc(item.readingAnswers || "No reading answers saved.")}</pre></div>
+          <div class="feedback-box"><h3>Listening answers</h3><pre>${esc(item.listeningAnswers || "No listening answers saved.")}</pre></div>
+          ${recordingHtml}
+        </div>
+        <p><strong>Sections completed:</strong> ${esc(item.sectionsCompleted || "")}</p>
+      </article>`;
+    }
+
+    // ── Netlify Identity auth ──────────────────────────────────────────────
+    let currentToken = null;
+
+    async function loadIdentity() {
+      try { return await import("https://esm.sh/@netlify/identity"); }
+      catch { return null; }
+    }
+
+    const identity = await loadIdentity();
+
+    if (!identity) {
+      statusEl.textContent = "Admin login is available after deployment on Netlify.";
+    } else {
+      const { getUser, handleAuthCallback, login, logout, onAuthChange } = identity;
+
+      async function refreshUser() {
+        let user = null;
+        try {
+          await handleAuthCallback();
+          user = await getUser();
+        } catch { user = null; }
+        const roles = user?.app_metadata?.roles ?? [];
+        if (user && roles.includes("admin")) {
+          currentToken = user.token?.access_token ?? null;
+          loginButton.hidden = true;
+          loadButton.hidden = false;
+          statusEl.textContent = `Logged in as ${user.email}. Click Load submissions.`;
+        } else if (user) {
+          currentToken = null;
+          loginButton.hidden = true;
+          loadButton.hidden = true;
+          statusEl.textContent = "This account does not have the admin role.";
+        } else {
+          currentToken = null;
+          loginButton.hidden = false;
+          loadButton.hidden = true;
+          statusEl.textContent = "Use the admin Netlify Identity account to load submissions.";
+        }
+      }
+
+      loginButton.addEventListener("click", async () => {
+        const email = String(emailEl?.value || "").trim();
+        const password = String(passwordEl?.value || "");
+        if (!email || !password) {
+          statusEl.textContent = "Enter admin email and password.";
+          return;
+        }
+        try {
+          const user = await login(email, password);
+          await refreshUser();
+        } catch (err) {
+          var reason = (err && (err.message || err.error_description || err.error)) ? String(err.message || err.error_description || err.error) : "";
+          statusEl.textContent = reason
+            ? `Login failed: ${reason}`
+            : "Login failed. Check email/password, Identity enabled, and admin role.";
+        }
+      });
+
+      onAuthChange(() => refreshUser());
+      await refreshUser();
+    }
+
+    // ── Load submissions ───────────────────────────────────────────────────
+    loadButton.addEventListener("click", async () => {
+      if (!currentToken) {
+        statusEl.textContent = "You must be logged in as an admin to load submissions.";
+        return;
+      }
+      statusEl.textContent = "Loading submissions...";
+      const [recordingsRes, submissionsRes] = await Promise.all([
+        fetch("/api/submissions", { headers: { Authorization: `Bearer ${currentToken}` } }),
+        fetch("/api/test-submissions", { headers: { Authorization: `Bearer ${currentToken}` } })
+      ]);
+
+      if (!recordingsRes.ok || !submissionsRes.ok) {
+        statusEl.textContent = "Could not load admin data. Confirm Identity is enabled and your user has admin role.";
+        return;
+      }
+
+      const recordingsJson = await recordingsRes.json();
+      const submissionsJson = await submissionsRes.json();
+      const recordingItems = Array.isArray(recordingsJson.submissions) ? recordingsJson.submissions : [];
+      const submissionItems = Array.isArray(submissionsJson.submissions) ? submissionsJson.submissions : [];
+
+      const recordingsBySession = {};
+      recordingItems.forEach((row) => {
+        const sessionId = row?.payload?.sessionId || "";
+        const recs = row?.payload?.recordings || [];
+        if (!sessionId) return;
+        recordingsBySession[sessionId] = recs.map((r) => r.recordingId).filter(Boolean);
+      });
+
+      statusEl.textContent = `${submissionItems.length} answer submission(s) and ${recordingItems.length} recording session(s) found.`;
+      submissionsEl.innerHTML = submissionItems
+        .map((item) => renderSubmission(item, recordingsBySession))
+        .join("");
+    });
+  </script>
+</body>
+</html>

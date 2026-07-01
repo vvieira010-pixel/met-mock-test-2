@@ -1,0 +1,177 @@
+/* ============================================================
+   met-standard.css — Shared base styles for all MET pages
+   Requires met-brand.css loaded first (tokens defined there).
+   ============================================================ */
+:root {
+  /* ── Bridge aliases — old naming → met-brand.css tokens ─── */
+  --radius-xs:    var(--r-xs);
+  --radius-sm:    var(--r-sm);
+  --radius-md:    var(--r-md);
+  --radius-lg:    var(--r-lg);
+  --radius-pill:  var(--r-pill);
+  --font-body:    var(--met-font-body);
+  --font-display: var(--met-font-body);
+  --font:         var(--met-font-body);
+
+  /* ── Additional semantic aliases not in met-brand.css ────── */
+  --panel:        var(--surface);
+  --panel-strong: var(--surface);
+  --panel-soft:   var(--azul-wash);
+  --navy-deep:    var(--azul-deep);
+  --met-motion-fast: 160ms;
+  --met-motion-base: 260ms;
+  --met-shell-maxw: 1280px;
+
+  /* ── Values that defer to met-brand.css ─────────────────── */
+  /* --blue-border and --amber are authoritative in met-brand.css.
+     Do not redefine them here to avoid silent token conflicts. */
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 4rem;
+}
+
+body {
+  color: var(--azul-deep) !important;
+  background: var(--page-bg) !important;
+  font-family: var(--font-body) !important;
+  line-height: 1.6;
+}
+
+body, body * {
+  font-family: var(--font-body) !important;
+}
+
+body.met-shell {
+  background:
+    radial-gradient(1200px 420px at 12% -8%, rgba(74,142,196,.16), transparent 62%),
+    radial-gradient(900px 360px at 102% 2%, rgba(224,112,0,.10), transparent 58%),
+    var(--page-bg) !important;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: var(--azul-deep);
+  font-family: var(--font-display) !important;
+  letter-spacing: -0.01em;
+}
+
+p, li, td, textarea, input, select {
+  color: inherit;
+  line-height: 1.6;
+}
+
+a { color: inherit; }
+
+/* Focus ring defined in met-brand.css */
+
+/* ── Buttons ─────────────────────────────────────────────────── */
+.btn, .btn-primary, .button, .action-btn, .start-btn, .next-btn,
+.submit-btn, .listening-selector-link, button[type="submit"] {
+  border-radius: var(--radius-sm) !important;
+  font-family: var(--font-body) !important;
+  font-weight: 700 !important;
+  letter-spacing: 0 !important;
+  text-transform: none !important;
+  cursor: pointer !important;
+  transition: background 0.15s, transform 0.15s, box-shadow 0.15s !important;
+}
+
+/* Primary orange buttons */
+.btn-primary, .action-btn.primary, .submit-btn, button[type="submit"] {
+  background: var(--orange) !important;
+  color: #fff !important;
+  border: none !important;
+}
+.btn-primary:hover, .action-btn.primary:hover, .submit-btn:hover {
+  background: var(--orange-dark) !important;
+}
+
+/* Secondary navy buttons — standalone class only (.action-btn.secondary is outline, defined in met-brand.css) */
+.btn-navy {
+  background: var(--azul-navy) !important;
+  color: #fff !important;
+  border: none !important;
+}
+.btn-navy:hover {
+  background: var(--azul-deep) !important;
+}
+
+/* Outline buttons */
+.btn-outline, .btn-ghost {
+  background: transparent !important;
+  border: 1.5px solid var(--border) !important;
+  color: var(--azul-deep) !important;
+}
+.btn-outline:hover, .btn-ghost:hover {
+  background: var(--azul-wash) !important;
+  border-color: var(--azul-light) !important;
+}
+
+/* ── Form inputs ─────────────────────────────────────────────── */
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="number"],
+select,
+textarea {
+  border: 1.5px solid var(--border) !important;
+  border-radius: var(--radius-sm) !important;
+  background: #fff !important;
+  color: var(--azul-deep) !important;
+  padding: 10px 14px !important;
+  outline: none !important;
+  transition: border-color 0.15s, box-shadow 0.15s !important;
+  font-size: 14px !important;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+  border-color: var(--azul-mid) !important;
+  box-shadow: 0 0 0 3px rgba(74,142,196,.15) !important;
+  background: #fff !important;
+}
+
+/* ── Cards / Panels ──────────────────────────────────────────── */
+.card, .panel {
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
+}
+
+.met-content-wrap,
+.met-sidebar,
+.met-top-bar,
+.met-bottom-bar,
+.met-info-bar {
+  transition: box-shadow var(--met-motion-base) ease, border-color var(--met-motion-fast) ease;
+}
+
+.met-content {
+  max-width: var(--met-shell-maxw);
+  margin: 0 auto;
+}
+
+/* ── Section headings pattern ────────────────────────────────── */
+.section-label {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.10em;
+  text-transform: uppercase;
+  color: var(--orange);
+}
+
+/* ── Dividers ─────────────────────────────────────────────────  */
+hr {
+  border: none;
+  border-top: 1px solid var(--border-lt);
+  margin: 24px 0;
+}
+
+/* ── Scrollbar ────────────────────────────────────────────────  */
+::-webkit-scrollbar { width: 6px; height: 6px; }
+::-webkit-scrollbar-track { background: var(--azul-wash); }
+::-webkit-scrollbar-thumb { background: var(--azul-light); border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: var(--azul-sky); }

@@ -1,0 +1,426 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Speaking Part 1 — MET Mock Test</title>
+  <meta name="description" content="MET Mock Test — Speaking Part 1">
+  <meta name="theme-color" content="#1B3A6B">
+  <link rel="stylesheet" href="../css/met-brand.css">
+  <link rel="stylesheet" href="../css/met-standard.css">
+  <link rel="stylesheet" href="../css/met-shell.css">
+</head>
+<body class="met-shell met-speaking-shell">
+
+<!-- TOP BAR -->
+<header class="met-top-bar">
+  <div class="met-top-bar__left">
+    <span class="met-top-bar__page-label" id="met-page-label">Page: Speaking Instructions</span><br>
+    <span class="met-top-bar__section-label" id="met-section-label">Section: Speaking</span>
+  </div>
+  <div class="met-top-bar__center">
+    <span class="met-top-bar__timer-label">Section Time Remaining</span>
+    <span class="met-top-bar__timer" id="met-timer" aria-live="polite">00:10:00</span>
+    <div class="met-progress-wrap">
+      <div class="met-progress-bar-outer">
+        <div class="met-progress-bar-inner" id="met-progress-bar" style="width:0%"></div>
+      </div>
+      <span class="met-progress-pct" id="met-progress-pct">0%</span>
+    </div>
+  </div>
+  <div class="met-top-bar__right">
+    <button class="met-btn-finish" id="met-btn-finish" style="display:none">Finish Section</button>
+  </div>
+</header>
+
+<!-- INFO BAR -->
+<div class="met-info-bar">
+  <span>Michigan English Test Mock 2</span>
+</div>
+
+<!-- BODY ROW -->
+<div class="met-body-row">
+  <nav class="met-sidebar met-speaking-nav" id="met-sidebar" aria-label="Speaking Task 1 navigator">
+    <button class="met-sidebar__scroll" type="button" aria-label="Scroll section navigation up">▲</button>
+    <div class="met-sidebar__section-label">Speaking Task 1</div>
+    <div class="met-sidebar__numbers" id="met-sidebar-numbers">
+      <button class="met-sidebar__num met-sidebar__num--info" type="button" data-target="0" aria-label="Instructions">0</button>
+      <button class="met-sidebar__num met-sidebar__num--info" type="button" data-target="mic" aria-label="Microphone check">Mic</button>
+      <button class="met-sidebar__num" type="button" data-target="1" aria-label="Task 1 question">1</button>
+    </div>
+    <button class="met-sidebar__scroll" type="button" aria-label="Scroll section navigation down">▼</button>
+  </nav>
+
+  <main class="met-content-wrap">
+    <div class="met-content" id="met-content">
+
+      <!-- PAGE 0: Instructions -->
+      <div class="met-page" data-met-page="0" data-page-label="Speaking Instructions" data-section-label="Section: Speaking">
+        <h2 class="met-page-title">Speaking Section</h2>
+        <p class="met-instruction">Read the instructions below. They explain how the Speaking section works and what you are expected to do.</p>
+        <ul class="met-instruction-list" style="margin-top:1.25rem">
+          <li>You will see a picture and hear a prompt.</li>
+          <li>Preparation time depends on the task (<strong>15 or 20 seconds</strong>).</li>
+          <li>A countdown timer will show how long you have to speak.</li>
+          <li>Your response will be recorded automatically.</li>
+          <li>Speak clearly and at a natural pace.</li>
+        </ul>
+        <div class="met-audio-player" id="spk-intro-player">
+          <button class="met-audio-btn" id="spk-intro-play-btn">▶</button>
+          <div class="met-audio-scrubber-wrap">
+            <div class="met-audio-scrubber"><div class="met-audio-scrubber-fill" style="width:0%"></div></div>
+          </div>
+          <span class="met-audio-time" id="spk-intro-audio-time">0:00 / 0:00</span>
+          <audio id="spk-intro-audio" src="../../assets/audio/speaking-instructions.mp3" preload="auto" style="display:none"></audio>
+        </div>
+        <p class="met-note">Click <strong>Next</strong> to check your microphone.</p>
+      </div>
+
+      <!-- PAGE mic: Microphone Check -->
+      <div class="met-page" data-met-page="mic" data-page-label="Microphone Check" data-section-label="Section: Speaking">
+        <h2 class="met-page-title">Microphone Check</h2>
+        <p class="met-instruction">Before you begin, we need to check that your microphone is working. Click the button below to allow access and test your microphone.</p>
+
+        <div id="mic-check-panel" style="margin:20px 0;max-width:500px">
+          <button id="mic-check-btn" class="met-btn-next" style="font-size:15px;padding:12px 28px;margin-bottom:16px">
+            🎤 Test Microphone
+          </button>
+
+          <div id="mic-check-status" style="display:none;margin-top:12px">
+            <div class="met-audio-capture" style="max-width:420px">
+              <div class="met-recording-dot-wrap">
+                <span class="met-recording-dot"></span>
+                <span class="met-recording-label" id="mic-check-label">Listening…</span>
+              </div>
+              <canvas class="met-waveform" id="mic-check-waveform" width="400" height="60"></canvas>
+            </div>
+          </div>
+
+          <div id="mic-check-success" style="display:none;margin-top:16px;background:#ECFDF5;border:1px solid #bbf7d0;border-radius:8px;padding:12px 16px;font-size:14px;color:#15803d;font-weight:600">
+            ✓ Microphone is working. Click <strong>Next</strong> to begin the speaking tasks.
+          </div>
+
+          <div id="mic-check-error" style="display:none;margin-top:16px;background:#FEF2F2;border:1px solid #fca5a5;border-radius:8px;padding:12px 16px;font-size:14px;color:#b91c1c">
+            ✕ Microphone access was denied. Please allow microphone access in your browser settings and reload the page. Without microphone access, your speaking responses cannot be recorded.
+          </div>
+        </div>
+
+        <p class="met-note" id="mic-check-next-hint" style="display:none">Click <strong>Next</strong> to begin.</p>
+      </div>
+
+      <!-- PAGE 1: Task 1 — Describe the picture -->
+      <div class="met-page" data-met-page="1" data-page-label="Task 1 — Describe the Picture" data-section-label="Section: Speaking" data-is-question="true">
+        <p class="met-task-label">Task 1 — Describe the Picture</p>
+
+        <div class="met-audio-player" style="margin-bottom:1.25rem">
+          <button class="met-audio-btn">Play</button>
+          <input type="range" class="met-audio-volume" min="0" max="1" step="0.05" value="1" aria-label="Volume">
+          <audio src="../../assets/audio/speaking/speaking_prompt01.mp3" style="display:none"></audio>
+        </div>
+
+        <div class="met-speaking-image-wrap">
+          <img
+            src="../../assets/images/speaking_1.png"
+            alt="Speaking Task 1 illustration"
+            class="met-speaking-image"
+            onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+          <div class="met-speaking-image-placeholder">
+            <span>[ Illustration: Scene to describe ]</span>
+          </div>
+        </div>
+        <p class="met-question-text" id="spk-q1-text">Describe the photo. Talk about what you see, the people, the setting, and what might be happening. You have 15 seconds to prepare and 60 seconds to speak.</p>
+
+        <p class="met-instruction spk-prepare-msg" style="margin-top:1rem;display:none"><strong>Prepare now.</strong></p>
+
+        <div class="met-speaking-countdown-label">Preparation: <span id="spk-prep-label-1">15s</span></div>
+        <div class="met-speaking-countdown-outer">
+          <div class="met-speaking-countdown-inner" id="spk-prep-bar-1"></div>
+        </div>
+
+        <p class="met-instruction" id="spk-begin-1" style="margin-top:1rem;display:none"><strong>Begin speaking now.</strong></p>
+
+        <div class="met-speaking-countdown-label">Time remaining: <span id="spk-countdown-label-1">60s</span></div>
+        <div class="met-speaking-countdown-outer">
+          <div class="met-speaking-countdown-inner" id="spk-countdown-bar-1"></div>
+        </div>
+
+        <div class="met-audio-capture" id="spk-capture-panel-1" style="display:none">
+          <div class="met-recording-dot-wrap">
+            <span class="met-recording-dot"></span>
+            <span class="met-recording-label">Recording</span>
+          </div>
+          <canvas class="met-waveform" id="spk-waveform-1" width="400" height="60"></canvas>
+        </div>
+      </div>
+
+    </div>
+  </main>
+</div>
+
+<!-- BOTTOM NAV -->
+<footer class="met-bottom-bar">
+  <div class="met-bottom-bar__nav">
+    <button class="met-btn-next" id="met-btn-next">Next ▶</button>
+  </div>
+</footer>
+
+<!-- MODALS -->
+<div class="met-modal-overlay" id="met-modal-loading">
+  <div class="met-modal">
+    <div class="met-modal__header">Please wait…</div>
+    <div class="met-modal__body">
+      <div class="met-loading-spinner"></div>
+      <p>Loading</p>
+    </div>
+  </div>
+</div>
+
+<div class="met-scroll-toast" id="met-scroll-toast">
+  ⚠ This page requires scrolling to view all content.
+  <button class="met-scroll-toast__close" id="met-scroll-toast-close" aria-label="Close">✕</button>
+</div>
+
+<a data-next-section="speaking-p2.html" hidden></a>
+
+<script src="../js/speaking-upload.js"></script>
+<script src="../js/met-shell.js"></script>
+<script>
+  var SPEAKING_PROMPT_DELAY_MS = 3000;
+  METShell.init({
+    totalSeconds: 600,
+    timerStorageKey: 'met:timer:speaking',
+    hasSidebar: true,
+    listeningMode: false,
+    hasBack: false,
+    hasFinishSection: false,
+    sectionLabel: 'Speaking'
+  });
+
+  function autoPlayPrompt(pageIdxOrEl, onEnded) {
+    var page = (typeof pageIdxOrEl === 'object') ? pageIdxOrEl : document.querySelector('[data-met-page="' + pageIdxOrEl + '"]');
+    if (!page) return false;
+    var audio = page.querySelector('.met-audio-player audio');
+    if (!audio) return false;
+    var player = audio.closest('.met-audio-player');
+    var btn = player ? player.querySelector('.met-audio-btn') : null;
+    if (audio.dataset.promptPlayed === '1') {
+      if (btn) { btn.textContent = 'Played'; btn.disabled = true; }
+      return false;
+    }
+    var started = false;
+    function handleEnded() {
+      if (!started) return;
+      started = false;
+      audio.removeEventListener('ended', handleEnded);
+      audio.dataset.promptPlayed = '1';
+      if (btn) { btn.textContent = 'Played'; btn.disabled = true; delete btn.dataset.started; }
+      if (typeof onEnded === 'function') onEnded();
+    }
+    audio.removeEventListener('ended', handleEnded);
+    audio.addEventListener('ended', handleEnded);
+    if (btn) { btn.textContent = 'Playing'; btn.disabled = true; btn.dataset.started = '1'; }
+    audio.currentTime = 0;
+    started = true;
+    setTimeout(function () {
+      if (!started) return;
+      audio.play().catch(function () {
+        started = false;
+        audio.removeEventListener('ended', handleEnded);
+        if (btn) { btn.textContent = 'Play'; btn.disabled = false; delete btn.dataset.started; }
+        if (typeof onEnded === 'function') onEnded();
+      });
+    }, SPEAKING_PROMPT_DELAY_MS);
+    return true;
+  }
+
+  function getTaskTiming(taskIndex) {
+    if (taskIndex === 4 || taskIndex === 5) return { prepSeconds: 20, speakSeconds: 90 };
+    return { prepSeconds: 15, speakSeconds: 60 };
+  }
+
+  function startSpeakingTask(taskIndex) {
+    var timing = getTaskTiming(taskIndex);
+    var begin = document.getElementById('spk-begin-' + taskIndex);
+    if (begin) begin.style.display = 'none';
+    if (beginCueTimeout) { clearTimeout(beginCueTimeout); beginCueTimeout = null; }
+    METShell.startSpeakingPrepThenTimer(
+      timing.prepSeconds, timing.speakSeconds,
+      'spk-prep-bar-' + taskIndex, 'spk-prep-label-' + taskIndex,
+      'spk-countdown-bar-' + taskIndex, 'spk-countdown-label-' + taskIndex,
+      function () {
+        if (begin) begin.style.display = 'none';
+        var panel = document.getElementById('spk-capture-panel-' + taskIndex);
+        if (panel) panel.style.display = '';
+        METShell.startWaveform('spk-waveform-' + taskIndex);
+        startTaskRecording(taskIndex, timing.speakSeconds);
+      }
+    );
+  }
+
+  var micStream = null;
+  var activeRecorder = null;
+  var activeRecordTimeout = null;
+  var activeRecordingTask = null;
+  var activeStoppedByTimeout = false;
+  var beginCueTimeout = null;
+  var recordingChunks = {};
+
+  function setRecordingStatus(taskIndex, labelText) {
+    var panel = document.getElementById('spk-capture-panel-' + taskIndex);
+    if (!panel) return;
+    var label = panel.querySelector('.met-recording-label');
+    if (label) label.textContent = labelText;
+  }
+
+  async function ensureMicPermission() {
+    if (micStream) return micStream;
+    if (!navigator.mediaDevices || !navigator.mediaDevices.getUserMedia) {
+      throw new Error('Microphone recording is not supported in this browser.');
+    }
+    if (localStorage.getItem('met:mic:granted') === '1') {
+      try {
+        micStream = await navigator.mediaDevices.getUserMedia({ audio: true });
+        return micStream;
+      } catch (_) {
+        localStorage.removeItem('met:mic:granted');
+      }
+    }
+    micStream = await navigator.mediaDevices.getUserMedia({ audio: true });
+    localStorage.setItem('met:mic:granted', '1');
+    return micStream;
+  }
+
+  function stopActiveRecording() {
+    if (activeRecordTimeout) { clearTimeout(activeRecordTimeout); activeRecordTimeout = null; }
+    if (activeRecorder && activeRecorder.state !== 'inactive') activeRecorder.stop();
+    activeRecorder = null;
+    activeRecordingTask = null;
+    activeStoppedByTimeout = false;
+  }
+
+  async function startTaskRecording(taskIndex, seconds) {
+    stopActiveRecording();
+    try {
+      var stream = await ensureMicPermission();
+      var chunks = [];
+      var recorder = new MediaRecorder(stream);
+      activeRecorder = recorder;
+      activeRecordingTask = taskIndex;
+      activeStoppedByTimeout = false;
+      setRecordingStatus(taskIndex, 'Recording');
+      recorder.ondataavailable = function (event) {
+        if (event.data && event.data.size > 0) chunks.push(event.data);
+      };
+      recorder.onstop = function () {
+        recordingChunks[taskIndex] = chunks;
+        if (typeof uploadSpeakingRecording === 'function') uploadSpeakingRecording(taskIndex, chunks);
+        if (activeStoppedByTimeout) {
+          setRecordingStatus(taskIndex, 'Recording finished (time up)');
+          setTimeout(function () { setRecordingStatus(taskIndex, 'Saved'); }, 450);
+        } else {
+          setRecordingStatus(taskIndex, 'Saved');
+        }
+      };
+      recorder.start();
+      activeRecordTimeout = setTimeout(function () {
+        if (activeRecorder === recorder && recorder.state !== 'inactive') {
+          activeStoppedByTimeout = true;
+          recorder.stop();
+        }
+      }, seconds * 1000);
+    } catch (error) {
+      console.error('Microphone permission/recording error:', error);
+      var panel = document.getElementById('spk-capture-panel-' + taskIndex);
+      if (panel) panel.style.display = '';
+      setRecordingStatus(taskIndex, 'Microphone access denied — allow mic and reload the page.');
+    }
+  }
+
+  // Single-use bar player for Speaking instructions
+  (function() {
+    var audio  = document.getElementById('spk-intro-audio');
+    var btn    = document.getElementById('spk-intro-play-btn');
+    var fill   = document.querySelector('#spk-intro-player .met-audio-scrubber-fill');
+    var timeEl = document.getElementById('spk-intro-audio-time');
+    if (!audio || !btn) return;
+    function fmt(s) {
+      return String(Math.floor(s/60)).padStart(2,'0') + ':' + String(Math.floor(s%60)).padStart(2,'0');
+    }
+    btn.addEventListener('click', function() {
+      if (btn.dataset.played) return;
+      btn.dataset.played = '1';
+      audio.play().catch(function(){});
+      btn.textContent = '⏸';
+    });
+    audio.addEventListener('timeupdate', function() {
+      if (!audio.duration) return;
+      var pct = (audio.currentTime / audio.duration) * 100;
+      if (fill) fill.style.width = pct + '%';
+      if (timeEl) timeEl.textContent = fmt(audio.currentTime) + ' / ' + fmt(audio.duration);
+    });
+    audio.addEventListener('ended', function() {
+      btn.textContent = '✓';
+      btn.style.opacity = '0.5';
+      btn.style.cursor = 'default';
+    });
+  })();
+
+  var micCheckBtn = document.getElementById('mic-check-btn');
+  if (micCheckBtn) {
+    micCheckBtn.addEventListener('click', async function () {
+      micCheckBtn.disabled = true;
+      micCheckBtn.textContent = 'Checking…';
+      try {
+        await ensureMicPermission();
+        document.getElementById('mic-check-status').style.display = '';
+        METShell.startWaveform('mic-check-waveform');
+        document.getElementById('mic-check-label').textContent = 'Microphone active';
+        document.getElementById('mic-check-success').style.display = '';
+        document.getElementById('mic-check-error').style.display = 'none';
+        document.getElementById('mic-check-next-hint').style.display = '';
+        micCheckBtn.textContent = '✓ Microphone OK';
+      } catch (err) {
+        document.getElementById('mic-check-error').style.display = '';
+        document.getElementById('mic-check-success').style.display = 'none';
+        micCheckBtn.textContent = '🎤 Try Again';
+        micCheckBtn.disabled = false;
+      }
+    });
+  }
+
+  var pendingTaskIdx = null;
+
+  function getTaskNumFromPage(pageEl) {
+    if (!pageEl) return NaN;
+    return parseInt(pageEl.dataset.metPage, 10);
+  }
+
+  function isTaskNum(taskNum) {
+    return Number.isInteger(taskNum) && taskNum >= 1 && taskNum <= 5;
+  }
+
+  function triggerTaskFlow(page, taskNum) {
+    if (!page || !isTaskNum(taskNum) || page.dataset.autoStarted === '1') return;
+    page.dataset.autoStarted = '1';
+    var prepMsg = page.querySelector('.spk-prepare-msg');
+    if (prepMsg) prepMsg.style.display = '';
+    var promptStarted = autoPlayPrompt(page, function () { startSpeakingTask(taskNum); });
+    if (!promptStarted) startSpeakingTask(taskNum);
+  }
+
+  document.addEventListener('METPageChanged', function(e) {
+    var idx = e.detail && e.detail.pageIndex;
+    var pages = document.querySelectorAll('[data-met-page]');
+    var page = pages[idx] || null;
+    var taskNum = getTaskNumFromPage(page);
+    if (beginCueTimeout) { clearTimeout(beginCueTimeout); beginCueTimeout = null; }
+    if (!isTaskNum(taskNum)) { stopActiveRecording(); return; }
+    triggerTaskFlow(page, taskNum);
+  });
+
+  document.addEventListener('METTimerEnded', function () {
+    alert('Speaking time is over. Your speaking section has ended.');
+  });
+</script>
+</body>
+</html>
