@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Michigan English Test Practice — MET Mock Test 2</title>
+  <title>Michigan English Test Pathway — Mock Test 2</title>
   <meta name="theme-color" content="#0a1a3e" />
   <link rel="stylesheet" href="../css/met-brand.css">
   <link rel="stylesheet" href="../css/met-standard.css">
@@ -97,30 +97,6 @@
       margin-top: 4px;
     }
     .reg-submit:hover { background: var(--orange-dark); }
-
-    /* ── Locked card state (before registration) ──────────────── */
-    .home-ability--locked {
-      opacity: 0.55;
-      pointer-events: none;
-      cursor: default;
-      position: relative;
-      user-select: none;
-    }
-    .home-ability--locked .home-ability__lock-icon {
-      display: inline-block;
-      position: absolute;
-      top: 8px;
-      right: 10px;
-      font-size: 13px;
-      color: var(--met-slate);
-      background: var(--azul-wash);
-      border-radius: var(--r-xs);
-      padding: 1px 7px;
-      letter-spacing: .04em;
-      text-transform: uppercase;
-      font-weight: 700;
-      font-size: 10px;
-    }
 
     /* ── Top bar ──────────────────────────────────────────────── */
     .home-topbar {
@@ -245,7 +221,7 @@
       padding-left: 22px; position: relative;
     }
     .home-checklist li::before {
-      content: "\2713"; position: absolute; left: 0;
+      content: "✓"; position: absolute; left: 0;
       color: var(--azul-blue); font-weight: 800; font-size: 13px;
     }
 
@@ -261,7 +237,7 @@
       transition: border-color .15s, box-shadow .15s, transform .1s;
       position: relative;
     }
-    .home-ability:not(.home-ability--done):not(.home-ability--locked):hover {
+    .home-ability:not(.home-ability--done):hover {
       border-color: var(--orange);
       box-shadow: 0 0 0 3px rgba(224,112,0,.12);
       transform: translateY(-1px);
@@ -325,7 +301,7 @@
         <label for="regEmail">Email address *</label>
         <input type="email" id="regEmail" placeholder="e.g. maria@email.com" autocomplete="email" required />
       </div>
-      <button class="reg-submit" id="regSubmit" type="button">Confirm &amp; enter test &rarr;</button>
+      <button class="reg-submit" id="regSubmit" type="button">Confirm &amp; enter test →</button>
     </div>
   </div>
 
@@ -337,7 +313,7 @@
 
   <!-- INFO BAR -->
   <div class="home-infobar">
-    <span>Michigan English Test &mdash; Digital Sample Test</span>
+    <span>Michigan English Test — Digital Sample Test</span>
     <span class="home-infobar__student" id="studentGreeting"></span>
   </div>
 
@@ -345,18 +321,18 @@
 
     <!-- Locked-section notice (shown when student returns after finishing a section) -->
     <div class="locked-banner" id="lockedBanner">
-      &#9888; That section has already been submitted and is now locked. Continue with the next one below.
+      ⚠ That section has already been submitted and is now locked. Continue with the next one below.
     </div>
 
     <!-- HERO -->
     <div class="home-hero">
-      <h1 class="home-hero__title">Michigan English Test Practice</h1>
+      <h1 class="home-hero__title">Michigan English Test Pathway</h1>
       <p class="home-hero__sub">Complete all four sections to finish Mock Test 2.</p>
       <div class="home-hero__meta">
         <span class="home-hero__pill home-hero__pill--orange">Mock Test 2</span>
         <span class="home-hero__pill">4 Sections</span>
         <span class="home-hero__pill">~2 h 55 min total</span>
-        <span class="home-hero__pill">50 Reading + Listening &middot; Writing &middot; Speaking</span>
+        <span class="home-hero__pill">50 Reading + Listening · Writing · Speaking</span>
       </div>
     </div>
 
@@ -364,12 +340,12 @@
     <div class="home-card">
       <h2 class="home-card__title">Before You Begin</h2>
       <ul class="home-checklist">
-        <li>Complete all four abilities: <strong>Listening</strong>, <strong>Reading &amp; Grammar</strong>, <strong>Writing</strong>, and <strong>Speaking</strong>.</li>
-        <li>Each section has its own countdown timer &mdash; it starts when you open the section.</li>
+        <li>Complete all four abilities: <strong>Reading &amp; Grammar</strong>, <strong>Listening</strong>, <strong>Speaking</strong>, and <strong>Writing</strong>.</li>
+        <li>Each section has its own countdown timer — it starts when you open the section.</li>
         <li>Do not refresh during an active section unless absolutely necessary.</li>
         <li>In Speaking, prompts play automatically; preparation and speaking time then begin.</li>
-        <li>Once a section is submitted it is <strong>locked</strong> &mdash; you cannot re-enter it.</li>
-        <li>Reading &rarr; Listening &rarr; Speaking &rarr; Writing order is recommended.</li>
+        <li>Once a section is submitted it is <strong>locked</strong> — you cannot re-enter it.</li>
+        <li>Reading → Listening → Speaking → Writing order is recommended.</li>
       </ul>
     </div>
 
@@ -377,37 +353,33 @@
     <div class="home-card">
       <h2 class="home-card__title">4 Abilities</h2>
       <div class="home-abilities" id="abilitiesGrid">
-        <a class="home-ability home-ability--locked" id="card-listening" href="listening-p1.html">
-          <span class="home-ability__done-mark" id="done-listening" style="display:none">&#10004;</span>
-          <span class="home-ability__lock-icon">&#128274; Locked</span>
-          <span class="home-ability__name">Listening</span>
-          <span class="home-ability__detail">30 questions &middot; Parts 1&ndash;3</span>
-          <span class="home-ability__badge" id="badge-listening">35 min</span>
-        </a>
-        <a class="home-ability home-ability--locked" id="card-reading" href="reading-p1.html">
-          <span class="home-ability__done-mark" id="done-reading" style="display:none">&#10004;</span>
-          <span class="home-ability__lock-icon">&#128274; Locked</span>
+        <a class="home-ability" id="card-reading" href="reading-p1.html">
+          <span class="home-ability__done-mark" id="done-reading" style="display:none">✔</span>
           <span class="home-ability__name">Reading &amp; Grammar</span>
-          <span class="home-ability__detail">50 questions &middot; Parts 1&ndash;3</span>
+          <span class="home-ability__detail">50 questions · Parts 1–3</span>
           <span class="home-ability__badge" id="badge-reading">65 min</span>
         </a>
-        <a class="home-ability home-ability--locked" id="card-writing" href="writing-task1.html">
-          <span class="home-ability__done-mark" id="done-writing" style="display:none">&#10004;</span>
-          <span class="home-ability__lock-icon">&#128274; Locked</span>
-          <span class="home-ability__name">Writing</span>
-          <span class="home-ability__detail">2 tasks &middot; free-response</span>
-          <span class="home-ability__badge" id="badge-writing">45 min</span>
+        <a class="home-ability" id="card-listening" href="listening-p1.html">
+          <span class="home-ability__done-mark" id="done-listening" style="display:none">✔</span>
+          <span class="home-ability__name">Listening</span>
+          <span class="home-ability__detail">30 questions · Parts 1–3</span>
+          <span class="home-ability__badge" id="badge-listening">35 min</span>
         </a>
-        <a class="home-ability home-ability--locked" id="card-speaking" href="speaking-p1.html">
-          <span class="home-ability__done-mark" id="done-speaking" style="display:none">&#10004;</span>
-          <span class="home-ability__lock-icon">&#128274; Locked</span>
+        <a class="home-ability" id="card-speaking" href="speaking-p1.html">
+          <span class="home-ability__done-mark" id="done-speaking" style="display:none">✔</span>
           <span class="home-ability__name">Speaking</span>
-          <span class="home-ability__detail">5 tasks &middot; recorded responses</span>
+          <span class="home-ability__detail">5 tasks · recorded responses</span>
           <span class="home-ability__badge" id="badge-speaking">10 min</span>
+        </a>
+        <a class="home-ability" id="card-writing" href="writing-task1.html">
+          <span class="home-ability__done-mark" id="done-writing" style="display:none">✔</span>
+          <span class="home-ability__name">Writing</span>
+          <span class="home-ability__detail">2 tasks · free-response</span>
+          <span class="home-ability__badge" id="badge-writing">45 min</span>
         </a>
       </div>
       <a class="home-start" href="reading-p1.html" id="startBtn">
-        Start Mock Test 2 <span class="home-start__arrow">&#9654;</span>
+        Start Mock Test 2 <span class="home-start__arrow">▶</span>
       </a>
     </div>
 
@@ -429,15 +401,8 @@
     // ── Show locked banner if redirected from a locked section ─
     if (new URLSearchParams(location.search).get('locked') === '1') {
       document.getElementById('lockedBanner').classList.add('visible');
+      // Remove query param from URL without reload
       history.replaceState(null, '', location.pathname);
-    }
-
-    // ── Unlock all section cards (remove locked visual state) ──
-    function unlockSectionCards() {
-      var cards = document.querySelectorAll('.home-ability--locked');
-      for (var i = 0; i < cards.length; i++) {
-        cards[i].classList.remove('home-ability--locked');
-      }
     }
 
     // ── Render section completion state ───────────────────────
@@ -456,7 +421,7 @@
         if (done) {
           card.classList.add('home-ability--done');
           if (mark) mark.style.display = '';
-          if (badge) badge.textContent = 'Completed \u2713';
+          if (badge) badge.textContent = 'Completed ✓';
         } else {
           allDone = false;
           if (!nextHref) nextHref = card.getAttribute('href');
@@ -466,14 +431,33 @@
       var btn = document.getElementById('startBtn');
       if (nextHref) {
         btn.href = nextHref;
-        btn.innerHTML = (nextHref === 'reading-p1.html' ? 'Start Mock Test 2' : 'Continue Mock Test 2') + ' <span class="home-start__arrow">\u25B6</span>';
+        btn.textContent = '';
+        btn.innerHTML = (nextHref === 'reading-p1.html' ? 'Start Mock Test 2' : 'Continue Mock Test 2') + ' <span style="font-size:17px">▶</span>';
       } else {
-        btn.textContent = 'All sections completed \u2713';
+        btn.textContent = 'All sections completed ✓';
         btn.style.background = 'var(--green)';
         btn.style.boxShadow = 'none';
         btn.removeAttribute('href');
         btn.style.cursor = 'default';
       }
+    }
+
+    function loadServerLocks(studentEmail) {
+      if (!studentEmail) return Promise.resolve();
+      return fetch('/api/section-locks?studentEmail=' + encodeURIComponent(studentEmail), { method: 'GET' })
+        .then(function (res) {
+          if (!res.ok) throw new Error('Failed lock read');
+          return res.json();
+        })
+        .then(function (payload) {
+          serverLocked = {};
+          var sections = Array.isArray(payload && payload.lockedSections) ? payload.lockedSections : [];
+          sections.forEach(function (id) { serverLocked[id] = true; });
+          refreshSectionCards();
+        })
+        .catch(function () {
+          serverLocked = {};
+        });
     }
 
     // ── Registration ───────────────────────────────────────────
@@ -485,8 +469,8 @@
       document.getElementById('regName').focus();
     } else {
       document.getElementById('studentGreeting').textContent = storedName;
-      unlockSectionCards();
       refreshSectionCards();
+      loadServerLocks(storedEmail);
     }
 
     document.getElementById('regSubmit').addEventListener('click', function () {
@@ -503,8 +487,8 @@
       } catch (_) {}
       document.getElementById('regOverlay').classList.remove('active');
       document.getElementById('studentGreeting').textContent = name;
-      unlockSectionCards();
       refreshSectionCards();
+      loadServerLocks(email);
     });
 
     // Allow Enter key in registration fields

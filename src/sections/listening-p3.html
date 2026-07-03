@@ -1,455 +1,376 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Listening — Part 3 | MET Mock Test 2</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Listening Part 3 — MET Mock Test</title>
+  <meta name="description" content="MET Mock Test — Listening Part 3">
+  <meta name="theme-color" content="#1B3A6B">
   <link rel="stylesheet" href="../css/met-brand.css">
   <link rel="stylesheet" href="../css/met-standard.css">
   <link rel="stylesheet" href="../css/met-shell.css">
 </head>
-<body class="met-shell" data-next-section="speaking-p1.html">
+<body class="met-shell">
 
-  <!-- Info Bar -->
-  <div class="met-info-bar">Michigan English Test Mock 2</div>
-
-  <!-- Top Bar -->
-  <div class="met-top-bar">
-    <div class="met-top-left">
-      <span class="met-section-label">Listening — Part 3</span>
-    </div>
-    <div class="met-top-center">
-      <span class="met-timer" id="metTimer">00:00</span>
-    </div>
-    <div class="met-top-right">
-      <span class="met-progress" id="metProgress">Page 1 of 18</span>
-      <button class="met-btn met-btn-finish" id="metBtnFinish">Finish</button>
-    </div>
+<!-- TOP BAR -->
+<header class="met-top-bar">
+  <div class="met-top-bar__left">
+    <span class="met-top-bar__page-label" id="met-page-label">Page: Part 3 Instructions</span><br>
+    <span class="met-top-bar__section-label" id="met-section-label">Section: Listening</span>
   </div>
-
-  <!-- Sidebar -->
-  <div class="met-sidebar" id="metSidebar">
-    <button class="met-sidebar-btn" data-met-page="0">0</button>
-    <button class="met-sidebar-btn" data-met-page="34">34</button>
-    <button class="met-sidebar-btn" data-met-page="35">35</button>
-    <button class="met-sidebar-btn" data-met-page="36">36</button>
-    <button class="met-sidebar-btn" data-met-page="37">37</button>
-    <button class="met-sidebar-btn" data-met-page="38">38</button>
-    <button class="met-sidebar-btn" data-met-page="39">39</button>
-    <button class="met-sidebar-btn" data-met-page="40">40</button>
-    <button class="met-sidebar-btn" data-met-page="41">41</button>
-    <button class="met-sidebar-btn" data-met-page="42">42</button>
-    <button class="met-sidebar-btn" data-met-page="43">43</button>
-    <button class="met-sidebar-btn" data-met-page="44">44</button>
-    <button class="met-sidebar-btn" data-met-page="45">45</button>
-    <button class="met-sidebar-btn" data-met-page="46">46</button>
-    <button class="met-sidebar-btn" data-met-page="47">47</button>
-    <button class="met-sidebar-btn" data-met-page="48">48</button>
-    <button class="met-sidebar-btn" data-met-page="49">49</button>
-    <button class="met-sidebar-btn" data-met-page="50">50</button>
-  </div>
-
-  <!-- Main Content Area -->
-  <div class="met-main" id="metMain">
-
-    <!-- PAGE 0: Instructions -->
-    <div class="met-page" data-met-page="0">
-      <div class="met-page-header">
-        <h2>Listening — Part 3</h2>
-        <p class="met-instructions">In this part, you will listen to a lecture and answer questions about it. Questions 34 through 50 are based on the lecture. You will hear the lecture once only.</p>
+  <div class="met-top-bar__center">
+    <span class="met-top-bar__timer-label">Section Time Remaining</span>
+    <span class="met-top-bar__timer" id="met-timer" aria-live="polite">00:10:00</span>
+    <div class="met-progress-wrap">
+      <div class="met-progress-bar-outer">
+        <div class="met-progress-bar-inner" id="met-progress-bar" style="width:0%"></div>
       </div>
-      <div class="met-page-body">
-        <div class="met-instructions-box">
-          <p><strong>Directions:</strong> Listen to the lecture. Then answer the questions that follow. You may take notes while you listen. After the lecture, you will have time to read and answer each question. Choose the best answer for each question.</p>
-          <p>Click the play button to start the lecture. You will only hear it once. After the lecture ends, proceed through the questions one by one.</p>
-          <p><strong>Questions 34–50</strong></p>
+      <span class="met-progress-pct" id="met-progress-pct">0%</span>
+    </div>
+  </div>
+  <div class="met-top-bar__right">
+    <button class="met-btn-finish" id="met-btn-finish" style="display:none">Finish Section</button>
+  </div>
+</header>
+
+<!-- INFO BAR -->
+<div class="met-info-bar">
+  <span>Michigan English Test Mock 1</span>
+</div>
+
+<!-- BODY ROW -->
+<div class="met-body-row">
+
+  <!-- SIDEBAR -->
+  <nav class="met-sidebar" id="met-sidebar" aria-label="Listening Part 3 navigator">
+    <button class="met-sidebar__scroll" type="button" aria-label="Scroll section navigation up">▲</button>
+    <div class="met-sidebar__section-label">Listening Part 3</div>
+    <div class="met-sidebar__numbers" id="met-sidebar-numbers">
+      <button class="met-sidebar__num met-sidebar__num--info" type="button" data-target="0" aria-label="Instructions">0</button>
+      <button class="met-sidebar__num" type="button" data-target="1" aria-label="Talk A — Questions 34–37">A</button>
+      <button class="met-sidebar__num" type="button" data-target="2" aria-label="Talk B — Questions 38–41">B</button>
+      <button class="met-sidebar__num" type="button" data-target="3" aria-label="Talk C — Questions 42–46">C</button>
+      <button class="met-sidebar__num" type="button" data-target="4" aria-label="Talk D — Questions 47–50">D</button>
+    </div>
+    <button class="met-sidebar__scroll" type="button" aria-label="Scroll section navigation down">▼</button>
+  </nav>
+
+  <main class="met-content-wrap">
+    <div class="met-content" id="met-content">
+
+      <!-- PAGE 0: Part 3 Instructions -->
+      <div class="met-page" data-met-page="0" data-page-label="Part 3 Instructions" data-section-label="Section: Listening">
+        <h2 class="met-page-title">Listening — Part 3</h2>
+        <p class="met-instruction">You will hear <strong>short talks</strong>. Answer the questions about what you hear. Talks will not be repeated.</p>
+        <div class="met-audio-player" id="p3-intro-player">
+          <button class="met-audio-btn" id="p3-play-btn">▶</button>
+          <div class="met-audio-scrubber-wrap">
+            <div class="met-audio-scrubber"><div class="met-audio-scrubber-fill" style="width:0%"></div></div>
+          </div>
+          <span class="met-audio-time" id="p3-audio-time">0:00 / 0:00</span>
+          <audio id="p3-intro-audio" src="../../assets/audio/listening/part3/MET_Sample Test_Listening Section Audio_PART 3.mp3" preload="auto" style="display:none"></audio>
         </div>
-        <div class="met-play-area">
-          <button class="met-btn met-btn-play met-btn-lecture" data-met-audio="../../assets/audio/listening/part3/lecture.mp3">
-            <span class="met-play-icon">&#9654;</span> Play Lecture
-          </button>
+        <p class="met-note">Click <strong>Next</strong> to begin.</p>
+      </div>
+
+      <!-- PAGE 1: Talk A — Questions 34–37 -->
+      <div class="met-page" data-met-page="1" data-page-label="Talk A — Questions 34–37" data-section-label="Section: Listening Part 3" data-is-question="true" data-listening-question="true">
+        <p class="met-task-label">Part 3 — Talk A — Questions 34–37</p>
+        <div class="met-audio-player">
+          <button class="met-audio-btn">Play</button>
+          <input type="range" class="met-audio-volume" min="0" max="1" step="0.05" value="1" aria-label="Volume">
+          <audio src="../../assets/audio/listening/part3/conv a.mp3" style="display:none"></audio>
+        </div>
+        <div class="met-multi-question">
+          <div class="met-q-block">
+            <p class="met-question-text"><strong>34.</strong> What is the speaker mainly announcing?</p>
+            <div class="met-options">
+              <button class="met-option" data-group="q34">A. The opening of a new school building</button>
+              <button class="met-option" data-group="q34">B. Exam results for science students</button>
+              <button class="met-option" data-group="q34">C. A new school timetable for the year</button>
+              <button class="met-option" data-group="q34">D. Schedule changes due to a staff event</button>
+            </div>
+          </div>
+          <div class="met-q-block">
+            <p class="met-question-text"><strong>35.</strong> Who will be most affected by the changes?</p>
+            <div class="met-options">
+              <button class="met-option" data-group="q35">A. All students equally</button>
+              <button class="met-option" data-group="q35">B. Science and mathematics students</button>
+              <button class="met-option" data-group="q35">C. Students in the arts department</button>
+              <button class="met-option" data-group="q35">D. Library staff members</button>
+            </div>
+          </div>
+          <div class="met-q-block">
+            <p class="met-question-text"><strong>36.</strong> Why does the speaker mention the student café?</p>
+            <div class="met-options">
+              <button class="met-option" data-group="q36">A. It will offer free meals that day</button>
+              <button class="met-option" data-group="q36">B. It will be closed all day Wednesday</button>
+              <button class="met-option" data-group="q36">C. It is moving to a new location</button>
+              <button class="met-option" data-group="q36">D. It will close earlier than usual</button>
+            </div>
+          </div>
+          <div class="met-q-block">
+            <p class="met-question-text"><strong>37.</strong> What will probably happen right after this announcement?</p>
+            <div class="met-options">
+              <button class="met-option" data-group="q37">A. Homeroom teachers will hand out schedules</button>
+              <button class="met-option" data-group="q37">B. Lab sessions will begin immediately</button>
+              <button class="met-option" data-group="q37">C. Students will go to the library</button>
+              <button class="met-option" data-group="q37">D. The coordinator will speak next</button>
+            </div>
+          </div>
         </div>
       </div>
-    </div>
 
-    <!-- PAGE 1: Question 34 -->
-    <div class="met-page" data-met-page="34">
-      <div class="met-question-header">
-        <span class="met-question-number">34.</span>
-        <p class="met-question-text">What is the lecture mainly about?</p>
+      <!-- PAGE 2: Talk B — Questions 38–41 -->
+      <div class="met-page" data-met-page="2" data-page-label="Talk B — Questions 38–41" data-section-label="Section: Listening Part 3" data-is-question="true" data-listening-question="true">
+        <p class="met-task-label">Part 3 — Talk B — Questions 38–41</p>
+        <div class="met-audio-player">
+          <button class="met-audio-btn">Play</button>
+          <input type="range" class="met-audio-volume" min="0" max="1" step="0.05" value="1" aria-label="Volume">
+          <audio src="../../assets/audio/listening/part3/conv b.mp3" style="display:none"></audio>
+        </div>
+        <div class="met-multi-question">
+          <div class="met-q-block">
+            <p class="met-question-text"><strong>38.</strong> Why does the speaker mention architects and community groups?</p>
+            <div class="met-options">
+              <button class="met-option" data-group="q38">A. To describe who urban planners work with</button>
+              <button class="met-option" data-group="q38">B. To explain who funded a project</button>
+              <button class="met-option" data-group="q38">C. To introduce other guest speakers</button>
+              <button class="met-option" data-group="q38">D. To list the most important careers</button>
+            </div>
+          </div>
+          <div class="met-q-block">
+            <p class="met-question-text"><strong>39.</strong> What can listeners pick up on their way out?</p>
+            <div class="met-options">
+              <button class="met-option" data-group="q39">A. A job application form</button>
+              <button class="met-option" data-group="q39">B. Information about internships</button>
+              <button class="met-option" data-group="q39">C. A copy of the speaker's project</button>
+              <button class="met-option" data-group="q39">D. A map of the city center</button>
+            </div>
+          </div>
+          <div class="met-q-block">
+            <p class="met-question-text"><strong>40.</strong> What will the speaker most likely do next?</p>
+            <div class="met-options">
+              <button class="met-option" data-group="q40">A. Hand out internship applications</button>
+              <button class="met-option" data-group="q40">B. Show a recent planning project</button>
+              <button class="met-option" data-group="q40">C. Answer questions from the audience</button>
+              <button class="met-option" data-group="q40">D. Introduce another guest speaker</button>
+            </div>
+          </div>
+          <div class="met-q-block">
+            <p class="met-question-text"><strong>41.</strong> What does the speaker mean when he says geography wasn't an obvious path?</p>
+            <div class="met-options">
+              <button class="met-option" data-group="q41">A. It was not a typical route into his career</button>
+              <button class="met-option" data-group="q41">B. His employers were surprised by his degree</button>
+              <button class="met-option" data-group="q41">C. He didn't enjoy studying geography</button>
+              <button class="met-option" data-group="q41">D. He struggled with the subject at school</button>
+            </div>
+          </div>
+        </div>
       </div>
-      <div class="met-play-area">
-        <button class="met-btn met-btn-play" data-met-audio="../../assets/audio/listening/part3/listening3_q34.wav">
-          <span class="met-play-icon">&#9654;</span> Play
-        </button>
-      </div>
-      <div class="met-options">
-        <div class="met-option" data-met-option="A">A. Ocean ecosystems</div>
-        <div class="met-option" data-met-option="B">B. Climate change effects</div>
-        <div class="met-option" data-met-option="C">C. Marine conservation</div>
-        <div class="met-option" data-met-option="D">D. Fishing regulations</div>
-      </div>
-    </div>
 
-    <!-- PAGE 2: Question 35 -->
-    <div class="met-page" data-met-page="35">
-      <div class="met-question-header">
-        <span class="met-question-number">35.</span>
-        <p class="met-question-text">What does the speaker say about coral reefs?</p>
+      <!-- PAGE 3: Talk C — Questions 42–46 -->
+      <div class="met-page" data-met-page="3" data-page-label="Talk C — Questions 42–46" data-section-label="Section: Listening Part 3" data-is-question="true" data-listening-question="true">
+        <p class="met-task-label">Part 3 — Talk C — Questions 42–46</p>
+        <div class="met-audio-player">
+          <button class="met-audio-btn">Play</button>
+          <input type="range" class="met-audio-volume" min="0" max="1" step="0.05" value="1" aria-label="Volume">
+          <audio src="../../assets/audio/listening/part3/conv c.mp3" style="display:none"></audio>
+        </div>
+        <div class="met-multi-question">
+          <div class="met-q-block">
+            <p class="met-question-text"><strong>42.</strong> What is the speaker mainly talking about?</p>
+            <div class="met-options">
+              <button class="met-option" data-group="q42">A. Why people work too many hours</button>
+              <button class="met-option" data-group="q42">B. The benefits of afternoon naps</button>
+              <button class="met-option" data-group="q42">C. How to treat sleep disorders</button>
+              <button class="met-option" data-group="q42">D. The importance of regular sleep</button>
+            </div>
+          </div>
+          <div class="met-q-block">
+            <p class="met-question-text"><strong>43.</strong> Who might benefit most from this information?</p>
+            <div class="met-options">
+              <button class="met-option" data-group="q43">A. People who exercise every morning</button>
+              <button class="met-option" data-group="q43">B. People who work night shifts only</button>
+              <button class="met-option" data-group="q43">C. People who regularly sleep less than six hours</button>
+              <button class="met-option" data-group="q43">D. People who already sleep nine hours</button>
+            </div>
+          </div>
+          <div class="met-q-block">
+            <p class="met-question-text"><strong>44.</strong> What did the Japan study show?</p>
+            <div class="met-options">
+              <button class="met-option" data-group="q44">A. Weekend sleep improves work performance</button>
+              <button class="met-option" data-group="q44">B. Japanese workers sleep more than others</button>
+              <button class="met-option" data-group="q44">C. Sleep-deprived workers are less productive</button>
+              <button class="met-option" data-group="q44">D. Six hours of sleep is enough for most people</button>
+            </div>
+          </div>
+          <div class="met-q-block">
+            <p class="met-question-text"><strong>45.</strong> What is the speaker's main point?</p>
+            <div class="met-options">
+              <button class="met-option" data-group="q45">A. Sleep needs vary greatly between individuals</button>
+              <button class="met-option" data-group="q45">B. Sleep disorders require medical treatment</button>
+              <button class="met-option" data-group="q45">C. Technology is the main cause of sleep loss</button>
+              <button class="met-option" data-group="q45">D. Good sleep is necessary for health and performance</button>
+            </div>
+          </div>
+          <div class="met-q-block">
+            <p class="met-question-text"><strong>46.</strong> What does the speaker mean by "what surprises many people"?</p>
+            <div class="met-options">
+              <button class="met-option" data-group="q46">A. Most people sleep more than they think</button>
+              <button class="met-option" data-group="q46">B. People underestimate how tired they are</button>
+              <button class="met-option" data-group="q46">C. Weekend sleep does not fix weekday sleep loss</button>
+              <button class="met-option" data-group="q46">D. Sleep research is still very new</button>
+            </div>
+          </div>
+        </div>
       </div>
-      <div class="met-play-area">
-        <button class="met-btn met-btn-play" data-met-audio="../../assets/audio/listening/part3/listening3_q35.wav">
-          <span class="met-play-icon">&#9654;</span> Play
-        </button>
-      </div>
-      <div class="met-options">
-        <div class="met-option" data-met-option="A">A. They are recovering</div>
-        <div class="met-option" data-met-option="B">B. They are under threat</div>
-        <div class="met-option" data-met-option="C">C. They are expanding</div>
-        <div class="met-option" data-met-option="D">D. They are well-protected</div>
-      </div>
-    </div>
 
-    <!-- PAGE 3: Question 36 -->
-    <div class="met-page" data-met-page="36">
-      <div class="met-question-header">
-        <span class="met-question-number">36.</span>
-        <p class="met-question-text">According to the lecture, what is one cause of ocean acidification?</p>
+      <!-- PAGE 4: Talk D — Questions 47–50 -->
+      <div class="met-page" data-met-page="4" data-page-label="Talk D — Questions 47–50" data-section-label="Section: Listening Part 3" data-is-question="true" data-listening-question="true">
+        <p class="met-task-label">Part 3 — Talk D — Questions 47–50</p>
+        <div class="met-audio-player">
+          <button class="met-audio-btn">Play</button>
+          <input type="range" class="met-audio-volume" min="0" max="1" step="0.05" value="1" aria-label="Volume">
+          <audio src="../../assets/audio/listening/part3/conv d.mp3" style="display:none"></audio>
+        </div>
+        <div class="met-multi-question">
+          <div class="met-q-block">
+            <p class="met-question-text"><strong>47.</strong> What is the talk mainly about?</p>
+            <div class="met-options">
+              <button class="met-option" data-group="q47">A. How plants send chemical signals to each other</button>
+              <button class="met-option" data-group="q47">B. How insects damage tropical plants</button>
+              <button class="met-option" data-group="q47">C. Why scientists study tropical forests</button>
+              <button class="met-option" data-group="q47">D. How plants produce food through photosynthesis</button>
+            </div>
+          </div>
+          <div class="met-q-block">
+            <p class="met-question-text"><strong>48.</strong> What does the speaker say about this research?</p>
+            <div class="met-options">
+              <button class="met-option" data-group="q48">A. It is still considered controversial today</button>
+              <button class="met-option" data-group="q48">B. It was discovered by Dr. Nguyen</button>
+              <button class="met-option" data-group="q48">C. It was once thought to be impossible</button>
+              <button class="met-option" data-group="q48">D. It is very old and well established</button>
+            </div>
+          </div>
+          <div class="met-q-block">
+            <p class="met-question-text"><strong>49.</strong> Why is Dr. Nguyen going to speak?</p>
+            <div class="met-options">
+              <button class="met-option" data-group="q49">A. To talk about a different plant species</button>
+              <button class="met-option" data-group="q49">B. To discuss her university position</button>
+              <button class="met-option" data-group="q49">C. To present findings using special equipment</button>
+              <button class="met-option" data-group="q49">D. To explain the dangers of field research</button>
+            </div>
+          </div>
+          <div class="met-q-block">
+            <p class="met-question-text"><strong>50.</strong> Why does the speaker say students will be challenged?</p>
+            <div class="met-options">
+              <button class="met-option" data-group="q50">A. He thinks the topic is very complex</button>
+              <button class="met-option" data-group="q50">B. He is unfamiliar with Dr. Nguyen's work</button>
+              <button class="met-option" data-group="q50">C. He believes the findings will surprise them</button>
+              <button class="met-option" data-group="q50">D. He wants them to ask difficult questions</button>
+            </div>
+          </div>
+        </div>
       </div>
-      <div class="met-play-area">
-        <button class="met-btn met-btn-play" data-met-audio="../../assets/audio/listening/part3/listening3_q36.wav">
-          <span class="met-play-icon">&#9654;</span> Play
-        </button>
-      </div>
-      <div class="met-options">
-        <div class="met-option" data-met-option="A">A. Overfishing</div>
-        <div class="met-option" data-met-option="B">B. Carbon dioxide absorption</div>
-        <div class="met-option" data-met-option="C">C. Plastic pollution</div>
-        <div class="met-option" data-met-option="D">D. Oil spills</div>
-      </div>
-    </div>
 
-    <!-- PAGE 4: Question 37 -->
-    <div class="met-page" data-met-page="37">
-      <div class="met-question-header">
-        <span class="met-question-number">37.</span>
-        <p class="met-question-text">What impact does warming water have on marine life?</p>
-      </div>
-      <div class="met-play-area">
-        <button class="met-btn met-btn-play" data-met-audio="../../assets/audio/listening/part3/listening3_q37.wav">
-          <span class="met-play-icon">&#9654;</span> Play
-        </button>
-      </div>
-      <div class="met-options">
-        <div class="met-option" data-met-option="A">A. It increases reproduction</div>
-        <div class="met-option" data-met-option="B">B. It forces migration</div>
-        <div class="met-option" data-met-option="C">C. It improves health</div>
-        <div class="met-option" data-met-option="D">D. It has no effect</div>
-      </div>
     </div>
+  </main>
+</div>
 
-    <!-- PAGE 5: Question 38 -->
-    <div class="met-page" data-met-page="38">
-      <div class="met-question-header">
-        <span class="met-question-number">38.</span>
-        <p class="met-question-text">What does the speaker recommend?</p>
-      </div>
-      <div class="met-play-area">
-        <button class="met-btn met-btn-play" data-met-audio="../../assets/audio/listening/part3/listening3_q38.wav">
-          <span class="met-play-icon">&#9654;</span> Play
-        </button>
-      </div>
-      <div class="met-options">
-        <div class="met-option" data-met-option="A">A. Reducing plastic use</div>
-        <div class="met-option" data-met-option="B">B. Supporting marine reserves</div>
-        <div class="met-option" data-met-option="C">C. Eating less fish</div>
-        <div class="met-option" data-met-option="D">D. Using less energy</div>
-      </div>
-    </div>
-
-    <!-- PAGE 6: Question 39 -->
-    <div class="met-page" data-met-page="39">
-      <div class="met-question-header">
-        <span class="met-question-number">39.</span>
-        <p class="met-question-text">Why does the speaker mention the Arctic?</p>
-      </div>
-      <div class="met-play-area">
-        <button class="met-btn met-btn-play" data-met-audio="../../assets/audio/listening/part3/listening3_q39.wav">
-          <span class="met-play-icon">&#9654;</span> Play
-        </button>
-      </div>
-      <div class="met-options">
-        <div class="met-option" data-met-option="A">A. As an example of extreme warming</div>
-        <div class="met-option" data-met-option="B">B. As a pristine environment</div>
-        <div class="met-option" data-met-option="C">C. As a research location</div>
-        <div class="met-option" data-met-option="D">D. As a tourist destination</div>
-      </div>
-    </div>
-
-    <!-- PAGE 7: Question 40 -->
-    <div class="met-page" data-met-page="40">
-      <div class="met-question-header">
-        <span class="met-question-number">40.</span>
-        <p class="met-question-text">What is happening to sea ice according to the lecture?</p>
-      </div>
-      <div class="met-play-area">
-        <button class="met-btn met-btn-play" data-met-audio="../../assets/audio/listening/part3/listening3_q40.wav">
-          <span class="met-play-icon">&#9654;</span> Play
-        </button>
-      </div>
-      <div class="met-options">
-        <div class="met-option" data-met-option="A">A. It is increasing</div>
-        <div class="met-option" data-met-option="B">B. It is melting rapidly</div>
-        <div class="met-option" data-met-option="C">C. It remains stable</div>
-        <div class="met-option" data-met-option="D">D. It is moving south</div>
-      </div>
-    </div>
-
-    <!-- PAGE 8: Question 41 -->
-    <div class="met-page" data-met-page="41">
-      <div class="met-question-header">
-        <span class="met-question-number">41.</span>
-        <p class="met-question-text">What consequence of melting ice does the speaker describe?</p>
-      </div>
-      <div class="met-play-area">
-        <button class="met-btn met-btn-play" data-met-audio="../../assets/audio/listening/part3/listening3_q41.wav">
-          <span class="met-play-icon">&#9654;</span> Play
-        </button>
-      </div>
-      <div class="met-options">
-        <div class="met-option" data-met-option="A">A. Rising sea levels</div>
-        <div class="met-option" data-met-option="B">B. Cooler temperatures</div>
-        <div class="met-option" data-met-option="C">C. More rainfall</div>
-        <div class="met-option" data-met-option="D">D. Stronger winds</div>
-      </div>
-    </div>
-
-    <!-- PAGE 9: Question 42 -->
-    <div class="met-page" data-met-page="42">
-      <div class="met-question-header">
-        <span class="met-question-number">42.</span>
-        <p class="met-question-text">How do some species adapt to changing conditions?</p>
-      </div>
-      <div class="met-play-area">
-        <button class="met-btn met-btn-play" data-met-audio="../../assets/audio/listening/part3/listening3_q42.wav">
-          <span class="met-play-icon">&#9654;</span> Play
-        </button>
-      </div>
-      <div class="met-options">
-        <div class="met-option" data-met-option="A">A. By changing diet</div>
-        <div class="met-option" data-met-option="B">B. By shifting ranges</div>
-        <div class="met-option" data-met-option="C">C. By hibernating</div>
-        <div class="met-option" data-met-option="D">D. By growing larger</div>
-      </div>
-    </div>
-
-    <!-- PAGE 10: Question 43 -->
-    <div class="met-page" data-met-page="43">
-      <div class="met-question-header">
-        <span class="met-question-number">43.</span>
-        <p class="met-question-text">What does the speaker say about government action?</p>
-      </div>
-      <div class="met-play-area">
-        <button class="met-btn met-btn-play" data-met-audio="../../assets/audio/listening/part3/listening3_q43.wav">
-          <span class="met-play-icon">&#9654;</span> Play
-        </button>
-      </div>
-      <div class="met-options">
-        <div class="met-option" data-met-option="A">A. It has been insufficient</div>
-        <div class="met-option" data-met-option="B">B. It is well-coordinated</div>
-        <div class="met-option" data-met-option="C">C. It is not needed</div>
-        <div class="met-option" data-met-option="D">D. It is too costly</div>
-      </div>
-    </div>
-
-    <!-- PAGE 11: Question 44 -->
-    <div class="met-page" data-met-page="44">
-      <div class="met-question-header">
-        <span class="met-question-number">44.</span>
-        <p class="met-question-text">What role do international agreements play?</p>
-      </div>
-      <div class="met-play-area">
-        <button class="met-btn met-btn-play" data-met-audio="../../assets/audio/listening/part3/listening3_q44.wav">
-          <span class="met-play-icon">&#9654;</span> Play
-        </button>
-      </div>
-      <div class="met-options">
-        <div class="met-option" data-met-option="A">A. They set binding targets</div>
-        <div class="met-option" data-met-option="B">B. They encourage cooperation</div>
-        <div class="met-option" data-met-option="C">C. They provide funding</div>
-        <div class="met-option" data-met-option="D">D. They monitor progress</div>
-      </div>
-    </div>
-
-    <!-- PAGE 12: Question 45 -->
-    <div class="met-page" data-met-page="45">
-      <div class="met-question-header">
-        <span class="met-question-number">45.</span>
-        <p class="met-question-text">According to the lecture, what is a challenge of enforcement?</p>
-      </div>
-      <div class="met-play-area">
-        <button class="met-btn met-btn-play" data-met-audio="../../assets/audio/listening/part3/listening3_q45.wav">
-          <span class="met-play-icon">&#9654;</span> Play
-        </button>
-      </div>
-      <div class="met-options">
-        <div class="met-option" data-met-option="A">A. Lack of technology</div>
-        <div class="met-option" data-met-option="B">B. Limited resources</div>
-        <div class="met-option" data-met-option="C">C. Political opposition</div>
-        <div class="met-option" data-met-option="D">D. Public apathy</div>
-      </div>
-    </div>
-
-    <!-- PAGE 13: Question 46 -->
-    <div class="met-page" data-met-page="46">
-      <div class="met-question-header">
-        <span class="met-question-number">46.</span>
-        <p class="met-question-text">What does the speaker suggest individuals can do?</p>
-      </div>
-      <div class="met-play-area">
-        <button class="met-btn met-btn-play" data-met-audio="../../assets/audio/listening/part3/listening3_q46.wav">
-          <span class="met-play-icon">&#9654;</span> Play
-        </button>
-      </div>
-      <div class="met-options">
-        <div class="met-option" data-met-option="A">A. Join advocacy groups</div>
-        <div class="met-option" data-met-option="B">B. Reduce carbon footprint</div>
-        <div class="met-option" data-met-option="C">C. Donate to causes</div>
-        <div class="met-option" data-met-option="D">D. Vote for green candidates</div>
-      </div>
-    </div>
-
-    <!-- PAGE 14: Question 47 -->
-    <div class="met-page" data-met-page="47">
-      <div class="met-question-header">
-        <span class="met-question-number">47.</span>
-        <p class="met-question-text">How does the speaker describe the current situation?</p>
-      </div>
-      <div class="met-play-area">
-        <button class="met-btn met-btn-play" data-met-audio="../../assets/audio/listening/part3/listening3_q47.wav">
-          <span class="met-play-icon">&#9654;</span> Play
-        </button>
-      </div>
-      <div class="met-options">
-        <div class="met-option" data-met-option="A">A. Hopeless</div>
-        <div class="met-option" data-met-option="B">B. Urgent but manageable</div>
-        <div class="met-option" data-met-option="C">C. Already improving</div>
-        <div class="met-option" data-met-option="D">D. Not a priority</div>
-      </div>
-    </div>
-
-    <!-- PAGE 15: Question 48 -->
-    <div class="met-page" data-met-page="48">
-      <div class="met-question-header">
-        <span class="met-question-number">48.</span>
-        <p class="met-question-text">What is the speaker's tone?</p>
-      </div>
-      <div class="met-play-area">
-        <button class="met-btn met-btn-play" data-met-audio="../../assets/audio/listening/part3/listening3_q48.wav">
-          <span class="met-play-icon">&#9654;</span> Play
-        </button>
-      </div>
-      <div class="met-options">
-        <div class="met-option" data-met-option="A">A. Optimistic</div>
-        <div class="met-option" data-met-option="B">B. Concerned</div>
-        <div class="met-option" data-met-option="C">C. Neutral</div>
-        <div class="met-option" data-met-option="D">D. Angry</div>
-      </div>
-    </div>
-
-    <!-- PAGE 16: Question 49 -->
-    <div class="met-page" data-met-page="49">
-      <div class="met-question-header">
-        <span class="met-question-number">49.</span>
-        <p class="met-question-text">What scientific concept does the speaker explain?</p>
-      </div>
-      <div class="met-play-area">
-        <button class="met-btn met-btn-play" data-met-audio="../../assets/audio/listening/part3/listening3_q49.wav">
-          <span class="met-play-icon">&#9654;</span> Play
-        </button>
-      </div>
-      <div class="met-options">
-        <div class="met-option" data-met-option="A">A. Biodiversity</div>
-        <div class="met-option" data-met-option="B">B. Trophic cascade</div>
-        <div class="met-option" data-met-option="C">C. Carbon cycle</div>
-        <div class="met-option" data-met-option="D">D. Feedback loop</div>
-      </div>
-    </div>
-
-    <!-- PAGE 17: Question 50 -->
-    <div class="met-page" data-met-page="50">
-      <div class="met-question-header">
-        <span class="met-question-number">50.</span>
-        <p class="met-question-text">What does the speaker identify as the most pressing issue?</p>
-      </div>
-      <div class="met-play-area">
-        <button class="met-btn met-btn-play" data-met-audio="../../assets/audio/listening/part3/listening3_q50.wav">
-          <span class="met-play-icon">&#9654;</span> Play
-        </button>
-      </div>
-      <div class="met-options">
-        <div class="met-option" data-met-option="A">A. Overfishing</div>
-        <div class="met-option" data-met-option="B">B. Climate change</div>
-        <div class="met-option" data-met-option="C">C. Pollution</div>
-        <div class="met-option" data-met-option="D">D. Habitat loss</div>
-      </div>
-    </div>
-
+<!-- BOTTOM NAV -->
+<footer class="met-bottom-bar">
+  <div class="met-bottom-bar__nav">
+    <button class="met-btn-back" id="met-btn-back">◀ Back</button>
+    <button class="met-btn-next" id="met-btn-next">Next ▶</button>
   </div>
+</footer>
 
-  <!-- Bottom Bar -->
-  <div class="met-bottom-bar">
-    <button class="met-btn met-btn-back" id="metBtnBack">Back</button>
-    <button class="met-btn met-btn-next" id="metBtnNext">Next</button>
-  </div>
-
-  <!-- Modals -->
-  <div class="met-modal" id="metModalLoading">
-    <div class="met-modal-content">
-      <h3>Loading...</h3>
-      <p>Please wait while the audio is loading.</p>
+<!-- MODALS -->
+<div class="met-modal-overlay" id="met-modal-loading">
+  <div class="met-modal">
+    <div class="met-modal__header">Please wait…</div>
+    <div class="met-modal__body">
+      <div class="met-loading-spinner"></div>
+      <p>Loading</p>
     </div>
   </div>
+</div>
 
-  <div class="met-modal" id="metModalProceed">
-    <div class="met-modal-content">
-      <h3>Proceed to Next Section?</h3>
-      <p>Are you sure you want to proceed to the Speaking section? You will not be able to return to this section.</p>
-      <button class="met-btn met-btn-confirm" id="metBtnProceedYes">Yes, Proceed</button>
-      <button class="met-btn met-btn-cancel" id="metBtnProceedNo">Cancel</button>
+<div class="met-modal-overlay" id="met-modal-proceed">
+  <div class="met-modal">
+    <div class="met-modal__header">Are you sure you want to proceed?</div>
+    <div class="met-modal__body">
+      <p class="met-modal__icon">?</p>
+      <p>You have not answered this question. Do you want to continue without answering?</p>
+      <div class="met-modal__btns">
+        <button class="met-modal-btn met-modal-btn--no" id="met-proceed-no">No</button>
+        <button class="met-modal-btn met-modal-btn--yes" id="met-proceed-yes">Yes</button>
+      </div>
     </div>
   </div>
+</div>
 
-  <div class="met-modal" id="metModalFinish1">
-    <div class="met-modal-content">
-      <h3>Finish Listening Section?</h3>
-      <p>You have unanswered questions. Are you sure you want to finish this section?</p>
-      <button class="met-btn met-btn-confirm" id="metBtnFinish1Yes">Yes, Finish</button>
-      <button class="met-btn met-btn-cancel" id="metBtnFinish1No">Cancel</button>
-    </div>
-  </div>
+<div class="met-scroll-toast" id="met-scroll-toast">
+  ⚠ This page requires scrolling to view all content.
+  <button class="met-scroll-toast__close" id="met-scroll-toast-close" aria-label="Close">✕</button>
+</div>
 
-  <div class="met-modal" id="metModalFinish2">
-    <div class="met-modal-content">
-      <h3>Section Complete</h3>
-      <p>All questions have been answered. You may proceed to the next section.</p>
-      <button class="met-btn met-btn-confirm" id="metBtnFinish2Proceed">Proceed</button>
-    </div>
-  </div>
+<a data-next-section="mock-home.html" hidden></a>
 
-  <script src="../js/met-shell.js"></script>
-  <script>
-    METShell.init({
-      totalSeconds: 2100,
-      timerStorageKey: 'met:timer:listening',
-      listeningMode: true,
-      hasSidebar: true,
-      totalPages: 18,
-      questionStart: 34,
-      questionEnd: 50,
-      nextSection: 'speaking-p1.html',
-      audioBasePath: '../../assets/audio/listening/part3/'
+<script src="../js/met-shell.js"></script>
+<script>
+  METShell.init({
+    totalSeconds: 2100,
+    timerStorageKey: 'met:timer:listening',
+    hasSidebar: true,
+    listeningMode: true,
+    hasBack: true,
+    hasFinishSection: false,
+    sectionLabel: 'Listening'
+  });
+
+  // Single-use bar player for Part 3 instructions
+  (function() {
+    const audio  = document.getElementById('p3-intro-audio');
+    const btn    = document.getElementById('p3-play-btn');
+    const fill   = document.querySelector('#p3-intro-player .met-audio-scrubber-fill');
+    const timeEl = document.getElementById('p3-audio-time');
+    if (!audio || !btn) return;
+    function fmt(s) {
+      return String(Math.floor(s/60)).padStart(2,'0') + ':' + String(Math.floor(s%60)).padStart(2,'0');
+    }
+    btn.addEventListener('click', function() {
+      if (btn.dataset.played) return;
+      btn.dataset.played = '1';
+      audio.play().catch(() => {});
+      btn.textContent = '⏸';
     });
-  </script>
+    audio.addEventListener('timeupdate', function() {
+      if (!audio.duration) return;
+      const pct = (audio.currentTime / audio.duration) * 100;
+      if (fill) fill.style.width = pct + '%';
+      if (timeEl) timeEl.textContent = fmt(audio.currentTime) + ' / ' + fmt(audio.duration);
+    });
+    audio.addEventListener('ended', function() {
+      btn.textContent = '✓';
+      btn.style.opacity = '0.5';
+      btn.style.cursor = 'default';
+    });
+  })();
+
+  // Listening question audio is single-use
+  document.querySelectorAll('[data-is-question="true"] .met-audio-player').forEach(function(player) {
+    var audio = player.querySelector('audio');
+    var btn = player.querySelector('.met-audio-btn');
+    if (!audio || !btn) return;
+    audio.addEventListener('ended', function() {
+      btn.textContent = 'Played';
+      btn.disabled = true;
+      btn.style.opacity = '0.55';
+      btn.style.cursor = 'not-allowed';
+    });
+  });
+</script>
 </body>
 </html>

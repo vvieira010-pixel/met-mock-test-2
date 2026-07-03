@@ -5,7 +5,7 @@
  * Disables "Next" button until narrator audio finishes or timeout.
  *
  * SETUP:
- * 1. Add <script src="assets/narrator-system.js"><\/script> to your HTML
+ * 1. Add this script file to your HTML.
  * 2. Create narrator zones in your HTML (see examples below)
  * 3. Configure narrator URLs in initNarrator() call
  * 4. When transitioning, call playNarratorBeforeTransition(key, btnId)
@@ -17,7 +17,7 @@
  *     <p>Please listen to the next section introduction...</p>
  *   </div>
  * </div>
- * <button id="next-reading-btn" href="reading.html" disabled>Next: Reading<\/button>
+ * <button id="next-reading-btn" disabled>Next: Reading<\/button>
  */
 
 (function() {

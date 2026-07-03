@@ -1,0 +1,8 @@
+file 'assets\audio\listening\part2\_tmp_a_1.mp3'
+file 'assets\audio\listening\part2\_tmp_a_2.mp3'
+file 'assets\audio\listening\part2\_tmp_a_3.mp3'
+file 'assets\audio\listening\part2\_tmp_a_4.mp3'
+file 'assets\audio\listening\part2\_tmp_a_5.mp3'
+file 'assets\audio\listening\part2\_tmp_a_6.mp3'
+file 'assets\audio\listening\part2\_tmp_a_7.mp3'
+file 'assets\audio\listening\part2\_tmp_a_8.mp3'

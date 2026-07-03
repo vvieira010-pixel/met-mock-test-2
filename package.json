@@ -1,7 +1,10 @@
 {
-  "name": "met-proficiency",
+  "name": "met-mock-test",
+  "version": "1.0.0",
   "private": true,
+  "type": "module",
   "scripts": {
-    "build": "echo 'static site - no build needed'"
-  }
+    "build": "node -e \"console.log('Static site: no build step required')\""
+  },
+  "dependencies": {}
 }

@@ -1,0 +1,62 @@
+:root {
+  --exam-ink:        #081827;
+  --exam-ink-2:      #0d2538;
+  --exam-panel:      #fbfcfd;
+  --exam-panel-2:    #f4f7f8;
+  --exam-line:       rgba(8, 24, 39, 0.14);
+  --exam-line-strong:rgba(8, 24, 39, 0.24);
+  --exam-text:       #102033;
+  --exam-muted:      #536273;
+
+  /* Azul Marinho — replaces teal */
+  --exam-blue:       #2B6097;
+  --exam-blue-2:     #4A8EC4;
+  --exam-blue-soft:  rgba(43, 96, 151, 0.10);
+
+  --exam-green:      #16863d;
+  --exam-amber:      #d5901d;
+  --exam-warn-soft:  #fff8e8;
+  --exam-radius:     8px;
+  --exam-font:       "Aptos", "Segoe UI", sans-serif;
+}
+
+.section-page {
+  background: #eef3f8 !important;
+  color: var(--exam-text) !important;
+  font-family: var(--exam-font) !important;
+}
+
+.section-page::before {
+  display: none !important;
+}
+
+.section-page .site-header {
+  background: linear-gradient(90deg, #060f20 0%, #0a1a30 58%, #0d2538 100%) !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08) !important;
+  box-shadow: none !important;
+}
+
+.section-page .header-inner {
+  width: min(100%, 1680px) !important;
+  min-height: 70px !important;
+  padding: 0 26px !important;
+}
+
+.section-page .brand {
+  color: #ffffff !important;
+}
+
+.section-page .brand::before {
+  width: auto !important;
+  min-width: 0 !important;
+  height: auto !important;
+  content: "MET" !important;
+  background: transparent !important;
+  color: #ffffff !important;
+  font-size: 2rem !important;
+  line-height: 1 !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  padding-right: 16px !important;
+  border-right: 1px solid rgba(255, 255, 255, 0.32) !important;
+}

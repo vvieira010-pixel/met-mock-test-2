@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
@@ -183,7 +183,9 @@
         </div>
       </div>
 
-      <form action="thanks.html?success=1" class="submit-form" id="submissionForm" method="POST" name="met-submission">
+      <form class="submit-form" name="met-submission" method="POST" action="thanks.html?success=1"
+            data-netlify="true" netlify-honeypot="bot-field"
+            id="submissionForm">
 
         <input type="hidden" name="form-name" value="met-submission" />
         <p style="display:none"><label>Don't fill this: <input name="bot-field" /></label></p>

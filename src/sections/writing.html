@@ -1,1 +1,215 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0"/><title>Writing — MET Mock Test 2</title><meta name="description" content="MET Mock Test 2 — Writing section"><meta name="theme-color" content="#1B3A6B"><script>window.location.replace('writing-task1.html');</script></head><body></body></html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Writing — MET Mock Test</title>
+  <meta name="description" content="MET Mock Test — Writing section">
+  <meta name="theme-color" content="#1B3A6B">
+  <script>
+    window.location.replace('writing-task1.html');
+  </script>
+  <link rel="stylesheet" href="../css/met-brand.css">
+  <link rel="stylesheet" href="../css/met-shell.css">
+</head>
+<body class="met-shell">
+
+<!-- TOP BAR -->
+<header class="met-top-bar">
+  <div class="met-top-bar__left">
+    <span class="met-top-bar__page-label" id="met-page-label">Page: Writing Instructions</span><br>
+    <span class="met-top-bar__section-label" id="met-section-label">Section: Writing</span>
+  </div>
+  <div class="met-top-bar__center">
+    <span class="met-top-bar__timer-label">🕐 Section Time Remaining</span>
+    <span class="met-top-bar__timer" id="met-timer" aria-live="polite">00:45:00</span>
+    <div class="met-progress-wrap">
+      <div class="met-progress-bar-outer">
+        <div class="met-progress-bar-inner" id="met-progress-bar" style="width:0%"></div>
+      </div>
+      <span class="met-progress-pct" id="met-progress-pct">0%</span>
+    </div>
+  </div>
+  <div class="met-top-bar__right">
+    <button class="met-btn-finish" id="met-btn-finish">Finish Section</button>
+  </div>
+</header>
+
+<!-- INFO BAR -->
+<div class="met-info-bar">
+  <span>Michigan English Test Mock 1</span>
+</div>
+
+<!-- BODY ROW -->
+<div class="met-body-row">
+
+  <!-- SIDEBAR — Writing active, other sections locked -->
+  <nav class="met-sidebar" id="met-sidebar" aria-label="Test navigator">
+    <button class="met-sidebar__arrow" id="met-sidebar-up">▲</button>
+
+    <!-- Writing (active) -->
+    <div class="met-sidebar__section-label">Writ.</div>
+    <div class="met-sidebar__numbers" id="met-sidebar-numbers">
+      <button class="met-sidebar__num met-sidebar__num--info" data-target="0">0</button>
+      <button class="met-sidebar__num" data-target="1">1</button>
+      <button class="met-sidebar__num" data-target="2">2</button>
+      <button class="met-sidebar__num" data-target="3">3</button>
+      <button class="met-sidebar__num" data-target="4">4</button>
+    </div>
+
+    <!-- Listening P1 (locked) -->
+    <div class="met-sidebar__section-label">List. 1</div>
+    <div class="met-sidebar__locked-block met-sidebar__locked-block--lg" aria-hidden="true"></div>
+
+    <!-- Listening P2 (locked) -->
+    <div class="met-sidebar__section-label">List. 2</div>
+    <div class="met-sidebar__locked-block" aria-hidden="true"></div>
+
+    <!-- Listening P3 (locked) -->
+    <div class="met-sidebar__section-label">List. 3</div>
+    <div class="met-sidebar__locked-block" aria-hidden="true"></div>
+
+    <!-- Reading (locked) -->
+    <div class="met-sidebar__section-label">Read.</div>
+    <div class="met-sidebar__locked-block met-sidebar__locked-block--xl" aria-hidden="true"></div>
+
+    <button class="met-sidebar__arrow" id="met-sidebar-down">▼</button>
+  </nav>
+
+  <!-- MAIN CONTENT -->
+  <main class="met-content-wrap">
+    <div class="met-content" id="met-content">
+
+      <!-- PAGE 0: Instructions -->
+      <div class="met-page" data-met-page="0" data-page-label="Writing Instructions" data-section-label="Section: Writing">
+        <h2 class="met-page-title">Writing Section</h2>
+        <p class="met-instruction">You have <strong>45 minutes</strong> to complete the Writing section. There are four tasks:</p>
+        <ul class="met-instruction-list">
+          <li><strong>Task 1</strong> — Answer one short-response question in full sentences.</li>
+          <li><strong>Task 2</strong> — Answer one short-response question in full sentences.</li>
+          <li><strong>Task 3</strong> — Answer one short-response question in full sentences.</li>
+          <li><strong>Task 4</strong> — Write one formal essay response.</li>
+        </ul>
+        <p class="met-instruction" style="margin-top:0.75rem">Your writing is scored for <strong>grammatical accuracy</strong>, <strong>vocabulary</strong>, <strong>mechanics</strong>, <strong>cohesion and organisation</strong>, and <strong>task completion</strong>.</p>
+        <p class="met-note">Leave a few minutes at the end to check your grammar, spelling, punctuation, and organisation. Click <strong>Next</strong> when you are ready to begin.</p>
+      </div>
+
+      <!-- PAGE 1: Task 1 -->
+      <div class="met-page" data-met-page="1" data-page-label="Task 1" data-section-label="Section: Writing" data-is-question="true">
+        <p class="met-task-label">Task 1 — Short Response</p>
+        <p class="met-question-text">What do you like to do in your free time? How often do you do it?</p>
+        <textarea class="met-textarea" rows="5" placeholder="Write your answer here..." data-word-count-target="wc-1"></textarea>
+        <div class="met-word-count">Words: <span id="wc-1">0</span></div>
+      </div>
+
+      <!-- PAGE 2: Task 2 -->
+      <div class="met-page" data-met-page="2" data-page-label="Task 2" data-section-label="Section: Writing" data-is-question="true">
+        <p class="met-task-label">Task 2 — Short Response</p>
+        <p class="met-question-text">What do you like about that activity and why?</p>
+        <textarea class="met-textarea" rows="5" placeholder="Write your answer here..." data-word-count-target="wc-2"></textarea>
+        <div class="met-word-count">Words: <span id="wc-2">0</span></div>
+      </div>
+
+      <!-- PAGE 3: Task 3 -->
+      <div class="met-page" data-met-page="3" data-page-label="Task 3" data-section-label="Section: Writing" data-is-question="true">
+        <p class="met-task-label">Task 3 — Short Response</p>
+        <p class="met-question-text">Tell about the last time you did this.</p>
+        <textarea class="met-textarea" rows="6" placeholder="Write your answer here..." data-word-count-target="wc-3"></textarea>
+        <div class="met-word-count">Words: <span id="wc-3">0</span></div>
+      </div>
+
+      <!-- PAGE 4: Task 4 — Essay -->
+      <div class="met-page" data-met-page="4" data-page-label="Task 4" data-section-label="Section: Writing" data-is-question="true">
+        <p class="met-task-label">Task 4 — Formal Essay</p>
+        <p class="met-question-text">Some university students move away and live on their own while they are attending school, but others live at home with their family while they are students. <strong>Which do you think is a better choice?</strong></p>
+        <textarea class="met-textarea met-textarea--essay" rows="16" placeholder="Write your essay here..." data-word-count-target="wc-essay"></textarea>
+        <div class="met-word-count">Words: <span id="wc-essay">0</span></div>
+      </div>
+
+      <!-- PAGE 5: End of Section -->
+      <div class="met-page" data-met-page="5" data-page-label="End of Writing" data-section-label="Section: Writing">
+        <div class="met-end-box">
+          <p class="met-end-title">This is the end of the Writing section.</p>
+          <p class="met-end-subtitle">Click <strong>Finish Section</strong> to submit your responses.</p>
+        </div>
+      </div>
+
+    </div><!-- /met-content -->
+  </main>
+</div><!-- /met-body-row -->
+
+<!-- BOTTOM NAV -->
+<footer class="met-bottom-bar">
+  <div class="met-bottom-bar__nav">
+    <button class="met-btn-back" id="met-btn-back">◀ Back</button>
+    <button class="met-btn-next" id="met-btn-next">Next ▶</button>
+  </div>
+</footer>
+
+<!-- MODALS -->
+<div class="met-modal-overlay" id="met-modal-loading">
+  <div class="met-modal">
+    <div class="met-modal__header">Please wait…</div>
+    <div class="met-modal__body">
+      <div class="met-loading-spinner"></div>
+      <p>Loading</p>
+    </div>
+  </div>
+</div>
+
+<div class="met-modal-overlay" id="met-modal-proceed">
+  <div class="met-modal">
+    <div class="met-modal__header">Are you sure?</div>
+    <div class="met-modal__body">
+      <p class="met-modal__icon">?</p>
+      <p>You have not answered this question. Do you want to continue without answering?</p>
+      <div class="met-modal__btns">
+        <button class="met-modal-btn met-modal-btn--no" id="met-proceed-no">No</button>
+        <button class="met-modal-btn met-modal-btn--yes" id="met-proceed-yes">Yes</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="met-modal-overlay" id="met-modal-finish1">
+  <div class="met-modal">
+    <div class="met-modal__header">Confirm Finish Section</div>
+    <div class="met-modal__body">
+      <p>Are you sure you want to finish the Writing section? You will not be able to return.</p>
+      <div class="met-modal__btns">
+        <button class="met-modal-btn met-modal-btn--no" id="met-finish1-no">Cancel</button>
+        <button class="met-modal-btn met-modal-btn--yes" id="met-finish1-yes">Finish</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="met-modal-overlay" id="met-modal-finish2">
+  <div class="met-modal">
+    <div class="met-modal__header">Section Complete</div>
+    <div class="met-modal__body">
+      <p>Your writing responses have been submitted. The Writing section is now closed.</p>
+      <div class="met-modal__btns">
+        <button class="met-modal-btn met-modal-btn--yes" id="met-finish2-ok">OK</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="met-scroll-toast" id="met-scroll-toast">
+  ⚠ This page requires scrolling to view all content.
+  <button class="met-scroll-toast__close" id="met-scroll-toast-close">✕</button>
+</div>
+
+<script src="../js/met-shell.js"></script>
+<script>
+  METShell.init({
+    totalSeconds: 2700,
+    timerStorageKey: 'met:timer:writing',
+    hasSidebar: true,
+    listeningMode: false,
+    sectionLabel: 'Writing'
+  });
+</script>
+</body>
+</html>

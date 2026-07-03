@@ -1,26 +1,26 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Listening Part 2 — MET Mock Test 2</title>
-  <meta name="description" content="MET Mock Test 2 — Listening Part 2">
+  <title>Listening Part 2 — MET Mock Test</title>
+  <meta name="description" content="MET Mock Test — Listening Part 2">
   <meta name="theme-color" content="#1B3A6B">
   <link rel="stylesheet" href="../css/met-brand.css">
   <link rel="stylesheet" href="../css/met-standard.css">
   <link rel="stylesheet" href="../css/met-shell.css">
 </head>
-<body class="met-shell met-listening-shell">
+<body class="met-shell">
 
 <!-- TOP BAR -->
 <header class="met-top-bar">
   <div class="met-top-bar__left">
-    <span class="met-top-bar__page-label" id="met-page-label">Page: Instructions</span><br>
+    <span class="met-top-bar__page-label" id="met-page-label">Page: Part 2 Instructions</span><br>
     <span class="met-top-bar__section-label" id="met-section-label">Section: Listening</span>
   </div>
   <div class="met-top-bar__center">
     <span class="met-top-bar__timer-label">Section Time Remaining</span>
-    <span class="met-top-bar__timer" id="met-timer" aria-live="polite">00:35:00</span>
+    <span class="met-top-bar__timer" id="met-timer" aria-live="polite">00:10:00</span>
     <div class="met-progress-wrap">
       <div class="met-progress-bar-outer">
         <div class="met-progress-bar-inner" id="met-progress-bar" style="width:0%"></div>
@@ -29,13 +29,13 @@
     </div>
   </div>
   <div class="met-top-bar__right">
-    <button class="met-btn-finish" id="met-btn-finish">Finish Section</button>
+    <button class="met-btn-finish" id="met-btn-finish" style="display:none">Finish Section</button>
   </div>
 </header>
 
 <!-- INFO BAR -->
 <div class="met-info-bar">
-  <span>Michigan English Test Mock 2</span>
+  <span>Michigan English Test Mock 1</span>
 </div>
 
 <!-- BODY ROW -->
@@ -47,271 +47,209 @@
     <div class="met-sidebar__section-label">Listening Part 2</div>
     <div class="met-sidebar__numbers" id="met-sidebar-numbers">
       <button class="met-sidebar__num met-sidebar__num--info" type="button" data-target="0" aria-label="Instructions">0</button>
-      <button class="met-sidebar__num" type="button" data-target="20" aria-label="Question 20">20</button>
-      <button class="met-sidebar__num" type="button" data-target="21" aria-label="Question 21">21</button>
-      <button class="met-sidebar__num" type="button" data-target="22" aria-label="Question 22">22</button>
-      <button class="met-sidebar__num" type="button" data-target="23" aria-label="Question 23">23</button>
-      <button class="met-sidebar__num" type="button" data-target="24" aria-label="Question 24">24</button>
-      <button class="met-sidebar__num" type="button" data-target="25" aria-label="Question 25">25</button>
-      <button class="met-sidebar__num" type="button" data-target="26" aria-label="Question 26">26</button>
-      <button class="met-sidebar__num" type="button" data-target="27" aria-label="Question 27">27</button>
-      <button class="met-sidebar__num" type="button" data-target="28" aria-label="Question 28">28</button>
-      <button class="met-sidebar__num" type="button" data-target="29" aria-label="Question 29">29</button>
-      <button class="met-sidebar__num" type="button" data-target="30" aria-label="Question 30">30</button>
-      <button class="met-sidebar__num" type="button" data-target="31" aria-label="Question 31">31</button>
-      <button class="met-sidebar__num" type="button" data-target="32" aria-label="Question 32">32</button>
-      <button class="met-sidebar__num" type="button" data-target="33" aria-label="Question 33">33</button>
+      <button class="met-sidebar__num" type="button" data-target="1" aria-label="Conversation A — Questions 20–23">A</button>
+      <button class="met-sidebar__num" type="button" data-target="2" aria-label="Conversation B — Questions 24–26">B</button>
+      <button class="met-sidebar__num" type="button" data-target="3" aria-label="Conversation C — Questions 27–30">C</button>
+      <button class="met-sidebar__num" type="button" data-target="4" aria-label="Conversation D — Questions 31–33">D</button>
     </div>
     <button class="met-sidebar__scroll" type="button" aria-label="Scroll section navigation down">▼</button>
   </nav>
 
-  <!-- MAIN CONTENT -->
   <main class="met-content-wrap">
     <div class="met-content" id="met-content">
 
-      <!-- PAGE 0: Instructions -->
-      <div class="met-page" data-met-page="0" data-page-label="Listening Part 2 Instructions" data-section-label="Section: Listening">
+      <!-- PAGE 0: Part 2 Instructions -->
+      <div class="met-page" data-met-page="0" data-page-label="Part 2 Instructions" data-section-label="Section: Listening">
         <h2 class="met-page-title">Listening — Part 2</h2>
-        <div class="met-instructions-text">
-          <p>In this part of the test, you will hear a longer conversation. After the conversation, you will answer <strong>14 questions</strong> about it.</p>
-          <p>You will hear the conversation <strong>once only</strong>. You may take notes while you listen.</p>
-          <p>Select the best answer for each question from the choices given.</p>
-          <p>Click <strong>Next</strong> to begin.</p>
+        <p class="met-instruction">You will hear <strong>longer conversations</strong>. Each audio has several questions. You will hear each audio only once.</p>
+        <div class="met-audio-player" id="p2-intro-player">
+          <button class="met-audio-btn" id="p2-play-btn">▶</button>
+          <div class="met-audio-scrubber-wrap">
+            <div class="met-audio-scrubber"><div class="met-audio-scrubber-fill" style="width:0%"></div></div>
+          </div>
+          <span class="met-audio-time" id="p2-audio-time">0:00 / 0:00</span>
+          <audio id="p2-intro-audio" src="../../assets/audio/listening-p2-instructions.mp3" preload="auto" style="display:none"></audio>
         </div>
+        <p class="met-note">Click <strong>Next</strong> to begin.</p>
+      </div>
+
+      <!-- PAGE 1: Conversation A — Questions 20–23 -->
+      <div class="met-page" data-met-page="1" data-page-label="Conversation A — Questions 20–23" data-section-label="Section: Listening Part 2" data-is-question="true" data-listening-question="true">
+        <p class="met-task-label">Part 2 — Conversation A — Questions 20–23</p>
         <div class="met-audio-player">
-          <button class="met-audio-btn">Play ▶</button>
-          <span class="met-audio-label">Listen to instructions</span>
-          <audio src="../../assets/audio/listening-p2-instructions.mp3"></audio>
+          <button class="met-audio-btn">Play</button>
+          <input type="range" class="met-audio-volume" min="0" max="1" step="0.05" value="1" aria-label="Volume">
+          <audio src="../../assets/audio/listening/part2/conv a.mp3?v=dg3" style="display:none"></audio>
+        </div>
+        <div class="met-multi-question">
+          <div class="met-q-block">
+            <p class="met-question-text"><strong>20.</strong> What does the woman want to do?</p>
+            <div class="met-options">
+              <button class="met-option" data-group="q20">A. Join a photography workshop</button>
+              <button class="met-option" data-group="q20">B. Rent photography equipment</button>
+              <button class="met-option" data-group="q20">C. Buy a new camera</button>
+              <button class="met-option" data-group="q20">D. Get her photos edited</button>
+            </div>
+          </div>
+          <div class="met-q-block">
+            <p class="met-question-text"><strong>21.</strong> Why does the woman ask about beginners?</p>
+            <div class="met-options">
+              <button class="met-option" data-group="q21">A. To recommend the class to a friend</button>
+              <button class="met-option" data-group="q21">B. To find out the skill level required</button>
+              <button class="met-option" data-group="q21">C. To ask for a discount</button>
+              <button class="met-option" data-group="q21">D. To compare it with another course</button>
+            </div>
+          </div>
+          <div class="met-q-block">
+            <p class="met-question-text"><strong>22.</strong> What does the woman need to bring?</p>
+            <div class="met-options">
+              <button class="met-option" data-group="q22">A. Editing software</button>
+              <button class="met-option" data-group="q22">B. Her own camera</button>
+              <button class="met-option" data-group="q22">C. A registration form</button>
+              <button class="met-option" data-group="q22">D. Printed guides</button>
+            </div>
+          </div>
+          <div class="met-q-block">
+            <p class="met-question-text"><strong>23.</strong> What must the woman do before Friday?</p>
+            <div class="met-options">
+              <button class="met-option" data-group="q23">A. Choose her camera model</button>
+              <button class="met-option" data-group="q23">B. Pay in person only</button>
+              <button class="met-option" data-group="q23">C. Register for the class</button>
+              <button class="met-option" data-group="q23">D. Contact the instructor</button>
+            </div>
+          </div>
         </div>
       </div>
 
-      <!-- PAGE 1: Question 20 -->
-      <div class="met-page" data-met-page="20" data-page-label="Listening: Question 20" data-section-label="Section: Listening" data-is-question="true">
+      <!-- PAGE 2: Conversation B — Questions 24–26 -->
+      <div class="met-page" data-met-page="2" data-page-label="Conversation B — Questions 24–26" data-section-label="Section: Listening Part 2" data-is-question="true" data-listening-question="true">
+        <p class="met-task-label">Part 2 — Conversation B — Questions 24–26</p>
         <div class="met-audio-player">
-          <button class="met-audio-btn">Play ▶</button>
-          <span class="met-audio-label">Play audio for questions 20–33</span>
-          <audio src="../../assets/audio/listening/part2/conversation.mp3"></audio>
+          <button class="met-audio-btn">Play</button>
+          <input type="range" class="met-audio-volume" min="0" max="1" step="0.05" value="1" aria-label="Volume">
+          <audio src="../../assets/audio/listening/part2/conv b.mp3?v=dg3" style="display:none"></audio>
         </div>
-        <p class="met-question-text">20. What is the main topic of the conversation?</p>
-        <div class="met-options">
-          <button class="met-option" data-group="q20">A. A class project</button>
-          <button class="met-option" data-group="q20">B. A job interview</button>
-          <button class="met-option" data-group="q20">C. A travel plan</button>
-          <button class="met-option" data-group="q20">D. A research paper</button>
+        <div class="met-multi-question">
+          <div class="met-q-block">
+            <p class="met-question-text"><strong>24.</strong> What is the man planning to do?</p>
+            <div class="met-options">
+              <button class="met-option" data-group="q24">A. Change his career field</button>
+              <button class="met-option" data-group="q24">B. Start his own engineering firm</button>
+              <button class="met-option" data-group="q24">C. Study environmental science full time</button>
+              <button class="met-option" data-group="q24">D. Apply for a promotion at his company</button>
+            </div>
+          </div>
+          <div class="met-q-block">
+            <p class="met-question-text"><strong>25.</strong> What will the man do next to prepare?</p>
+            <div class="met-options">
+              <button class="met-option" data-group="q25">A. Ask his employer for support</button>
+              <button class="met-option" data-group="q25">B. Attend a networking event</button>
+              <button class="met-option" data-group="q25">C. Enroll in a full-time degree</button>
+              <button class="met-option" data-group="q25">D. Quit his current job</button>
+            </div>
+          </div>
+          <div class="met-q-block">
+            <p class="met-question-text"><strong>26.</strong> What does the man mean when he says the program seems manageable?</p>
+            <div class="met-options">
+              <button class="met-option" data-group="q26">A. He can complete it without working</button>
+              <button class="met-option" data-group="q26">B. He can do it while keeping his job</button>
+              <button class="met-option" data-group="q26">C. It is easier than expected</button>
+              <button class="met-option" data-group="q26">D. It does not require any certifications</button>
+            </div>
+          </div>
         </div>
       </div>
 
-      <!-- PAGE 2: Question 21 -->
-      <div class="met-page" data-met-page="21" data-page-label="Listening: Question 21" data-section-label="Section: Listening" data-is-question="true">
+      <!-- PAGE 3: Conversation C — Questions 27–30 -->
+      <div class="met-page" data-met-page="3" data-page-label="Conversation C — Questions 27–30" data-section-label="Section: Listening Part 2" data-is-question="true" data-listening-question="true">
+        <p class="met-task-label">Part 2 — Conversation C — Questions 27–30</p>
         <div class="met-audio-player">
-          <button class="met-audio-btn">Play ▶</button>
-          <span class="met-audio-label">Play audio for questions 20–33</span>
-          <audio src="../../assets/audio/listening/part2/conversation.mp3"></audio>
+          <button class="met-audio-btn">Play</button>
+          <input type="range" class="met-audio-volume" min="0" max="1" step="0.05" value="1" aria-label="Volume">
+          <audio src="../../assets/audio/listening/part2/conv c.mp3?v=dg3" style="display:none"></audio>
         </div>
-        <p class="met-question-text">21. Why is the woman interested in the topic?</p>
-        <div class="met-options">
-          <button class="met-option" data-group="q21">A. She has personal experience</button>
-          <button class="met-option" data-group="q21">B. Her professor recommended it</button>
-          <button class="met-option" data-group="q21">C. It is required for her major</button>
-          <button class="met-option" data-group="q21">D. She read a book about it</button>
+        <div class="met-multi-question">
+          <div class="met-q-block">
+            <p class="met-question-text"><strong>27.</strong> What does the woman still need to do?</p>
+            <div class="met-options">
+              <button class="met-option" data-group="q27">A. Write a business plan</button>
+              <button class="met-option" data-group="q27">B. Decide what to sell</button>
+              <button class="met-option" data-group="q27">C. Find a business partner</button>
+              <button class="met-option" data-group="q27">D. Register her company name</button>
+            </div>
+          </div>
+          <div class="met-q-block">
+            <p class="met-question-text"><strong>28.</strong> Why does the woman mention her sister?</p>
+            <div class="met-options">
+              <button class="met-option" data-group="q28">A. She already runs a business</button>
+              <button class="met-option" data-group="q28">B. She will invest in the bakery</button>
+              <button class="met-option" data-group="q28">C. She can help with the finances</button>
+              <button class="met-option" data-group="q28">D. She found a location for the shop</button>
+            </div>
+          </div>
+          <div class="met-q-block">
+            <p class="met-question-text"><strong>29.</strong> What does the woman say about downtown locations?</p>
+            <div class="met-options">
+              <button class="met-option" data-group="q29">A. They are too far from customers</button>
+              <button class="met-option" data-group="q29">B. The rent is very high</button>
+              <button class="met-option" data-group="q29">C. They are not available yet</button>
+              <button class="met-option" data-group="q29">D. She has already signed a lease</button>
+            </div>
+          </div>
+          <div class="met-q-block">
+            <p class="met-question-text"><strong>30.</strong> What does the man suggest the woman do first?</p>
+            <div class="met-options">
+              <button class="met-option" data-group="q30">A. Open a large bakery immediately</button>
+              <button class="met-option" data-group="q30">B. Hire professional staff</button>
+              <button class="met-option" data-group="q30">C. Apply for a business loan</button>
+              <button class="met-option" data-group="q30">D. Test demand at smaller markets</button>
+            </div>
+          </div>
         </div>
       </div>
 
-      <!-- PAGE 3: Question 22 -->
-      <div class="met-page" data-met-page="22" data-page-label="Listening: Question 22" data-section-label="Section: Listening" data-is-question="true">
+      <!-- PAGE 4: Conversation D — Questions 31–33 -->
+      <div class="met-page" data-met-page="4" data-page-label="Conversation D — Questions 31–33" data-section-label="Section: Listening Part 2" data-is-question="true" data-listening-question="true">
+        <p class="met-task-label">Part 2 — Conversation D — Questions 31–33</p>
         <div class="met-audio-player">
-          <button class="met-audio-btn">Play ▶</button>
-          <span class="met-audio-label">Play audio for questions 20–33</span>
-          <audio src="../../assets/audio/listening/part2/conversation.mp3"></audio>
+          <button class="met-audio-btn">Play</button>
+          <input type="range" class="met-audio-volume" min="0" max="1" step="0.05" value="1" aria-label="Volume">
+          <audio src="../../assets/audio/listening/part2/conv d.mp3?v=dg3" style="display:none"></audio>
         </div>
-        <p class="met-question-text">22. What does the man suggest about the deadline?</p>
-        <div class="met-options">
-          <button class="met-option" data-group="q22">A. It has been extended</button>
-          <button class="met-option" data-group="q22">B. It is flexible</button>
-          <button class="met-option" data-group="q22">C. It cannot be changed</button>
-          <button class="met-option" data-group="q22">D. It was moved up</button>
+        <div class="met-multi-question">
+          <div class="met-q-block">
+            <p class="met-question-text"><strong>31.</strong> What are the speakers mainly discussing?</p>
+            <div class="met-options">
+              <button class="met-option" data-group="q31">A. A documentary about ocean pollution</button>
+              <button class="met-option" data-group="q31">B. A company environmental policy</button>
+              <button class="met-option" data-group="q31">C. A news report about fishing</button>
+              <button class="met-option" data-group="q31">D. A science class assignment</button>
+            </div>
+          </div>
+          <div class="met-q-block">
+            <p class="met-question-text"><strong>32.</strong> What has the man already done to help?</p>
+            <div class="met-options">
+              <button class="met-option" data-group="q32">A. Started using a reusable bottle</button>
+              <button class="met-option" data-group="q32">B. Stopped eating fish</button>
+              <button class="met-option" data-group="q32">C. Convinced his company to change</button>
+              <button class="met-option" data-group="q32">D. Joined an environmental group</button>
+            </div>
+          </div>
+          <div class="met-q-block">
+            <p class="met-question-text"><strong>33.</strong> What does the man mean when he says corporate changes have a bigger impact?</p>
+            <div class="met-options">
+              <button class="met-option" data-group="q33">A. He wants to work for an environmental firm</button>
+              <button class="met-option" data-group="q33">B. Company-level changes affect more people</button>
+              <button class="met-option" data-group="q33">C. He is suggesting a new company policy</button>
+              <button class="met-option" data-group="q33">D. He thinks individual actions are useless</button>
+            </div>
+          </div>
         </div>
       </div>
 
-      <!-- PAGE 4: Question 23 -->
-      <div class="met-page" data-met-page="23" data-page-label="Listening: Question 23" data-section-label="Section: Listening" data-is-question="true">
-        <div class="met-audio-player">
-          <button class="met-audio-btn">Play ▶</button>
-          <span class="met-audio-label">Play audio for questions 20–33</span>
-          <audio src="../../assets/audio/listening/part2/conversation.mp3"></audio>
-        </div>
-        <p class="met-question-text">23. How does the woman describe her progress?</p>
-        <div class="met-options">
-          <button class="met-option" data-group="q23">A. She is ahead of schedule</button>
-          <button class="met-option" data-group="q23">B. She is behind where she hoped</button>
-          <button class="met-option" data-group="q23">C. She just started</button>
-          <button class="met-option" data-group="q23">D. She is almost finished</button>
-        </div>
-      </div>
-
-      <!-- PAGE 5: Question 24 -->
-      <div class="met-page" data-met-page="24" data-page-label="Listening: Question 24" data-section-label="Section: Listening" data-is-question="true">
-        <div class="met-audio-player">
-          <button class="met-audio-btn">Play ▶</button>
-          <span class="met-audio-label">Play audio for questions 20–33</span>
-          <audio src="../../assets/audio/listening/part2/conversation.mp3"></audio>
-        </div>
-        <p class="met-question-text">24. What resource does the man recommend?</p>
-        <div class="met-options">
-          <button class="met-option" data-group="q24">A. A specific book</button>
-          <button class="met-option" data-group="q24">B. An online database</button>
-          <button class="met-option" data-group="q24">C. An expert colleague</button>
-          <button class="met-option" data-group="q24">D. A library archive</button>
-        </div>
-      </div>
-
-      <!-- PAGE 6: Question 25 -->
-      <div class="met-page" data-met-page="25" data-page-label="Listening: Question 25" data-section-label="Section: Listening" data-is-question="true">
-        <div class="met-audio-player">
-          <button class="met-audio-btn">Play ▶</button>
-          <span class="met-audio-label">Play audio for questions 20–33</span>
-          <audio src="../../assets/audio/listening/part2/conversation.mp3"></audio>
-        </div>
-        <p class="met-question-text">25. What will the woman do next?</p>
-        <div class="met-options">
-          <button class="met-option" data-group="q25">A. Meet with her advisor</button>
-          <button class="met-option" data-group="q25">B. Visit the library</button>
-          <button class="met-option" data-group="q25">C. Start writing</button>
-          <button class="met-option" data-group="q25">D. Revise her outline</button>
-        </div>
-      </div>
-
-      <!-- PAGE 7: Question 26 -->
-      <div class="met-page" data-met-page="26" data-page-label="Listening: Question 26" data-section-label="Section: Listening" data-is-question="true">
-        <div class="met-audio-player">
-          <button class="met-audio-btn">Play ▶</button>
-          <span class="met-audio-label">Play audio for questions 20–33</span>
-          <audio src="../../assets/audio/listening/part2/conversation.mp3"></audio>
-        </div>
-        <p class="met-question-text">26. Why does the man mention Dr. Harrison?</p>
-        <div class="met-options">
-          <button class="met-option" data-group="q26">A. As a potential supervisor</button>
-          <button class="met-option" data-group="q26">B. As someone to interview</button>
-          <button class="met-option" data-group="q26">C. As a source of funding</button>
-          <button class="met-option" data-group="q26">D. As a committee member</button>
-        </div>
-      </div>
-
-      <!-- PAGE 8: Question 27 -->
-      <div class="met-page" data-met-page="27" data-page-label="Listening: Question 27" data-section-label="Section: Listening" data-is-question="true">
-        <div class="met-audio-player">
-          <button class="met-audio-btn">Play ▶</button>
-          <span class="met-audio-label">Play audio for questions 20–33</span>
-          <audio src="../../assets/audio/listening/part2/conversation.mp3"></audio>
-        </div>
-        <p class="met-question-text">27. What is the woman's concern about her approach?</p>
-        <div class="met-options">
-          <button class="met-option" data-group="q27">A. It is too broad</button>
-          <button class="met-option" data-group="q27">B. It is too narrow</button>
-          <button class="met-option" data-group="q27">C. It is too expensive</button>
-          <button class="met-option" data-group="q27">D. It is too time-consuming</button>
-        </div>
-      </div>
-
-      <!-- PAGE 9: Question 28 -->
-      <div class="met-page" data-met-page="28" data-page-label="Listening: Question 28" data-section-label="Section: Listening" data-is-question="true">
-        <div class="met-audio-player">
-          <button class="met-audio-btn">Play ▶</button>
-          <span class="met-audio-label">Play audio for questions 20–33</span>
-          <audio src="../../assets/audio/listening/part2/conversation.mp3"></audio>
-        </div>
-        <p class="met-question-text">28. What advice does the man give about the methodology?</p>
-        <div class="met-options">
-          <button class="met-option" data-group="q28">A. Use quantitative methods</button>
-          <button class="met-option" data-group="q28">B. Consider mixed methods</button>
-          <button class="met-option" data-group="q28">C. Focus on qualitative data</button>
-          <button class="met-option" data-group="q28">D. Keep it simple</button>
-        </div>
-      </div>
-
-      <!-- PAGE 10: Question 29 -->
-      <div class="met-page" data-met-page="29" data-page-label="Listening: Question 29" data-section-label="Section: Listening" data-is-question="true">
-        <div class="met-audio-player">
-          <button class="met-audio-btn">Play ▶</button>
-          <span class="met-audio-label">Play audio for questions 20–33</span>
-          <audio src="../../assets/audio/listening/part2/conversation.mp3"></audio>
-        </div>
-        <p class="met-question-text">29. How does the woman feel about the advice?</p>
-        <div class="met-options">
-          <button class="met-option" data-group="q29">A. Skeptical</button>
-          <button class="met-option" data-group="q29">B. Grateful</button>
-          <button class="met-option" data-group="q29">C. Confused</button>
-          <button class="met-option" data-group="q29">D. Reluctant</button>
-        </div>
-      </div>
-
-      <!-- PAGE 11: Question 30 -->
-      <div class="met-page" data-met-page="30" data-page-label="Listening: Question 30" data-section-label="Section: Listening" data-is-question="true">
-        <div class="met-audio-player">
-          <button class="met-audio-btn">Play ▶</button>
-          <span class="met-audio-label">Play audio for questions 20–33</span>
-          <audio src="../../assets/audio/listening/part2/conversation.mp3"></audio>
-        </div>
-        <p class="met-question-text">30. What does the man offer to do?</p>
-        <div class="met-options">
-          <button class="met-option" data-group="q30">A. Review her draft</button>
-          <button class="met-option" data-group="q30">B. Introduce her to a colleague</button>
-          <button class="met-option" data-group="q30">C. Lend her a book</button>
-          <button class="met-option" data-group="q30">D. Share his notes</button>
-        </div>
-      </div>
-
-      <!-- PAGE 12: Question 31 -->
-      <div class="met-page" data-met-page="31" data-page-label="Listening: Question 31" data-section-label="Section: Listening" data-is-question="true">
-        <div class="met-audio-player">
-          <button class="met-audio-btn">Play ▶</button>
-          <span class="met-audio-label">Play audio for questions 20–33</span>
-          <audio src="../../assets/audio/listening/part2/conversation.mp3"></audio>
-        </div>
-        <p class="met-question-text">31. What is the relationship between the speakers?</p>
-        <div class="met-options">
-          <button class="met-option" data-group="q31">A. Professor and student</button>
-          <button class="met-option" data-group="q31">B. Classmates</button>
-          <button class="met-option" data-group="q31">C. Advisor and advisee</button>
-          <button class="met-option" data-group="q31">D. Colleagues</button>
-        </div>
-      </div>
-
-      <!-- PAGE 13: Question 32 -->
-      <div class="met-page" data-met-page="32" data-page-label="Listening: Question 32" data-section-label="Section: Listening" data-is-question="true">
-        <div class="met-audio-player">
-          <button class="met-audio-btn">Play ▶</button>
-          <span class="met-audio-label">Play audio for questions 20–33</span>
-          <audio src="../../assets/audio/listening/part2/conversation.mp3"></audio>
-        </div>
-        <p class="met-question-text">32. Where does this conversation likely take place?</p>
-        <div class="met-options">
-          <button class="met-option" data-group="q32">A. In a classroom</button>
-          <button class="met-option" data-group="q32">B. In an office</button>
-          <button class="met-option" data-group="q32">C. In a library</button>
-          <button class="met-option" data-group="q32">D. In a café</button>
-        </div>
-      </div>
-
-      <!-- PAGE 14: Question 33 -->
-      <div class="met-page" data-met-page="33" data-page-label="Listening: Question 33" data-section-label="Section: Listening" data-is-question="true">
-        <div class="met-audio-player">
-          <button class="met-audio-btn">Play ▶</button>
-          <span class="met-audio-label">Play audio for questions 20–33</span>
-          <audio src="../../assets/audio/listening/part2/conversation.mp3"></audio>
-        </div>
-        <p class="met-question-text">33. What does the woman agree to do next?</p>
-        <div class="met-options">
-          <button class="met-option" data-group="q33">A. Schedule a follow-up meeting</button>
-          <button class="met-option" data-group="q33">B. Submit a proposal</button>
-          <button class="met-option" data-group="q33">C. Attend a workshop</button>
-          <button class="met-option" data-group="q33">D. Join a study group</button>
-        </div>
-      </div>
-
-    </div><!-- /met-content -->
+    </div>
   </main>
-</div><!-- /met-body-row -->
+</div>
 
 <!-- BOTTOM NAV -->
 <footer class="met-bottom-bar">
@@ -324,7 +262,7 @@
 <!-- MODALS -->
 <div class="met-modal-overlay" id="met-modal-loading">
   <div class="met-modal">
-    <div class="met-modal__header">Please wait&hellip;</div>
+    <div class="met-modal__header">Please wait…</div>
     <div class="met-modal__body">
       <div class="met-loading-spinner"></div>
       <p>Loading</p>
@@ -334,38 +272,13 @@
 
 <div class="met-modal-overlay" id="met-modal-proceed">
   <div class="met-modal">
-    <div class="met-modal__header">Are you sure?</div>
+    <div class="met-modal__header">Are you sure you want to proceed?</div>
     <div class="met-modal__body">
       <p class="met-modal__icon">?</p>
       <p>You have not answered this question. Do you want to continue without answering?</p>
       <div class="met-modal__btns">
         <button class="met-modal-btn met-modal-btn--no" id="met-proceed-no">No</button>
         <button class="met-modal-btn met-modal-btn--yes" id="met-proceed-yes">Yes</button>
-      </div>
-    </div>
-  </div>
-</div>
-
-<div class="met-modal-overlay" id="met-modal-finish1">
-  <div class="met-modal">
-    <div class="met-modal__header">Confirm Finish Section</div>
-    <div class="met-modal__body">
-      <p>Are you sure you want to finish Part 2? You will continue to Part 3.</p>
-      <div class="met-modal__btns">
-        <button class="met-modal-btn met-modal-btn--no" id="met-finish1-no">Cancel</button>
-        <button class="met-modal-btn met-modal-btn--yes" id="met-finish1-yes">Finish</button>
-      </div>
-    </div>
-  </div>
-</div>
-
-<div class="met-modal-overlay" id="met-modal-finish2">
-  <div class="met-modal">
-    <div class="met-modal__header">Part 2 Complete</div>
-    <div class="met-modal__body">
-      <p>Part 2 responses saved. Continuing to Part 3.</p>
-      <div class="met-modal__btns">
-        <button class="met-modal-btn met-modal-btn--yes" id="met-finish2-ok">OK</button>
       </div>
     </div>
   </div>
@@ -383,10 +296,54 @@
   METShell.init({
     totalSeconds: 2100,
     timerStorageKey: 'met:timer:listening',
-    listeningMode: true,
     hasSidebar: true,
-    hasFinishSection: true,
+    listeningMode: true,
+    hasBack: true,
+    hasFinishSection: false,
     sectionLabel: 'Listening'
+  });
+
+  // Single-use bar player for Part 2 instructions
+  (function() {
+    const audio  = document.getElementById('p2-intro-audio');
+    const btn    = document.getElementById('p2-play-btn');
+    const fill   = document.querySelector('#p2-intro-player .met-audio-scrubber-fill');
+    const timeEl = document.getElementById('p2-audio-time');
+    if (!audio || !btn) return;
+    function fmt(s) {
+      return String(Math.floor(s/60)).padStart(2,'0') + ':' + String(Math.floor(s%60)).padStart(2,'0');
+    }
+    btn.addEventListener('click', function() {
+      if (btn.dataset.played) return;
+      btn.dataset.played = '1';
+      audio.play().catch(() => {});
+      btn.textContent = '⏸';
+    });
+    audio.addEventListener('timeupdate', function() {
+      if (!audio.duration) return;
+      const pct = (audio.currentTime / audio.duration) * 100;
+      if (fill) fill.style.width = pct + '%';
+      if (timeEl) timeEl.textContent = fmt(audio.currentTime) + ' / ' + fmt(audio.duration);
+    });
+    audio.addEventListener('ended', function() {
+      btn.textContent = '✓';
+      btn.style.opacity = '0.5';
+      btn.style.cursor = 'default';
+    });
+  })();
+
+  // Listening question audio is single-use
+  document.querySelectorAll('[data-is-question="true"] .met-audio-player').forEach(function(player) {
+    var audio = player.querySelector('audio');
+    var btn = player.querySelector('.met-audio-btn');
+    if (!audio || !btn) return;
+
+    audio.addEventListener('ended', function() {
+      btn.textContent = 'Played';
+      btn.disabled = true;
+      btn.style.opacity = '0.55';
+      btn.style.cursor = 'not-allowed';
+    });
   });
 </script>
 </body>
