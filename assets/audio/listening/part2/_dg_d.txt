@@ -1,7 +1,0 @@
-file 'C:/Users/vviei/.claude/projects/Mock Test Updated/assets/audio/listening/part2/_dg_d_1.mp3'
-file 'C:/Users/vviei/.claude/projects/Mock Test Updated/assets/audio/listening/part2/_dg_d_2.mp3'
-file 'C:/Users/vviei/.claude/projects/Mock Test Updated/assets/audio/listening/part2/_dg_d_3.mp3'
-file 'C:/Users/vviei/.claude/projects/Mock Test Updated/assets/audio/listening/part2/_dg_d_4.mp3'
-file 'C:/Users/vviei/.claude/projects/Mock Test Updated/assets/audio/listening/part2/_dg_d_5.mp3'
-file 'C:/Users/vviei/.claude/projects/Mock Test Updated/assets/audio/listening/part2/_dg_d_6.mp3'
-file 'C:/Users/vviei/.claude/projects/Mock Test Updated/assets/audio/listening/part2/_dg_d_7.mp3'
