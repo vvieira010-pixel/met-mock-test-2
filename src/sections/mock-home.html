@@ -460,14 +460,45 @@
         });
     }
 
-    // ── Registration ───────────────────────────────────────────
+    function register(name, email) {
+      if (!name || !email || !email.includes('@')) return;
+      try {
+        localStorage.setItem(NAME_KEY,  name);
+        localStorage.setItem(EMAIL_KEY, email);
+      } catch (_) {}
+      document.getElementById('regOverlay').classList.remove('active');
+      document.getElementById('studentGreeting').textContent = name;
+      refreshSectionCards();
+      loadServerLocks(email);
+    }
+
+    // ── Accept auth from URL params (parent passes via iframe src) ─
+    var qs = new URLSearchParams(location.search);
+    var paramName  = qs.get('name')  || '';
+    var paramEmail = qs.get('email') || '';
+    if (paramName && paramEmail) {
+      register(paramName, paramEmail);
+    }
+
+    // ── Accept auth via postMessage (from Platform parent) ──────
+    window.addEventListener('message', function (e) {
+      if (e.data && e.data.type === 'mocktest2:auth') {
+        register(e.data.name, e.data.email);
+      }
+    });
+    // Notify parent that we're ready for auth
+    window.parent.postMessage({ type: 'mocktest2:ready' }, '*');
+
+    // ── Registration from overlay ───────────────────────────────
     var storedName  = localStorage.getItem(NAME_KEY)  || '';
     var storedEmail = localStorage.getItem(EMAIL_KEY) || '';
 
-    if (!storedName || !storedEmail) {
+    if (!storedName || !storedEmail && !(paramName && paramEmail)) {
       document.getElementById('regOverlay').classList.add('active');
       document.getElementById('regName').focus();
-    } else {
+    }
+
+    if (storedName && storedEmail) {
       document.getElementById('studentGreeting').textContent = storedName;
       refreshSectionCards();
       loadServerLocks(storedEmail);
@@ -481,14 +512,7 @@
         document.getElementById('regEmail').style.borderColor = email && email.includes('@') ? '' : 'var(--red)';
         return;
       }
-      try {
-        localStorage.setItem(NAME_KEY,  name);
-        localStorage.setItem(EMAIL_KEY, email);
-      } catch (_) {}
-      document.getElementById('regOverlay').classList.remove('active');
-      document.getElementById('studentGreeting').textContent = name;
-      refreshSectionCards();
-      loadServerLocks(email);
+      register(name, email);
     });
 
     // Allow Enter key in registration fields
