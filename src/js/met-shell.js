@@ -192,7 +192,7 @@
     } else {
       if (!MET.hasFinishSection) {
         const link = document.querySelector('[data-next-section]');
-        if (link) { window.location.href = link.dataset.nextSection; return; }
+        if (link) { MET._navigatingSection = true; window.location.href = link.dataset.nextSection; return; }
       }
       _showFinishConfirm();
     }
@@ -549,6 +549,7 @@
   ───────────────────────────────────────────── */
   function _initBeforeUnload(sectionLabel) {
     window.addEventListener('beforeunload', function(e) {
+      if (MET._navigatingSection) return;
       if (MET.totalSeconds > 0 && Object.keys(MET.questionAnswered).length > 0) {
         e.preventDefault();
         e.returnValue = '';
@@ -660,6 +661,7 @@
       try { localStorage.setItem('met:done:' + MET.timerStorageKey, '1'); } catch (_) {}
       _persistSectionLockServer();
     }
+    MET._navigatingSection = true;
     window.location.href = dest;
   }
 
