@@ -318,6 +318,21 @@
 
 <a data-next-section="mock-home.html" hidden></a>
 
+<script>
+  (function() {
+    var origAddEventListener = window.addEventListener;
+    window.addEventListener = function(type, listener, options) {
+      if (type === 'beforeunload') {
+        var wrapped = function(e) {
+          if (window.__navigatingSection) return;
+          return listener.call(this, e);
+        };
+        return origAddEventListener.call(this, type, wrapped, options);
+      }
+      return origAddEventListener.call(this, type, listener, options);
+    };
+  })();
+</script>
 <script src="../js/met-shell.js?v=2"></script>
 <script>
   METShell.init({
@@ -330,6 +345,13 @@
     sectionLabel: 'Listening'
   });
 
+  // Capturing-phase handler: set __navigatingSection before _doFinishSection runs
+  document.addEventListener('click', function(e) {
+    if (e.target.closest('#met-finish2-ok')) {
+      window.__navigatingSection = true;
+    }
+  }, true);
+  
   // Single-use bar player for Part 3 instructions
   (function() {
     const audio  = document.getElementById('p3-intro-audio');

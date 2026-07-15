@@ -123,6 +123,21 @@
 <a data-next-section="speaking-p3.html" hidden></a>
 
 <script src="../js/speaking-upload.js"></script>
+<script>
+  (function() {
+    var origAddEventListener = window.addEventListener;
+    window.addEventListener = function(type, listener, options) {
+      if (type === 'beforeunload') {
+        var wrapped = function(e) {
+          if (window.__navigatingSection) return;
+          return listener.call(this, e);
+        };
+        return origAddEventListener.call(this, type, wrapped, options);
+      }
+      return origAddEventListener.call(this, type, listener, options);
+    };
+  })();
+</script>
 <script src="../js/met-shell.js?v=2"></script>
 <script>
   var SPEAKING_PROMPT_DELAY_MS = 3000;
@@ -135,6 +150,13 @@
     hasFinishSection: false,
     sectionLabel: 'Speaking'
   });
+
+  // Capturing-phase handler: set __navigatingSection before _doFinishSection runs
+  document.addEventListener('click', function(e) {
+    if (e.target.closest('#met-finish2-ok')) {
+      window.__navigatingSection = true;
+    }
+  }, true);
 
   function autoPlayPrompt(pageIdxOrEl, onEnded) {
     var page = (typeof pageIdxOrEl === 'object') ? pageIdxOrEl : document.querySelector('[data-met-page="' + pageIdxOrEl + '"]');
