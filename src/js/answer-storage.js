@@ -1,77 +1,76 @@
-/**
- * Answer Storage System
- * Manages student test answers and submissions
- */
-
 class AnswerStorage {
   constructor() {
     this.storageKey = 'met-test-session';
     this.currentSession = this.getSession();
   }
 
-  /**
-   * Initialize a new test session with student info
-   */
   initSession(studentInfo) {
-    const session = {
+    const sessionMetadata = {
       studentId: studentInfo.id,
       studentName: studentInfo.name,
       studentEmail: studentInfo.email,
       startTime: new Date().toISOString(),
-      answers: {
-        writing: [],
-        listening1: [],
-        listening2: [],
-        listening3: [],
-        reading: [],
-        speaking: []
-      },
-      scores: {},
       completed: false
     };
-    sessionStorage.setItem(this.storageKey, JSON.stringify(session));
-    this.currentSession = session;
+    sessionStorage.setItem(this.storageKey, JSON.stringify(sessionMetadata));
+
+    const sections = ['writing', 'listening1', 'listening2', 'listening3', 'reading', 'speaking'];
+    sections.forEach(section => {
+      sessionStorage.setItem(`met-test-answers-${section}`, JSON.stringify([]));
+    });
+
+    sessionStorage.setItem('met-test-scores', JSON.stringify({}));
+
+    this.currentSession = this.getSession();
+    return this.currentSession;
+  }
+
+  getSession() {
+    const stored = sessionStorage.getItem(this.storageKey);
+    if (!stored) return null;
+    const session = JSON.parse(stored);
+
+    session.answers = {};
+    const sections = ['writing', 'listening1', 'listening2', 'listening3', 'reading', 'speaking'];
+    sections.forEach(section => {
+      const sectionKey = `met-test-answers-${section}`;
+      const sectionStored = sessionStorage.getItem(sectionKey);
+      session.answers[section] = sectionStored ? JSON.parse(sectionStored) : [];
+    });
+
+    const scoresStored = sessionStorage.getItem('met-test-scores');
+    session.scores = scoresStored ? JSON.parse(scoresStored) : {};
+
     return session;
   }
 
-  /**
-   * Get current session
-   */
-  getSession() {
-    const stored = sessionStorage.getItem(this.storageKey);
-    return stored ? JSON.parse(stored) : null;
-  }
-
-  /**
-   * Save answer for a specific question
-   */
   saveAnswer(section, questionId, answer) {
-    const session = this.getSession();
-    if (!session) return false;
+    const stored = sessionStorage.getItem(this.storageKey);
+    if (!stored) return false;
 
-    if (!session.answers[section]) {
-      session.answers[section] = [];
-    }
+    const sectionKey = `met-test-answers-${section}`;
+    const sectionStored = sessionStorage.getItem(sectionKey);
+    const sectionAnswers = sectionStored ? JSON.parse(sectionStored) : [];
 
-    const existingIdx = session.answers[section].findIndex(a => a.questionId === questionId);
+    const existingIdx = sectionAnswers.findIndex(a => a.questionId === questionId);
     if (existingIdx >= 0) {
-      session.answers[section][existingIdx] = { questionId, answer, timestamp: new Date().toISOString() };
+      sectionAnswers[existingIdx] = { questionId, answer, timestamp: new Date().toISOString() };
     } else {
-      session.answers[section].push({ questionId, answer, timestamp: new Date().toISOString() });
+      sectionAnswers.push({ questionId, answer, timestamp: new Date().toISOString() });
     }
 
-    sessionStorage.setItem(this.storageKey, JSON.stringify(session));
+    sessionStorage.setItem(sectionKey, JSON.stringify(sectionAnswers));
     return true;
   }
 
-  /**
-   * Save section score and CEFR level
-   */
   saveSectionScore(section, score, total, cefrLevel) {
-    const session = this.getSession();
-    if (!session) return false;
+    const stored = sessionStorage.getItem(this.storageKey);
+    if (!stored) return false;
 
-    session.scores[section] = {
+    const scoresStored = sessionStorage.getItem('met-test-scores');
+    const scores = scoresStored ? JSON.parse(scoresStored) : {};
+
+    scores[section] = {
       score,
       total,
       percentage: Math.round((score / total) * 100),
@@ -79,26 +78,21 @@ class AnswerStorage {
       timestamp: new Date().toISOString()
     };
 
-    sessionStorage.setItem(this.storageKey, JSON.stringify(session));
+    sessionStorage.setItem('met-test-scores', JSON.stringify(scores));
     return true;
   }
 
-  /**
-   * Mark test as completed
-   */
   completeTest() {
-    const session = this.getSession();
-    if (!session) return false;
+    const stored = sessionStorage.getItem(this.storageKey);
+    if (!stored) return false;
 
-    session.completed = true;
-    session.endTime = new Date().toISOString();
-    sessionStorage.setItem(this.storageKey, JSON.stringify(session));
+    const sessionMetadata = JSON.parse(stored);
+    sessionMetadata.completed = true;
+    sessionMetadata.endTime = new Date().toISOString();
+    sessionStorage.setItem(this.storageKey, JSON.stringify(sessionMetadata));
     return true;
   }
 
-  /**
-   * Submit test results to server
-   */
   async submitTest() {
     const session = this.getSession();
     if (!session) {
@@ -107,10 +101,32 @@ class AnswerStorage {
     }
 
     try {
+      const headers = { 'Content-Type': 'application/json' };
+      if (window.MET_AUTH) {
+        const authHeaders = await window.MET_AUTH.authHeaders();
+        Object.assign(headers, authHeaders);
+      }
+
+      const payload = {
+        studentId: session.studentId,
+        studentName: session.studentName,
+        studentEmail: session.studentEmail,
+        sessionId: session.sessionId || 'sess_' + Date.now(),
+        submittedAt: new Date().toISOString(),
+        writingAnswers: JSON.stringify(session.answers.writing || []),
+        readingAnswers: JSON.stringify(session.answers.reading || []),
+        listeningAnswers: JSON.stringify({
+          ...session.answers.listening1,
+          ...session.answers.listening2,
+          ...session.answers.listening3
+        } || {}),
+        sectionsCompleted: session.completed ? 'All' : 'Partial'
+      };
+
       const response = await fetch('/.netlify/functions/submit-test', {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(session)
+        headers: headers,
+        body: JSON.stringify(payload)
       });
 
       if (!response.ok) {
@@ -120,8 +136,7 @@ class AnswerStorage {
       const result = await response.json();
       console.log('Test submitted successfully', result);
 
-      // Clear session after successful submission
-      sessionStorage.removeItem(this.storageKey);
+      this.clearSession();
       return result;
     } catch (error) {
       console.error('Error submitting test:', error);
@@ -129,23 +144,21 @@ class AnswerStorage {
     }
   }
 
-  /**
-   * Get all answers for a section
-   */
   getAnswers(section) {
     const session = this.getSession();
     if (!session || !session.answers[section]) return [];
     return session.answers[section];
   }
 
-  /**
-   * Clear session (for logout or reset)
-   */
   clearSession() {
     sessionStorage.removeItem(this.storageKey);
+    const sections = ['writing', 'listening1', 'listening2', 'listening3', 'reading', 'speaking'];
+    sections.forEach(section => {
+      sessionStorage.removeItem(`met-test-answers-${section}`);
+    });
+    sessionStorage.removeItem('met-test-scores');
     this.currentSession = null;
   }
 }
 
-// Global instance
 window.answerStorage = new AnswerStorage();
