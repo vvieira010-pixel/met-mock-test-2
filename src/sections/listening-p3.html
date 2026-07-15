@@ -68,7 +68,7 @@
             <div class="met-audio-scrubber"><div class="met-audio-scrubber-fill" style="width:0%"></div></div>
           </div>
           <span class="met-audio-time" id="p3-audio-time">0:00 / 0:00</span>
-          <audio id="p3-intro-audio" src="../../assets/audio/listening/part3/MET_Sample Test_Listening Section Audio_PART 3.mp3" preload="auto" style="display:none"></audio>
+          <audio id="p3-intro-audio" src="../../assets/audio/listening-p3-instructions.mp3" preload="auto" style="display:none"></audio>
         </div>
         <p class="met-note">Click <strong>Next</strong> to begin.</p>
       </div>
@@ -76,10 +76,10 @@
       <!-- PAGE 1: Talk A — Questions 34–37 -->
       <div class="met-page" data-met-page="1" data-page-label="Talk A — Questions 34–37" data-section-label="Section: Listening Part 3" data-is-question="true" data-listening-question="true">
         <p class="met-task-label">Part 3 — Talk A — Questions 34–37</p>
-        <div class="met-audio-player">
+        <div class="met-audio-player" data-dialogue-idx="0">
           <button class="met-audio-btn">Play</button>
           <input type="range" class="met-audio-volume" min="0" max="1" step="0.05" value="1" aria-label="Volume">
-          <audio src="../../assets/audio/listening/part3/conv a.mp3" style="display:none"></audio>
+          <audio src="../../assets/audio/listening/part3/talk_a.mp3" style="display:none"></audio>
         </div>
         <div class="met-multi-question">
           <div class="met-q-block">
@@ -124,10 +124,10 @@
       <!-- PAGE 2: Talk B — Questions 38–41 -->
       <div class="met-page" data-met-page="2" data-page-label="Talk B — Questions 38–41" data-section-label="Section: Listening Part 3" data-is-question="true" data-listening-question="true">
         <p class="met-task-label">Part 3 — Talk B — Questions 38–41</p>
-        <div class="met-audio-player">
+        <div class="met-audio-player" data-dialogue-idx="1">
           <button class="met-audio-btn">Play</button>
           <input type="range" class="met-audio-volume" min="0" max="1" step="0.05" value="1" aria-label="Volume">
-          <audio src="../../assets/audio/listening/part3/conv b.mp3" style="display:none"></audio>
+          <audio src="../../assets/audio/listening/part3/talk_b.mp3" style="display:none"></audio>
         </div>
         <div class="met-multi-question">
           <div class="met-q-block">
@@ -172,10 +172,10 @@
       <!-- PAGE 3: Talk C — Questions 42–46 -->
       <div class="met-page" data-met-page="3" data-page-label="Talk C — Questions 42–46" data-section-label="Section: Listening Part 3" data-is-question="true" data-listening-question="true">
         <p class="met-task-label">Part 3 — Talk C — Questions 42–46</p>
-        <div class="met-audio-player">
+        <div class="met-audio-player" data-dialogue-idx="2">
           <button class="met-audio-btn">Play</button>
           <input type="range" class="met-audio-volume" min="0" max="1" step="0.05" value="1" aria-label="Volume">
-          <audio src="../../assets/audio/listening/part3/conv c.mp3" style="display:none"></audio>
+          <audio src="../../assets/audio/listening/part3/talk_c.mp3" style="display:none"></audio>
         </div>
         <div class="met-multi-question">
           <div class="met-q-block">
@@ -229,10 +229,10 @@
       <!-- PAGE 4: Talk D — Questions 47–50 -->
       <div class="met-page" data-met-page="4" data-page-label="Talk D — Questions 47–50" data-section-label="Section: Listening Part 3" data-is-question="true" data-listening-question="true">
         <p class="met-task-label">Part 3 — Talk D — Questions 47–50</p>
-        <div class="met-audio-player">
+        <div class="met-audio-player" data-dialogue-idx="3">
           <button class="met-audio-btn">Play</button>
           <input type="range" class="met-audio-volume" min="0" max="1" step="0.05" value="1" aria-label="Volume">
-          <audio src="../../assets/audio/listening/part3/conv d.mp3" style="display:none"></audio>
+          <audio src="../../assets/audio/listening/part3/talk_d.mp3" style="display:none"></audio>
         </div>
         <div class="met-multi-question">
           <div class="met-q-block">
@@ -381,16 +381,29 @@
     });
   })();
 
-  // Listening question audio is single-use
-  document.querySelectorAll('[data-is-question="true"] .met-audio-player').forEach(function(player) {
+  // TTS fallback for talk pages (if static <audio> fails)
+  document.querySelectorAll('[data-is-question="true"] .met-audio-player[data-dialogue-idx]').forEach(function(player) {
     var audio = player.querySelector('audio');
     var btn = player.querySelector('.met-audio-btn');
-    if (!audio || !btn) return;
-    audio.addEventListener('ended', function() {
-      btn.textContent = 'Played';
-      btn.disabled = true;
-      btn.style.opacity = '0.55';
-      btn.style.cursor = 'not-allowed';
+    var idx = parseInt(player.dataset.dialogueIdx);
+    if (!audio || !btn || isNaN(idx)) return;
+
+    audio.addEventListener('error', function() {
+      btn.removeEventListener('click', function(){}, false);
+      btn.addEventListener('click', function playTts(e) {
+        if (btn.dataset.played) return;
+        btn.dataset.played = '1';
+        btn.textContent = '...';
+        btn.disabled = true;
+        if (typeof TTS !== 'undefined') {
+          TTS.play('p3', idx).then(function() {
+            btn.textContent = 'Played';
+            btn.style.opacity = '0.55';
+            btn.style.cursor = 'not-allowed';
+            TTS.stop();
+          });
+        }
+      });
     });
   });
 </script>
